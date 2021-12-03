@@ -1,3 +1,4 @@
+import Window from "components/Window/Window";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -12,6 +13,7 @@ const Table: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
       Table page
+      <Window />
     </div>
   );
 };
