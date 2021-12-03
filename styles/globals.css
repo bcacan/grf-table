@@ -1,9 +1,41 @@
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("../public/fonts/Avenir_Next_Condensed/AvenirNextCondensed-DemiBold.ttf");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("../public/fonts/Avenir_Next_Condensed/AvenirNextCondensed-Heavy.ttf");
+  /* font-style: medium; */
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("../public/fonts/Avenir_Next_Condensed/AvenirNextCondensed-Medium.ttf");
+  /* font-style: medium; */
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "UniZg";
+  src: url("../public/fonts/UniZg/UniZgBold.ttf");
+  /* font-style: medium; */
+  font-weight: bold;
+  font-display: swap;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
