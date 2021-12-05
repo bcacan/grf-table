@@ -54,7 +54,7 @@ export const Text_Description = styled.span`
   /* Opisni tekst */
   font-family: Avenir Next Condensed;
   font-style: normal;
-  font-weight: 500;
+  //font-weight: 500;
   font-size: 20px;
   line-height: 23px;
 `;
