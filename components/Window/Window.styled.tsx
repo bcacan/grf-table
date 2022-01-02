@@ -4,10 +4,10 @@ export const WindowCSS = styled.div`
   /* width: 1280px;
   height: 800px;
   background: ${(props) => props.theme.colors.black}; */
+  width: 1280px; //for padding% in mainwindowcss
 `;
 
 export const MainWindowCSS = styled(WindowCSS)<any>`
-  width: 1280px;
   height: ${(props) => (props.higher ? "1100px" : "800px")};
   background: ${(props) => props.theme.colors.black};
 
