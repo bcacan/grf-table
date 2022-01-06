@@ -10,7 +10,6 @@ import {
   Text_Subtitle2,
 } from "styles/texts";
 
-import GalleryWindow from "components/Window/GalleryWindow/GalleryWIndow";
 import InfoWindow from "components/Window/InfoWindow/InfoWindow";
 
 import {
@@ -25,15 +24,24 @@ import {
   MenuLines,
 } from "./Window.styled";
 import MapWindow from "./MapWindow/MapWindow";
+import GalleryWindow from "components/Window/GalleryWindow/GalleryWindow";
 
-const Window = () => {
+const WindowBox = (props: any) => {
   return (
     <WindowCSS>
-      {/* <InfoWindow />
-      <GalleryWindow /> */}
-
-      <MapWindow />
+      {(() => {
+        switch (props.type) {
+          case "map":
+            return <MapWindow />;
+          case "gallery":
+            return <GalleryWindow />;
+          case "info":
+            return <InfoWindow />;
+          default:
+            return null;
+        }
+      })()}
     </WindowCSS>
   );
 };
-export default Window;
+export default WindowBox;

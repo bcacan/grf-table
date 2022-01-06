@@ -28,7 +28,7 @@ const MapWindow = () => {
     <MainWindowCSS>
       <Header>
         <div className="logo">
-          <Image src="/graphics/logo-grf.svg" height={64} width={64} />
+          {/* <Image src="/graphics/logo-grf.svg" height={64} width={64} /> */}
         </div>
         <Text_Title className="title">MAPA</Text_Title>
         <div className="x-button">

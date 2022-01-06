@@ -4,10 +4,13 @@ export const WindowCSS = styled.div`
   /* width: 1280px;
   height: 800px;
   background: ${(props) => props.theme.colors.black}; */
-  width: 1280px; //for padding% in mainwindowcss
+  /* width: 100%;
+  height: 100%;
+  position: relative; */
 `;
 
 export const MainWindowCSS = styled(WindowCSS)<any>`
+  width: 1280px; //for padding% in mainwindowcss
   height: ${(props) => (props.higher ? "1100px" : "800px")};
   background: ${(props) => props.theme.colors.black};
 
@@ -250,7 +253,7 @@ export const MenuLines = styled.div`
     box-shadow: 0px 4px 2px #ffffff;
   }
   > :first-child {
-    width: 80%;
+    width: 90%;
     text-align: right;
   }
   > :last-child {

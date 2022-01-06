@@ -31,7 +31,7 @@ const GalleryWindow = () => {
         </div>
         <Text_Title className="title">O STUDENTIMA</Text_Title>
         <div className="x-button">
-          <Image src="/graphics/x-icon.svg" height={30} width={30} />
+          {/* <Image src="/graphics/x-icon.svg" height={30} width={30} /> */}
         </div>
 
         <div className="subtitle">
