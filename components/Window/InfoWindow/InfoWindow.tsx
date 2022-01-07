@@ -21,6 +21,7 @@ import {
   VerticalText,
   MenuLines,
 } from "components/Window/Window.styled";
+import usePreviousValue from "hooks/usePreviousValue";
 
 const InfoWindow = () => {
   const [wHight, setWHight] = useState(false);
@@ -60,10 +61,10 @@ const InfoWindow = () => {
 
         <div className="menu">
           <nav>
-            <a onClick={(e) => changePage(0)}>
+            <a onTouchStart={(e) => changePage(0)}>
               <Text_Subtitle className={page ? "" : "active"}>UPISI</Text_Subtitle>
             </a>
-            <a onClick={() => changePage(1)}>
+            <a onTouchStart={() => changePage(1)}>
               <Text_Subtitle className={page ? "active" : ""}>STUDIJ</Text_Subtitle>
             </a>
           </nav>
@@ -133,10 +134,47 @@ const InfoContentUpisi = () => {
 
 const InfoContentStudij = () => {
   const [tab, setTab] = useState(0);
+  const prevTab: any = usePreviousValue(tab);
+  const tabName = ["preddiplomski", "diplomski", "postdiplomski"];
 
-  const changeTab = (tab: number) => {
+  const [inactiveTabs, setInactiveTabs] = useState([
+    { id: 1, name: tabName[1] },
+    { id: 2, name: tabName[2] },
+  ]);
+
+  const tabLabel = (position: number, id: number, name: string) => {
+    return (
+      <a onTouchStart={(e) => changeTab(id, position)}>
+        <Text_Subtitle>
+          <VerticalText>{name}</VerticalText>
+        </Text_Subtitle>
+      </a>
+    );
+  };
+
+  useEffect(() => {
+    console.log(inactiveTabs);
+  }, [inactiveTabs]);
+  useEffect(() => {
+    console.log("prevTab", prevTab);
+  }, [prevTab]);
+  /// izmislit ovaj algoritam
+  const changeTab = (tab: number, position: number) => {
+    // if (position == 1) secondTab = { id: prevTab, name: tabName[prevTab] };
+    // if (position == 2) thirdTab = { id: prevTab, name: tabName[prevTab] };
+    let newArr = [...inactiveTabs];
+    newArr[position] = { id: prevTab, name: tabName[prevTab] };
+    setInactiveTabs(newArr);
     setTab(tab);
   };
+
+  // useEffect(() => {
+  //   if (prevTab) {
+  //     secondTab = { name: tabName[1], id: 1 };
+  //     thirdTab = { name: tabName[2], id: 2 };
+  //   }
+  // }, [tab]);
+
   const renderTab = (tab: number) => {
     switch (tab) {
       case 0:
@@ -437,19 +475,12 @@ const InfoContentStudij = () => {
   return (
     <>
       <MenuStudij>
-        <a onClick={(e) => changeTab(0)}>
-          <Text_Subtitle>preddiplomski</Text_Subtitle>
+        <a>
+          <Text_Subtitle>{tabName[tab]}</Text_Subtitle>
         </a>
-        <a onClick={(e) => changeTab(1)}>
-          <Text_Subtitle>
-            <VerticalText>diplomski</VerticalText>
-          </Text_Subtitle>
-        </a>
-        <a onClick={(e) => changeTab(2)}>
-          <Text_Subtitle>
-            <VerticalText>postdiplomski</VerticalText>
-          </Text_Subtitle>
-        </a>
+
+        {tabLabel(0, inactiveTabs[0].id, inactiveTabs[0].name)}
+        {tabLabel(1, inactiveTabs[1].id, inactiveTabs[1].name)}
       </MenuStudij>
       <MenuLines>
         <hr />
