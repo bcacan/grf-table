@@ -10,12 +10,7 @@ export default function LandingScreen() {
     num: 0,
   });
 
-  useEffect(() => {
-    // console.log(containerArray);
-  });
-
   const pushToArr = (e: any) => {
-    console.log("", e.touches[0]);
     let input = {
       id: containerCounter.num,
       pos: [e.touches[0].clientX, e.touches[0].clientY],

@@ -25,7 +25,6 @@ export default class Container extends React.Component<any, any> {
     return (
       <>
         {(() => {
-          console.log(this.state);
           switch (this.state.containerState) {
             case 0:
               return (

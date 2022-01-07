@@ -152,12 +152,6 @@ const InfoContentStudij = () => {
     );
   };
 
-  useEffect(() => {
-    console.log(inactiveTabs);
-  }, [inactiveTabs]);
-  useEffect(() => {
-    console.log("prevTab", prevTab);
-  }, [prevTab]);
   /// izmislit ovaj algoritam
   const changeTab = (tab: number, position: number) => {
     // if (position == 1) secondTab = { id: prevTab, name: tabName[prevTab] };
