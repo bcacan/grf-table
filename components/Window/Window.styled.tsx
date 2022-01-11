@@ -73,6 +73,7 @@ export const Header = styled.header`
     box-shadow: 0px 4px 2px #ffffff;
 
     margin-top: 0px;
+    margin-bottom: 0.8em;
   }
 
   .menu {

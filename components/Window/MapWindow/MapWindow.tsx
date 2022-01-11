@@ -28,11 +28,11 @@ const MapWindow = () => {
     <MainWindowCSS>
       <Header>
         <div className="logo">
-          {/* <Image src="/graphics/logo-grf.svg" height={64} width={64} /> */}
+          <Image src="/graphics/logo-grf.svg" height={64} width={64} />
         </div>
         <Text_Title className="title">MAPA</Text_Title>
         <div className="x-button">
-          <Image src="/graphics/x-icon.svg" height={30} width={30} />
+          {/* <Image src="/graphics/x-icon.svg" height={30} width={30} /> */}
         </div>
 
         <div className="subtitle">
@@ -40,7 +40,7 @@ const MapWindow = () => {
           <hr className="line" />
         </div>
       </Header>
-      <div>
+      <div style={{ paddingRight: "2.5em", paddingLeft: "4em" }}>
         <Map />
       </div>
     </MainWindowCSS>
