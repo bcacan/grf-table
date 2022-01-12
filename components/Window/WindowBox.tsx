@@ -11,7 +11,7 @@ import {
 } from "styles/texts";
 
 import InfoWindow from "components/Window/InfoWindow/InfoWindow";
-import GalleryWindow from "components/Window/GalleryWindow/GalleryWindow";
+import GalleryWindow2 from "components/Window/GalleryWindow/GalleryWindow2";
 
 import {
   WindowCSS,
@@ -34,7 +34,7 @@ const WindowBox = (props: any) => {
           case "map":
             return <MapWindow />;
           case "gallery":
-            return <GalleryWindow />;
+            return <GalleryWindow2 />;
           case "info":
             return <InfoWindow />;
           default:
