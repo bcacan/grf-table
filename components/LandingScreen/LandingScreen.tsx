@@ -64,7 +64,11 @@ export default function LandingScreen() {
     <LandingScreenCSS>
       <div className="LandingScreen" onTouchStart={pushToArr}></div>
       {containerArray.map((el: any) => (
-        <div key={el.id} onTouchStart={() => pushToTop(el)}>
+        <div
+          key={el.id}
+          onTouchStart={() => pushToTop(el)}
+          title="controller-holder-pushtotop"
+        >
           <Container clickPos={el.pos} key={el.id} id={el.id} closeFun={removeFromArr} />
         </div>
       ))}
