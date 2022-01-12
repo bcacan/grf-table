@@ -11,6 +11,7 @@ import {
 } from "styles/texts";
 
 import InfoWindow from "components/Window/InfoWindow/InfoWindow";
+import GalleryWindow from "components/Window/GalleryWindow/GalleryWindow";
 
 import {
   WindowCSS,
@@ -24,7 +25,6 @@ import {
   MenuLines,
 } from "./Window.styled";
 import MapWindow from "./MapWindow/MapWindow";
-import GalleryWindow from "components/Window/GalleryWindow/GalleryWindow";
 
 const WindowBox = (props: any) => {
   return (
