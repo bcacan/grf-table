@@ -86,6 +86,7 @@ export default function Controller(props: any) {
       target: domTarget,
       // enabled: onOff,
       eventOptions: { passive: false },
+      enabled: true,
 
       drag: {
         from: () => [controllerApi.x.get(), controllerApi.y.get()],
@@ -93,7 +94,7 @@ export default function Controller(props: any) {
         filterTaps: true,
         pointer: { touch: true },
         //preventDefault: true,
-        preventScroll: 200,
+        // preventScroll: 200,
       },
       pinch: {
         pointer: { touch: true },
@@ -108,7 +109,6 @@ export default function Controller(props: any) {
       <div
         style={{
           height: "100%",
-          touchAction: "none",
         }}
       >
         {props.children}
