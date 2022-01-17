@@ -24,6 +24,8 @@ export default function Controller(props: any) {
     opacity: 0,
     border: "2px solid transparent",
     borderColor: transColor,
+
+    config: { mass: 0.3, tension: 200, friction: 10 },
   }));
 
   useEffect(() => {

@@ -29,6 +29,8 @@ export default function Menu(props: any) {
     y: props.pos[1] - 80,
     scale: 0,
     opacity: 0,
+
+    config: config.wobbly,
   }));
 
   useEffect(() => {
