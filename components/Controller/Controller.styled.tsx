@@ -2,6 +2,8 @@ import { animated } from "@react-spring/web";
 import styled from "styled-components";
 
 export const ControllerCSS = styled(animated.div)`
+  touch-action: none;
+
   position: absolute;
   display: inline-block;
   /* inset: 5em; */

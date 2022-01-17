@@ -31,6 +31,8 @@ export const MainWindowCSS = styled(WindowCSS)<any>`
   padding: 3.6% 10.5% 4.4% 10.16%;
 
   box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.4);
+
+  touch-action: none;
 `;
 
 export const Header = styled.header`

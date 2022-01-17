@@ -2,6 +2,8 @@ import { animated } from "@react-spring/web";
 import styled from "styled-components";
 
 export const MenuCSS = styled(animated.div)`
+  touch-action: none;
+
   position: absolute;
   height: 20em;
   width: 20em;
