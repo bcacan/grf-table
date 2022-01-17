@@ -1,3 +1,4 @@
+import { animated } from "@react-spring/web";
 import styled from "styled-components";
 
 export const WindowCSS = styled.div`
@@ -7,6 +8,15 @@ export const WindowCSS = styled.div`
   /* width: 100%;
   height: 100%;
   position: relative; */
+`;
+
+export const MapContent = styled.div`
+  width: 916px;
+  height: 540px;
+
+  position: absolute;
+  top: 11.5em;
+  right: 11em;
 `;
 
 export const MainWindowCSS = styled(WindowCSS)<any>`

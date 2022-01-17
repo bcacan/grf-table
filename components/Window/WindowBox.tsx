@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
 import {
   Text_Title,
@@ -26,22 +26,22 @@ import {
 } from "./Window.styled";
 import MapWindow from "./MapWindow/MapWindow";
 
-const WindowBox = (props: any) => {
+const WindowBox = forwardRef((props: any, ref) => {
   return (
-    <WindowCSS>
+    <>
       {(() => {
         switch (props.type) {
           case "map":
-            return <MapWindow />;
+            return <MapWindow ref={ref} content={props.content} />;
           case "gallery":
-            return <GalleryWindow2 />;
+            return <GalleryWindow2 ref={ref} content={props.content} />;
           case "info":
-            return <InfoWindow />;
+            return <InfoWindow ref={ref} content={props.content} />;
           default:
             return null;
         }
       })()}
-    </WindowCSS>
+    </>
   );
-};
+});
 export default WindowBox;

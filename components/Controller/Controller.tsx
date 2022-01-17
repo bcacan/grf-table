@@ -1,8 +1,10 @@
 import { useSpring, to, animated, config } from "@react-spring/web";
 import { useGesture } from "@use-gesture/react";
 import { ControllerCSS } from "components/Controller/Controller.styled";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, forwardRef } from "react";
 import Image from "next/image";
+import WindowBox from "components/Window/WindowBox";
+import { MainWindowCSS } from "components/Window/Window.styled";
 export default function Controller(props: any) {
   const domTarget = useRef<any>(null);
 
@@ -103,15 +105,32 @@ export default function Controller(props: any) {
     },
   );
 
+  const WindowBoxToRender = forwardRef((props: any, ref) => {
+    let type: string = "";
+
+    switch (props.contState) {
+      case 1:
+        type = "info";
+        break;
+      case 2:
+        type = "gallery";
+        break;
+      case 3:
+        type = "map";
+        break;
+      default:
+        return null;
+        break;
+    }
+    return <WindowBox ref={ref} type={type} content={props.content} />;
+  });
+
   return (
-    <ControllerCSS ref={domTarget} style={controllerApi}>
+    <ControllerCSS style={controllerApi}>
       {/* <UserBar fullscreenButton={fullscreenFunction} closeButton={props.menuClick} /> */}
-      <div
-        style={{
-          height: "100%",
-        }}
-      >
-        {props.children}
+      <div>
+        <WindowBoxToRender ref={domTarget} contState={props.contState} />
+        <WindowBoxToRender contState={props.contState} content={true} />
       </div>
       <CloseButton closeButton={props.removeContainer} />
     </ControllerCSS>

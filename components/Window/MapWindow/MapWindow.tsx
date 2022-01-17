@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { FC, forwardRef, useEffect, useState } from "react";
 
 import {
   Text_Title,
@@ -20,30 +20,35 @@ import {
   MenuStudij,
   VerticalText,
   MenuLines,
+  MapContent,
 } from "components/Window/Window.styled";
 import Map from "./Map";
 
-const MapWindow = () => {
-  return (
-    <MainWindowCSS>
-      <Header>
-        <div className="logo">
-          <Image src="/graphics/logo-grf.svg" height={64} width={64} />
-        </div>
-        <Text_Title className="title">MAPA</Text_Title>
-        <div className="x-button">
-          {/* <Image src="/graphics/x-icon.svg" height={30} width={30} /> */}
-        </div>
-
-        <div className="subtitle">
-          <Text_Subtitle>Getaldićeva 2</Text_Subtitle>
-          <hr className="line" />
-        </div>
-      </Header>
-      <div style={{ paddingRight: "2.5em", paddingLeft: "4em" }}>
+const MapWindow = forwardRef((props: any, ref) => {
+  if (props.content)
+    return (
+      <MapContent>
         <Map />
-      </div>
-    </MainWindowCSS>
-  );
-};
+      </MapContent>
+    );
+  else
+    return (
+      <MainWindowCSS ref={ref}>
+        <Header>
+          <div className="logo">
+            <Image src="/graphics/logo-grf.svg" height={64} width={64} />
+          </div>
+          <Text_Title className="title">MAPA</Text_Title>
+          <div className="x-button">
+            {/* <Image src="/graphics/x-icon.svg" height={30} width={30} /> */}
+          </div>
+
+          <div className="subtitle">
+            <Text_Subtitle>Getaldićeva 2</Text_Subtitle>
+            <hr className="line" />
+          </div>
+        </Header>
+      </MainWindowCSS>
+    );
+});
 export default MapWindow;
