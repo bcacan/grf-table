@@ -5,7 +5,11 @@ import { useEffect, useState, useRef, forwardRef } from "react";
 import Image from "next/image";
 import WindowBox from "components/Window/WindowBox";
 import { MainWindowCSS } from "components/Window/Window.styled";
+import useWindowDimensions from "hooks/useWindowDimensions";
+
 export default function Controller(props: any) {
+  const { height, width } = useWindowDimensions();
+
   const domTarget = useRef<any>(null);
 
   const pinchColor = "rgba(255, 0, 0, 0.4)";
@@ -92,10 +96,13 @@ export default function Controller(props: any) {
 
       drag: {
         from: () => [controllerApi.x.get(), controllerApi.y.get()],
+        bounds: { left: -200, right: width - 1100, top: -100, bottom: height - 600 },
+        rubberband: 0.5,
 
         filterTaps: true,
         pointer: { touch: true },
-        //preventDefault: true,
+        eventOptions: { passive: false },
+        preventDefault: true,
         // preventScroll: 200,
       },
       pinch: {
