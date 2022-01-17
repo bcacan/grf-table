@@ -97,7 +97,6 @@ export default function Controller(props: any) {
         from: () => [controllerApi.x.get(), controllerApi.y.get()],
         bounds: { left: -200, right: width - 1100, top: -100, bottom: height - 600 },
         rubberband: 0.5,
-
         filterTaps: true,
         pointer: { touch: true },
         preventDefault: true,
