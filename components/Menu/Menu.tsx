@@ -6,13 +6,15 @@ import Image from "next/image";
 import { useSpring, to, animated, config } from "@react-spring/web";
 import { useDrag, useHover } from "@use-gesture/react";
 import { MenuCSS } from "components/Menu/Menu.styled";
+import useWindowDimensions from "hooks/useWindowDimensions";
 
 export default function Menu(props: any) {
   //console.log("menu props:", props);
-  const domTarget = useRef(null);
+  const { height, width } = useWindowDimensions();
+
+  const domTarget = useRef<any>(null);
 
   const menuState = useRef(false);
-
   // const full_Scale = 1.4;
   // const small_Scale = 0.9;
   // const small_Xpos = 0,
@@ -30,6 +32,7 @@ export default function Menu(props: any) {
   }));
 
   useEffect(() => {
+    console.log(width);
     // on-Mount effect
     //open menu
     api.start({
@@ -64,7 +67,8 @@ export default function Menu(props: any) {
     {
       target: domTarget,
       from: () => [propsApi.x.get(), propsApi.y.get()],
-
+      bounds: { left: -50, right: width - 300, top: -50, bottom: height - 300 },
+      rubberband: 0.5,
       filterTaps: true,
       pointer: { touch: true },
       eventOptions: { passive: false },
