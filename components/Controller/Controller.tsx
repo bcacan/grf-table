@@ -17,8 +17,8 @@ export default function Controller(props: any) {
   const transColor = "rgba(0, 0, 0, 0)";
 
   const [controllerApi, api] = useSpring(() => ({
-    x: props.pos[0],
-    y: props.pos[1],
+    x: props.pos[0] - Math.floor(1200 / 2),
+    y: props.pos[1] - Math.floor(800 / 2),
     scale: 0,
     rotate: 0,
     opacity: 0,

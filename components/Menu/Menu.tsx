@@ -9,7 +9,10 @@ import { MenuCSS } from "components/Menu/Menu.styled";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 export default function Menu(props: any) {
-  //console.log("menu props:", props);
+  // const { menuWidth, menuHeight, menuX, menuY } =
+  //   domTarget.current.getBoundingClientRect();
+  const tempMenuSize = 320;
+
   const { height, width } = useWindowDimensions();
 
   const domTarget = useRef<any>(null);
@@ -25,8 +28,8 @@ export default function Menu(props: any) {
   //   full_Opacity = 0.8;
 
   const [propsApi, api] = useSpring(() => ({
-    x: props.pos[0] - 80,
-    y: props.pos[1] - 80,
+    x: props.pos[0] - Math.floor(tempMenuSize / 2),
+    y: props.pos[1] - Math.floor(tempMenuSize / 2),
     scale: 0,
     opacity: 0,
 
@@ -34,7 +37,6 @@ export default function Menu(props: any) {
   }));
 
   useEffect(() => {
-    console.log(width);
     // on-Mount effect
     //open menu
     api.start({
