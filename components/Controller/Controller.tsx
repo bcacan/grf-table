@@ -44,15 +44,20 @@ export default function Controller(props: any) {
 
   useGesture(
     {
-      onDrag: ({ active, first, offset: [x, y], touches }) => {
+      onDrag: ({ active, first, offset: [x, y], touches, cancel }) => {
+        // api.start({
+        //   borderColor: active ? dragColor : "black",
+        // });
+        if (touches != 1) cancel();
         api.start({
           borderColor: active ? dragColor : "black",
-        });
-        if (touches > 1) return;
-        api.start({
           x: x,
           y: y,
           //scale: active ? memo[0] * 0.8 : memo[0] * 1.25,
+
+          onRest: () => {
+            cancel(); // prevent gesture stuck bug
+          },
         });
       },
       onPinch: ({
@@ -63,7 +68,13 @@ export default function Controller(props: any) {
         offset: [, a],
         origin: [ox, oy],
         memo,
+        touches,
+        cancel,
       }) => {
+        if (touches != 2) {
+          console.log("touches !=2 ", touches);
+          cancel();
+        }
         if (first) {
           const { width, height, x, y } = domTarget.current.getBoundingClientRect();
           const initialScale = controllerApi.scale.get();
@@ -85,7 +96,13 @@ export default function Controller(props: any) {
           // transformOrigin: origin,
           // "transform-origin": `${}`,
           //w: Math.abs(Math.floor(1 * d))
+
+          onRest: () => {
+            console.log("pinch cancel");
+            cancel(); // prevent gesture stuck bug
+          },
         });
+
         return memo;
       },
     },
@@ -97,7 +114,19 @@ export default function Controller(props: any) {
 
       drag: {
         from: () => [controllerApi.x.get(), controllerApi.y.get()],
-        bounds: { left: -200, right: width - 1100, top: -100, bottom: height - 600 },
+        // bounds: (res) => {
+        //   let tempScale = controllerApi.scale.get();
+        //   console.log("new bounds:", 10 / -tempScale);
+        //   return {
+        //     // 1, 10
+
+        //     // 0.5, -300
+        //     left: 10,
+        //     right: width - 1100,
+        //     top: -100,
+        //     bottom: height - 600,
+        //   };
+        // },
         rubberband: 0.5,
         filterTaps: true,
         pointer: { touch: true },
@@ -107,6 +136,9 @@ export default function Controller(props: any) {
       pinch: {
         pointer: { touch: true },
         preventDefault: true,
+
+        // rubberband: 0.5,
+        // scaleBounds: { min: scaleMin, max: scaleMax },
       },
     },
   );
