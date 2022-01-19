@@ -56,15 +56,15 @@ export default function Menu(props: any) {
   }, []);
 
   useDrag(
-    ({ event, active, offset: [x, y] }) => {
+    ({ event, active, offset: [x, y], cancel, touches, down }) => {
       api.start({
         x: x,
         y: y,
         scale: active ? 0.8 : 1,
         // immediate: (k) => k !== "scale" && active,
         onRest: () => {
-          //console.log("rest");
           menuState.current = !menuState.current;
+          cancel(); // prevent gesture stuck bug
         },
       });
     },
