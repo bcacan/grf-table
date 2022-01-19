@@ -115,13 +115,8 @@ export const Header = styled.header`
   }
 `;
 
-export const Content = styled.main`
-  width: 100%;
-  justify-self: end;
-
+export const ScrollBar = styled.main`
   overflow: auto;
-
-  margin-top: 3em;
 
   /* scrollbar */
   ::-webkit-scrollbar {
@@ -134,7 +129,7 @@ export const Content = styled.main`
   /* Track */
   ::-webkit-scrollbar-track {
     /* box-shadow: inset 0 0 5px grey;
-    border-radius: 10px; */
+  border-radius: 10px; */
   }
 
   /* Handle */
@@ -150,6 +145,34 @@ export const Content = styled.main`
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 1);
   }
+`;
+
+export const Content = styled(ScrollBar)`
+  width: 100%;
+  justify-self: end;
+
+  margin-top: 3em;
+`;
+export const InfoContent = styled(ScrollBar)`
+  width: 916px;
+  height: 540px;
+
+  position: absolute;
+  top: 12em;
+  right: 8em;
+
+  border: 1px solid blue;
+`;
+
+export const GalleryContent = styled(ScrollBar)`
+  width: 916px;
+  height: 540px;
+
+  position: absolute;
+  top: 12em;
+  right: 8em;
+
+  border: 1px solid blue;
 `;
 
 export const TwoColumns = styled.div`

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 
 import {
   Text_Title,
@@ -23,7 +23,7 @@ import {
 } from "components/Window/Window.styled";
 import usePreviousValue from "hooks/usePreviousValue";
 
-const InfoWindow = () => {
+const InfoWindow = forwardRef((props: any, ref) => {
   const [wHight, setWHight] = useState(false);
   const [page, setPage] = useState(0);
   const changePage = (x: number) => {
@@ -47,40 +47,41 @@ const InfoWindow = () => {
         break;
     }
   };
+  if (props.content) return null;
+  else
+    return (
+      <MainWindowCSS ref={ref} higher={wHight}>
+        <Header>
+          <div className="logo">
+            <Image src="/graphics/logo-grf.svg" height={64} width={64} />
+          </div>
+          <Text_Title className="title">O FAKULTETU</Text_Title>
+          <div className="x-button">
+            {/* <Image src="/graphics/x-icon.svg" height={30} width={30} /> */}
+          </div>
 
-  return (
-    <MainWindowCSS higher={wHight}>
-      <Header>
-        <div className="logo">
-          <Image src="/graphics/logo-grf.svg" height={64} width={64} />
-        </div>
-        <Text_Title className="title">O FAKULTETU</Text_Title>
-        <div className="x-button">
-          {/* <Image src="/graphics/x-icon.svg" height={30} width={30} /> */}
-        </div>
-
-        <div className="menu">
-          <nav>
-            <a onTouchStart={(e) => changePage(0)}>
-              <Text_Subtitle className={page ? "" : "active"}>UPISI</Text_Subtitle>
-            </a>
-            <a onTouchStart={() => changePage(1)}>
-              <Text_Subtitle className={page ? "active" : ""}>STUDIJ</Text_Subtitle>
-            </a>
-          </nav>
-        </div>
-      </Header>
-      {infoContent(page)}
-      <Footer>
-        <div className="logo">
-          <Image src="/graphics/qr-code.svg" height={84} width={84} />
-        </div>
-        <Text_Body2 className="text">SCAN ME!</Text_Body2>
-        <Text_Body className="text2">Grafički fakultet</Text_Body>
-      </Footer>
-    </MainWindowCSS>
-  );
-};
+          <div className="menu">
+            <nav>
+              <a onTouchStart={(e) => changePage(0)}>
+                <Text_Subtitle className={page ? "" : "active"}>UPISI</Text_Subtitle>
+              </a>
+              <a onTouchStart={() => changePage(1)}>
+                <Text_Subtitle className={page ? "active" : ""}>STUDIJ</Text_Subtitle>
+              </a>
+            </nav>
+          </div>
+        </Header>
+        {infoContent(page)}
+        <Footer>
+          <div className="logo">
+            <Image src="/graphics/qr-code.svg" height={84} width={84} />
+          </div>
+          <Text_Body2 className="text">SCAN ME!</Text_Body2>
+          <Text_Body className="text2">Grafički fakultet</Text_Body>
+        </Footer>
+      </MainWindowCSS>
+    );
+});
 export default InfoWindow;
 
 const InfoContentUpisi = () => {
