@@ -170,15 +170,15 @@ export default function Controller(props: any) {
         <WindowBoxToRender ref={domTarget} contState={props.contState} />
         <WindowBoxToRender contState={props.contState} content={true} />
       </div>
-      <CloseButton closeButton={props.removeContainer} />
+      <CloseButton closeWindow={props.closeWindow} />
     </ControllerCSS>
   );
 }
 
-const CloseButton = ({ closeButton }: any) => {
+const CloseButton = ({ closeWindow }: any) => {
   return (
     <div
-      onTouchStart={(e) => closeButton()}
+      onClick={() => closeWindow()}
       style={{ position: "absolute", top: "8%", left: "87%" }}
     >
       <Image src="/graphics/x-icon.svg" height={30} width={30} />
