@@ -43,4 +43,15 @@ export const MenuCSS = styled(animated.div)`
     height: 4em;
     border-radius: 100%;
   }
+
+  .closeMenu {
+    position: absolute;
+    top: 7em;
+    left: 9em;
+    background: #949494;
+    opacity: 0.2;
+    width: 4em;
+    height: 4em;
+    border-radius: 100%;
+  }
 `;
