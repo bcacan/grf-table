@@ -11,9 +11,10 @@ export default function LandingScreen() {
   });
 
   const pushToArr = (e: any) => {
+    let lastTouchID = e.touches.length - 1;
     let input = {
       id: containerCounter.num,
-      pos: [e.touches[0].clientX, e.touches[0].clientY],
+      pos: [e.touches[lastTouchID].clientX, e.touches[lastTouchID].clientY],
     };
 
     // Add input to array
