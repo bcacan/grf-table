@@ -4,6 +4,9 @@ import styled from "styled-components";
 export const ControllerCSS = styled(animated.div)`
   touch-action: none;
 
+  user-select: none;
+  -webkit-user-select: none;
+
   position: absolute;
   display: inline-block;
   /* inset: 5em; */

@@ -57,10 +57,6 @@ export default function Controller(props: any) {
           x: x,
           y: y,
           //scale: active ? memo[0] * 0.8 : memo[0] * 1.25,
-
-          onRest: () => {
-            cancel(); // prevent gesture stuck bug
-          },
         });
       },
       onPinch: ({
@@ -99,11 +95,6 @@ export default function Controller(props: any) {
           // transformOrigin: origin,
           // "transform-origin": `${}`,
           //w: Math.abs(Math.floor(1 * d))
-
-          onRest: () => {
-            console.log("pinch cancel");
-            cancel(); // prevent gesture stuck bug
-          },
         });
 
         return memo;

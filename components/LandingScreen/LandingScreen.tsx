@@ -44,7 +44,7 @@ export default function LandingScreen() {
     //tempArr.unshift(inputEl);
     //setTestArr(tempArr);
     //
-
+    return;
     // Check is inputEl already on top of list (last element)
     let index = containerArray.findIndex((el: any) => el.id === inputEl.id);
     if (index === containerArray.length - 1) return;
