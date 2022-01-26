@@ -89,7 +89,7 @@ export default function Controller(props: any) {
         const x = memo[0] - (ms - 1) * memo[2];
         const y = memo[1] - (ms - 1) * memo[3];
         api.start({
-          scale: memo[4] * ms,
+          scale: boundscale(memo[4] * ms),
           rotate: 1 * a,
           x: x,
           y: y,
@@ -191,6 +191,12 @@ const CloseButton = ({ closeWindow }: any) => {
   );
 };
 
+function boundscale(scale: number) {
+  if (scale < 0.25) scale = 0.25;
+  else if (scale > 1.2) scale = 1.2;
+
+  return scale;
+}
 /*
 function UserBar(props: any) {
   return (
