@@ -8,6 +8,9 @@ import { MainWindowCSS } from "components/Window/Window.styled";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 export default function Controller(props: any) {
+  const winW = 1280;
+  const winH = 800;
+
   const { height, width } = useWindowDimensions();
 
   const domTarget = useRef<any>(null);
@@ -17,8 +20,8 @@ export default function Controller(props: any) {
   const transColor = "rgba(0, 0, 0, 0)";
 
   const [controllerApi, api] = useSpring(() => ({
-    x: props.pos[0] - Math.floor(1200 / 2),
-    y: props.pos[1] - Math.floor(800 / 2),
+    x: props.pos[0] - Math.floor(winW / 2),
+    y: props.pos[1] - Math.floor(winH / 2),
     scale: 0,
     rotate: 0,
     opacity: 0,
@@ -32,7 +35,7 @@ export default function Controller(props: any) {
     // on-Mount effect
     //open menu
     api.start({
-      scale: 1,
+      scale: 0.5,
       opacity: 1,
     });
 
@@ -114,20 +117,22 @@ export default function Controller(props: any) {
 
       drag: {
         from: () => [controllerApi.x.get(), controllerApi.y.get()],
-        // bounds: (res) => {
-        //   let tempScale = controllerApi.scale.get();
-        //   console.log("new bounds:", 10 / -tempScale);
-        //   return {
-        //     // 1, 10
+        bounds: (res) => {
+          let tempScale = controllerApi.scale.get();
+          console.log("scale", winW * tempScale, Math.floor(winW * tempScale));
 
-        //     // 0.5, -300
-        //     left: 10,
-        //     right: width - 1100,
-        //     top: -100,
-        //     bottom: height - 600,
-        //   };
-        // },
-        rubberband: 0.5,
+          let test = 10 + (winW - winW * tempScale) - 950;
+          console.log("new bounds:", test);
+          return {
+            // 1, 10
+            // 0.5, -300
+            left: test,
+            // right: width - 1100,
+            // top: -100,
+            // bottom: height - 600,
+          };
+        },
+        rubberband: 0.121,
         filterTaps: true,
         pointer: { touch: true },
         preventDefault: true,
