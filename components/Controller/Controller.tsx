@@ -119,20 +119,22 @@ export default function Controller(props: any) {
         from: () => [controllerApi.x.get(), controllerApi.y.get()],
         bounds: (res) => {
           let tempScale = controllerApi.scale.get();
-          console.log("scale", winW * tempScale, Math.floor(winW * tempScale));
 
-          let test = 10 + (winW - winW * tempScale) - 950;
-          console.log("new bounds:", test);
+          //let test = 10 + (winW - winW * tempScale) - 950;
+          //let test = winW * tempScale * tempScale - winW * tempScale;
+          let boundLeft = -150 + winW * (tempScale - 1) * tempScale;
+          let boundRight = width - winW * tempScale + winW * (tempScale - 1) * tempScale;
+          let boundTop = -150 + winH * (tempScale - 1) * tempScale;
+          let boundBot = height - winH * tempScale + winH * (tempScale - 1) * tempScale;
+
           return {
-            // 1, 10
-            // 0.5, -300
-            left: test,
-            // right: width - 1100,
-            // top: -100,
-            // bottom: height - 600,
+            left: boundLeft,
+            right: boundRight,
+            top: boundTop,
+            bottom: boundBot,
           };
         },
-        rubberband: 0.121,
+        rubberband: 0.5,
         filterTaps: true,
         pointer: { touch: true },
         preventDefault: true,
