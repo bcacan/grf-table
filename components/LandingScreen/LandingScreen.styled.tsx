@@ -17,6 +17,6 @@ export const LandingScreenCSS = styled.div`
     position: absolute;
     inset: 0;
 
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 1);
   }
 `;

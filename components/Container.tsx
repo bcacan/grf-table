@@ -14,13 +14,18 @@ export default class Container extends React.Component<any, any> {
   }
 
   containerFun = (e: any, x: any) => {
-    let clickpos = [e.clientX, e.clientY];
+    let TOUCHES = e.touches;
+
+    if (!e.touches.length) TOUCHES = e.changedTouches;
+
+    let lastTouchID = TOUCHES.length - 1;
+    let clickpos = [TOUCHES[lastTouchID].clientX, TOUCHES[lastTouchID].clientY];
+
     this.setState({
       clickPos: clickpos,
       containerState: x,
     });
   };
-
   closeWindow = () => {
     //console.log("closewin");
     this.setState({
@@ -40,7 +45,7 @@ export default class Container extends React.Component<any, any> {
                 <Menu
                   menuClick={this.containerFun}
                   pos={this.state.clickPos}
-                  removeContainer={() => this.props.closeFun(this.props.id)}
+                  removeFromArr={() => this.props.removeFromArr(this.props.id)}
                 />
               );
             default:
@@ -49,7 +54,6 @@ export default class Container extends React.Component<any, any> {
                   contState={contState}
                   menuClick={this.containerFun}
                   pos={this.state.clickPos}
-                  removeContainer={() => this.props.closeFun(this.props.id)}
                   closeWindow={this.closeWindow}
                 />
               );

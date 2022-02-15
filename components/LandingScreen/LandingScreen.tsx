@@ -24,7 +24,7 @@ export default function LandingScreen() {
           clickPos={input.pos}
           key={input.id}
           id={input.id}
-          closeFun={removeFromArr}
+          removeFromArr={removeFromArr}
         />,
       ),
     );

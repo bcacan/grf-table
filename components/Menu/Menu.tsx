@@ -1,5 +1,5 @@
 //import { useState } from "react";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, TouchEvent } from "react";
 //import { Link } from "react-router-dom";
 import Image from "next/image";
 
@@ -12,6 +12,7 @@ export default function Menu(props: any) {
   // const { menuWidth, menuHeight, menuX, menuY } =
   //   domTarget.current.getBoundingClientRect();
   const tempMenuSize = 320;
+  const isTap = useRef(false);
 
   const { height, width } = useWindowDimensions();
 
@@ -56,7 +57,14 @@ export default function Menu(props: any) {
   }, []);
 
   useDrag(
-    ({ event, active, offset: [x, y], cancel, touches, down }) => {
+    ({ event, active, offset: [x, y], cancel, touches, down, tap }) => {
+      if (tap) {
+        let menuChoice = parseInt(event.target.getAttribute("data-menu"));
+        if (!menuChoice) return;
+        if (menuChoice === -1) removeMenu();
+        else props.menuClick(event, menuChoice);
+      }
+
       api.start({
         x: x,
         y: y,
@@ -80,6 +88,16 @@ export default function Menu(props: any) {
     },
   );
 
+  const removeMenu = () => {
+    api.start({
+      scale: 0,
+      opacity: 0,
+      onRest: () => {
+        props.removeFromArr();
+      },
+    });
+  };
+
   return (
     <MenuCSS
       ref={domTarget}
@@ -88,11 +106,11 @@ export default function Menu(props: any) {
     >
       <Button />
 
-      <div className="tempButtonInfo" onTouchEnd={(e) => props.menuClick(e, 1)}></div>
-      <div className="tempGalleryInfo" onTouchEnd={(e) => props.menuClick(e, 2)}></div>
-      <div className="tempMapInfo" onTouchEnd={(e) => props.menuClick(e, 3)}></div>
+      <div className="tempButtonInfo" data-menu={1}></div>
+      <div className="tempGalleryInfo" data-menu={2}></div>
+      <div className="tempMapInfo" data-menu={3}></div>
 
-      <div className="closeMenu" onTouchEnd={() => props.removeContainer()}></div>
+      <div className="closeMenu" data-menu={-1}></div>
     </MenuCSS>
   );
 }
