@@ -88,11 +88,11 @@ export default function Menu(props: any) {
     >
       <Button />
 
-      <div className="tempButtonInfo" onClick={(e) => props.menuClick(e, 1)}></div>
-      <div className="tempGalleryInfo" onClick={(e) => props.menuClick(e, 2)}></div>
-      <div className="tempMapInfo" onClick={(e) => props.menuClick(e, 3)}></div>
+      <div className="tempButtonInfo" onTouchEnd={(e) => props.menuClick(e, 1)}></div>
+      <div className="tempGalleryInfo" onTouchEnd={(e) => props.menuClick(e, 2)}></div>
+      <div className="tempMapInfo" onTouchEnd={(e) => props.menuClick(e, 3)}></div>
 
-      <div className="closeMenu" onClick={() => props.removeContainer()}></div>
+      <div className="closeMenu" onTouchEnd={() => props.removeContainer()}></div>
     </MenuCSS>
   );
 }

@@ -29,6 +29,7 @@ export default class Container extends React.Component<any, any> {
   };
 
   render() {
+    console.log("rendered container: ", this.props.id);
     return (
       <>
         {(() => {
