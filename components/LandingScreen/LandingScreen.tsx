@@ -9,6 +9,8 @@ export default function LandingScreen() {
     num: 0,
   });
 
+  const [zindex, setZindex] = useState(1);
+
   const [listArr, setListArr]: any = useState([]);
 
   const pushToArr = (e: any) => {
@@ -25,6 +27,7 @@ export default function LandingScreen() {
           key={input.id}
           id={input.id}
           removeFromArr={removeFromArr}
+          pushToTop={pushToTop}
         />,
       ),
     );
@@ -35,7 +38,39 @@ export default function LandingScreen() {
     }));
   };
 
-  const removeFromArr = (inputID: any) => {
+  const pushToTop = (inputID: number) => {
+    // stavit umjesto (inputID) --> inputRef
+    // radit na dobivenom refu od elementa
+    // zatim ref.current.style.zIndex =zindex+1;
+    // setZindex= curr+1;
+    return;
+
+    // setListArr((currArr: any[]) => {
+    //   let newarr = currArr;
+    //   // Find index of inputID el
+    //   let index = currArr.findIndex((el: any) => el.props.id === inputID);
+    //   if (index == -1) console.log("not found??", inputID, currArr);
+    //   else {
+    //     if (index == currArr.length - 1) console.log("==last");
+    //     else {
+    //       let pushEl = currArr[index];
+    //       let toIndex = currArr.length - 1;
+    //       console.log(pushEl);
+
+    //       currArr.splice(index, 1);
+    //       currArr.splice(toIndex, 0, pushEl);
+    //       newarr = currArr;
+    //     }
+    //   }
+
+    //   //remove from arr
+    //   //currArr.filter((el: any, elIndex: number) => el.props.id != inputID),
+    //   console.log("1ss", currArr);
+    //   return newarr;
+    // });
+  };
+
+  const removeFromArr = (inputID: number) => {
     // Remove inputID el from array
     setListArr((currArr: any[]) =>
       currArr.filter((el: any, elIndex: number) => el.props.id != inputID),
@@ -46,6 +81,10 @@ export default function LandingScreen() {
     setListArr([]);
     setContaineCounter({ num: 0 });
   };
+
+  useEffect(() => {
+    console.log("setListArr, updated", listArr);
+  }, [listArr]);
 
   return (
     <LandingScreenCSS>

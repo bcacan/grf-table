@@ -52,6 +52,7 @@ export default class Container extends React.Component<any, any> {
                   menuClick={this.containerFun}
                   pos={this.state.clickPos}
                   removeFromArr={() => this.props.removeFromArr(this.props.id)}
+                  pushToTop={() => this.props.pushToTop(this.props.id)}
                 />
               );
             default:
@@ -61,6 +62,7 @@ export default class Container extends React.Component<any, any> {
                   menuClick={this.containerFun}
                   pos={this.state.clickPos}
                   closeWindow={this.closeWindow}
+                  pushToTop={() => this.props.pushToTop(this.props.id)}
                 />
               );
           }
