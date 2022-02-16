@@ -26,11 +26,9 @@ export default class Container extends React.Component<any, any> {
       containerState: x,
     });
   };
-  closeWindow = () => {
-    //console.log("closewin");
-    this.setState({
-      containerState: 0,
-    });
+  closeWindow = (e: any) => {
+    console.log("closewin");
+    this.containerFun(e, 0);
   };
 
   render() {

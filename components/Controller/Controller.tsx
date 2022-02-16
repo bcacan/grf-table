@@ -176,7 +176,7 @@ export default function Controller(props: any) {
 const CloseButton = ({ closeWindow }: any) => {
   return (
     <div
-      onClick={() => closeWindow()}
+      onTouchStart={(e) => closeWindow(e)}
       style={{ position: "absolute", top: "8%", left: "87%" }}
     >
       <Image src="/graphics/x-icon.svg" height={30} width={30} />
