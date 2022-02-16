@@ -14,18 +14,26 @@ export default class Container extends React.Component<any, any> {
   }
 
   containerFun = (e: any, x: any) => {
-    let TOUCHES = e.touches;
+    console.log(e);
 
-    if (!e.touches.length) TOUCHES = e.changedTouches;
+    let clickpos;
 
-    let lastTouchID = TOUCHES.length - 1;
-    let clickpos = [TOUCHES[lastTouchID].clientX, TOUCHES[lastTouchID].clientY];
+    if (e.type == "pointerup") {
+      clickpos = [e.clientX, e.clientY];
+    } else {
+      let TOUCHES = e.touches;
+      if (!e.touches.length) TOUCHES = e.changedTouches;
+
+      let lastTouchID = TOUCHES.length - 1;
+      clickpos = [TOUCHES[lastTouchID].clientX, TOUCHES[lastTouchID].clientY];
+    }
 
     this.setState({
       clickPos: clickpos,
       containerState: x,
     });
   };
+
   closeWindow = (e: any) => {
     console.log("closewin");
     this.containerFun(e, 0);
