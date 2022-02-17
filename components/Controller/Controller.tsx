@@ -48,8 +48,6 @@ export default function Controller(props: any) {
   useGesture(
     {
       onDrag: ({ active, first, offset: [x, y], touches, cancel }) => {
-        if (first) props.pushToTop();
-
         // api.start({
         //   borderColor: active ? dragColor : "black",
         // });

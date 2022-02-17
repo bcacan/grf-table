@@ -7,10 +7,14 @@ import WindowBox from "components/Window/WindowBox";
 export default class Container extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
+    this.containerRef = React.createRef();
     this.state = {
       clickPos: props.clickPos,
       containerState: 0,
     };
+  }
+  componentDidMount() {
+    this.props.pushToTop(this.containerRef);
   }
 
   containerFun = (e: any, x: any) => {
@@ -42,7 +46,11 @@ export default class Container extends React.Component<any, any> {
   render() {
     console.log("rendered container: ", this.props.id);
     return (
-      <>
+      <div
+        style={{ position: "inherit" }}
+        ref={this.containerRef}
+        onTouchStart={() => this.props.pushToTop(this.containerRef)}
+      >
         {(() => {
           let contState = this.state.containerState;
           switch (contState) {
@@ -52,7 +60,6 @@ export default class Container extends React.Component<any, any> {
                   menuClick={this.containerFun}
                   pos={this.state.clickPos}
                   removeFromArr={() => this.props.removeFromArr(this.props.id)}
-                  pushToTop={() => this.props.pushToTop(this.props.id)}
                 />
               );
             default:
@@ -62,12 +69,11 @@ export default class Container extends React.Component<any, any> {
                   menuClick={this.containerFun}
                   pos={this.state.clickPos}
                   closeWindow={this.closeWindow}
-                  pushToTop={() => this.props.pushToTop(this.props.id)}
                 />
               );
           }
         })()}
-      </>
+      </div>
     );
   }
 }

@@ -38,36 +38,15 @@ export default function LandingScreen() {
     }));
   };
 
-  const pushToTop = (inputID: number) => {
-    // stavit umjesto (inputID) --> inputRef
-    // radit na dobivenom refu od elementa
-    // zatim ref.current.style.zIndex =zindex+1;
-    // setZindex= curr+1;
-    return;
+  const pushToTop = (inputRef: any) => {
+    let oldZindex = parseInt(inputRef.current.style.zIndex) || 0;
 
-    // setListArr((currArr: any[]) => {
-    //   let newarr = currArr;
-    //   // Find index of inputID el
-    //   let index = currArr.findIndex((el: any) => el.props.id === inputID);
-    //   if (index == -1) console.log("not found??", inputID, currArr);
-    //   else {
-    //     if (index == currArr.length - 1) console.log("==last");
-    //     else {
-    //       let pushEl = currArr[index];
-    //       let toIndex = currArr.length - 1;
-    //       console.log(pushEl);
-
-    //       currArr.splice(index, 1);
-    //       currArr.splice(toIndex, 0, pushEl);
-    //       newarr = currArr;
-    //     }
-    //   }
-
-    //   //remove from arr
-    //   //currArr.filter((el: any, elIndex: number) => el.props.id != inputID),
-    //   console.log("1ss", currArr);
-    //   return newarr;
-    // });
+    setZindex((currZindex) => {
+      if (currZindex > oldZindex) {
+        inputRef.current.style.zIndex = currZindex + 1;
+        return currZindex + 1;
+      } else return currZindex;
+    });
   };
 
   const removeFromArr = (inputID: number) => {

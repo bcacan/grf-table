@@ -58,8 +58,6 @@ export default function Menu(props: any) {
 
   useDrag(
     ({ event, active, offset: [x, y], cancel, touches, down, tap, first }) => {
-      if (first) props.pushToTop();
-
       if (tap) {
         let menuChoice = parseInt(event.target!.getAttribute("data-menu"));
         if (!menuChoice) return;
