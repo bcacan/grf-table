@@ -63,18 +63,18 @@ export default function Menu(props: any) {
         if (!menuChoice) return;
         if (menuChoice === -1) removeMenu();
         else props.menuClick(event, menuChoice);
+      } else {
+        api.start({
+          x: x,
+          y: y,
+          scale: active ? 0.8 : 1,
+          // immediate: (k) => k !== "scale" && active,
+          onRest: () => {
+            menuState.current = !menuState.current;
+            cancel(); // prevent gesture stuck bug
+          },
+        });
       }
-
-      api.start({
-        x: x,
-        y: y,
-        scale: active ? 0.8 : 1,
-        // immediate: (k) => k !== "scale" && active,
-        onRest: () => {
-          menuState.current = !menuState.current;
-          cancel(); // prevent gesture stuck bug
-        },
-      });
     },
     {
       target: domTarget,
