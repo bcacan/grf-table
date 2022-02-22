@@ -5,6 +5,7 @@ import Controller from "components/Controller/Controller";
 import WindowBox from "components/Window/WindowBox";
 
 export default class Container extends React.Component<any, any> {
+  containerRef: React.RefObject<any>;
   constructor(props: any) {
     super(props);
     this.containerRef = React.createRef();

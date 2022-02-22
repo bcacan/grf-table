@@ -37,7 +37,8 @@ export default function Demo1() {
       },
       onPinch: ({ origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
         if (first) {
-          const { width, height, x, y } = ref.current.getBoundingClientRect();
+          //@ts-ignore
+          const { width, height, x, y } = ref.current!.getBoundingClientRect();
           const tx = ox - (x + width / 2);
           const ty = oy - (y + height / 2);
           memo = [style.x.get(), style.y.get(), tx, ty];

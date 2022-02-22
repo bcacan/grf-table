@@ -59,6 +59,7 @@ export default function Menu(props: any) {
   useDrag(
     ({ event, active, offset: [x, y], cancel, touches, down, tap, first }) => {
       if (tap) {
+        //@ts-ignore
         let menuChoice = parseInt(event.target!.getAttribute("data-menu"));
         if (!menuChoice) return;
         if (menuChoice === -1) removeMenu();
