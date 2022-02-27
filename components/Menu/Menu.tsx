@@ -7,6 +7,7 @@ import { useSpring, to, animated, config } from "@react-spring/web";
 import { useDrag, useHover } from "@use-gesture/react";
 import { MenuCSS } from "components/Menu/Menu.styled";
 import useWindowDimensions from "hooks/useWindowDimensions";
+import MenuSVG from "components/MenuSVG/MenuSVG";
 
 export default function Menu(props: any) {
   // const { menuWidth, menuHeight, menuX, menuY } =
@@ -120,7 +121,8 @@ function Button() {
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
       {/* <img src="/graphics/menu/menu.svg"></img> */}
-      <Image src="/graphics/menu/menu.png" layout="fill" />
+      {/* <Image src="/graphics/menu/menu.png" layout="fill" /> */}
+      <MenuSVG />
     </div>
   );
 }
