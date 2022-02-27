@@ -51,4 +51,5 @@ const MapWindow = forwardRef((props: any, ref) => {
       </MainWindowCSS>
     );
 });
+MapWindow.displayName = "MapWindow";
 export default MapWindow;

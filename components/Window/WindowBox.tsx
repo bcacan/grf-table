@@ -22,4 +22,5 @@ const WindowBox = forwardRef((props: any, ref) => {
     </>
   );
 });
+WindowBox.displayName = "WindowBox";
 export default WindowBox;

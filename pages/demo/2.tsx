@@ -1,3 +1,4 @@
+//@ts-nocheck
 import MenuSVG from "components/MenuSVG/MenuSVG";
 import Screensaver from "components/Screensaver/Screensaver";
 import { useOnIdle } from "hooks/idleTimerHooks";

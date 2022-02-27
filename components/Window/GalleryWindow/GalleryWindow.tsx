@@ -69,4 +69,5 @@ const GalleryWindow = forwardRef((props: any, ref) => {
       </MainWindowCSS>
     );
 });
+GalleryWindow.displayName = "GalleryWindow";
 export default GalleryWindow;

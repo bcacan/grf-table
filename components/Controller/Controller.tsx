@@ -160,6 +160,7 @@ export default function Controller(props: any) {
     }
     return <WindowBox ref={ref} type={type} content={props.content} />;
   });
+  WindowBoxToRender.displayName = "WindowBoxToRender";
 
   return (
     <ControllerCSS style={controllerApi}>

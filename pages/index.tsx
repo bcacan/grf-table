@@ -48,10 +48,6 @@ const Home: NextPage = () => {
             <h2>Deploy &rarr;</h2>
             <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
           </a>
-
-          <Link href="/table">
-            <h2>table &rarr;</h2>
-          </Link>
         </div>
       </main>
 

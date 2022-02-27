@@ -82,6 +82,7 @@ const InfoWindow = forwardRef((props: any, ref) => {
       </MainWindowCSS>
     );
 });
+InfoWindow.displayName = "InfoWindow";
 export default InfoWindow;
 
 const InfoContentUpisi = () => {
