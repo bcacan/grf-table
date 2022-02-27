@@ -9,7 +9,7 @@ export const LandingScreenCSS = styled.div`
   inset: 0;
 
   z-index: 1;
-  background-color: rgba(226, 131, 131, 0.21);
+  //background-color: rgba(226, 131, 131, 0.21);
 
   .LandingScreen {
     width: 100%;
@@ -17,6 +17,6 @@ export const LandingScreenCSS = styled.div`
     position: absolute;
     inset: 0;
 
-    background-color: rgba(0, 0, 0, 1);
+    //background-color: rgba(0, 0, 0, 1);
   }
 `;
