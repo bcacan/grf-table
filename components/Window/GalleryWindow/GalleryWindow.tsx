@@ -22,31 +22,10 @@ import {
   MenuLines,
   GalleryContent,
 } from "components/Window/Window.styled";
+import Gallery from "components/Gallery/Gallery";
 
 const GalleryWindow = forwardRef((props: any, ref) => {
-  if (props.content)
-    return (
-      <GalleryContent>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>v v
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>v v
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-        <p>sda das dsa dsa sad dsa asd asd sad asd</p>
-      </GalleryContent>
-    );
+  if (props.content) return <GalleryContent>{<Gallery />}</GalleryContent>;
   else
     return (
       <MainWindowCSS ref={ref}>
