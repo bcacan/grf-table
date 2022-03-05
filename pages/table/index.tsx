@@ -9,35 +9,35 @@ import { useOnIdle } from "hooks/idleTimerHooks";
 import Screensaver from "components/Screensaver/Screensaver";
 
 const Table: NextPage = () => {
-  //Screensaver
-  const showScreensaver = () => {
-    setShowSS(false);
-    console.log("Showing ss");
-  };
-  const hideScreensaver = () => {
-    setShowSS(true);
-    console.log("hiding ss");
-  };
+  // //Screensaver
+  // const showScreensaver = () => {
+  //   setShowSS(false);
+  //   console.log("Showing ss");
+  // };
+  // const hideScreensaver = () => {
+  //   setShowSS(true);
+  //   console.log("hiding ss");
+  // };
 
-  useOnIdle({
-    debounce: 500,
-    idleTimeout: 10000,
-    onIdle: hideScreensaver,
-    onAction: showScreensaver,
-    events: [
-      "mousemove",
-      "keydown",
-      "wheel",
-      "DOMMouseScroll",
-      "mouseWheel",
-      "mousedown",
-      "visibilitychange",
-      "touchmove",
-    ],
-  });
+  // useOnIdle({
+  //   debounce: 500,
+  //   idleTimeout: 10000,
+  //   onIdle: hideScreensaver,
+  //   onAction: showScreensaver,
+  //   events: [
+  //     "mousemove",
+  //     "keydown",
+  //     "wheel",
+  //     "DOMMouseScroll",
+  //     "mouseWheel",
+  //     "mousedown",
+  //     "visibilitychange",
+  //     "touchmove",
+  //   ],
+  // });
 
-  const [showSS, setShowSS] = useState(false);
-  /////
+  // const [showSS, setShowSS] = useState(false);
+  // /////
 
   return (
     <React.StrictMode>
@@ -61,7 +61,7 @@ const Table: NextPage = () => {
         }}
       ></div>
       <LandingScreen />
-      <Screensaver show={showSS} />
+      {/* <Screensaver show={showSS} /> */}
     </React.StrictMode>
   );
 };
