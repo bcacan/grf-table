@@ -106,23 +106,19 @@ export default function Menu(props: any) {
       // style={{ transform: move, opacity: opacity }}
       style={propsApi}
     >
-      <Button />
+      <div className="menu-background"></div>
 
-      <div className="tempButtonInfo" data-menu={1}></div>
-      <div className="tempGalleryInfo" data-menu={2}></div>
-      <div className="tempMapInfo" data-menu={3}></div>
+      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+        {/* <img src="/graphics/menu/menu.svg"></img> */}
+        {/* <Image src="/graphics/menu/menu.png" layout="fill" /> */}
+        <MenuSVG />
+      </div>
+
+      <div className="menu-button  button-info" data-menu={1}></div>
+      <div className="menu-button  button-gallery" data-menu={2}></div>
+      <div className="menu-button  button-map" data-menu={3}></div>
 
       <div className="closeMenu" data-menu={-1}></div>
     </MenuCSS>
-  );
-}
-
-function Button() {
-  return (
-    <div style={{ position: "relative", width: "100%", height: "100%" }}>
-      {/* <img src="/graphics/menu/menu.svg"></img> */}
-      {/* <Image src="/graphics/menu/menu.png" layout="fill" /> */}
-      <MenuSVG />
-    </div>
   );
 }
