@@ -33,6 +33,13 @@ export default class Container extends React.Component<any, any> {
       clickpos = [TOUCHES[lastTouchID].clientX, TOUCHES[lastTouchID].clientY];
     }
 
+    //center menu after window is closed
+    if (x === 0) {
+      const rect = e.target.parentElement.getBoundingClientRect();
+      console.log(rect.height, rect.width);
+      clickpos = [rect.x + rect.width / 2, rect.y + rect.height / 2];
+    }
+
     this.setState({
       clickPos: clickpos,
       containerState: x,
