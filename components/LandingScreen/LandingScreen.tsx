@@ -1,5 +1,6 @@
 import Container from "components/Container";
 import { LandingScreenCSS } from "components/LandingScreen/LandingScreen.styled";
+import AnimBackground from "components/Screensaver/AnimBackground";
 
 import { useState, useEffect } from "react";
 // import {} from "react-use-gesture";
@@ -14,6 +15,11 @@ export default function LandingScreen() {
   const [listArr, setListArr]: any = useState([]);
 
   const pushToArr = (e: any) => {
+    if (listArr.length === 6) {
+      console.log("limit hit");
+      return;
+    }
+
     let lastTouchID = e.touches.length - 1;
     let input = {
       id: containerCounter.num,
@@ -67,6 +73,7 @@ export default function LandingScreen() {
 
   return (
     <LandingScreenCSS>
+      <AnimBackground />
       <div className="LandingScreen" onTouchStart={pushToArr}></div>
       {listArr}
     </LandingScreenCSS>
