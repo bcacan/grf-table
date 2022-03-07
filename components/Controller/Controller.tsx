@@ -162,6 +162,15 @@ export default function Controller(props: any) {
   });
   WindowBoxToRender.displayName = "WindowBoxToRender";
 
+  const closeWin = (e: any) => {
+    api.start({
+      scale: 0,
+      opacity: 0,
+      onRest: () => {
+        props.closeWindow(e);
+      },
+    });
+  };
   return (
     <ControllerCSS style={controllerApi}>
       {/* <UserBar fullscreenButton={fullscreenFunction} closeButton={props.menuClick} /> */}
@@ -169,7 +178,7 @@ export default function Controller(props: any) {
         <WindowBoxToRender ref={domTarget} contState={props.contState} />
         <WindowBoxToRender contState={props.contState} content={true} />
       </div>
-      <CloseButton closeWindow={props.closeWindow} />
+      <CloseButton closeWindow={closeWin} />
     </ControllerCSS>
   );
 }
