@@ -7,6 +7,7 @@
 - Photo album/gallery
 - Animated background screen
 - Number of Menus limited (6)
+- Notification message for menus limit
 
 ### Removed
 

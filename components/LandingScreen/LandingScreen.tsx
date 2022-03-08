@@ -1,9 +1,13 @@
+import { useState, useEffect } from "react";
+
 import Container from "components/Container";
-import { LandingScreenCSS } from "components/LandingScreen/LandingScreen.styled";
+import Message from "components/Message/Message";
 import AnimBackground from "components/Screensaver/AnimBackground";
 
-import { useState, useEffect } from "react";
-// import {} from "react-use-gesture";
+import { LandingScreenCSS } from "components/LandingScreen/LandingScreen.styled";
+import { Text_Description } from "styles/texts";
+
+const MENU_LIMIT = 6;
 
 export default function LandingScreen() {
   const [containerCounter, setContaineCounter] = useState({
@@ -14,11 +18,15 @@ export default function LandingScreen() {
 
   const [listArr, setListArr]: any = useState([]);
 
+  const [limitMessage, setLimitMessage] = useState(null);
+
   const pushToArr = (e: any) => {
-    if (listArr.length === 6) {
-      console.log("limit hit");
-      return;
-    }
+    // Activate limit-message
+    if (listArr.length >= MENU_LIMIT) {
+      setLimitMessage(e);
+      return; // skip adding new menu
+    } else setLimitMessage(null);
+    ////
 
     let lastTouchID = e.touches.length - 1;
     let input = {
@@ -76,6 +84,10 @@ export default function LandingScreen() {
       <AnimBackground />
       <div className="LandingScreen" onTouchStart={pushToArr}></div>
       {listArr}
+
+      <Message trigger={limitMessage} variant="menus-limit">
+        <Text_Description>Maksimalan broj korisnika je {MENU_LIMIT}</Text_Description>
+      </Message>
     </LandingScreenCSS>
   );
 }
