@@ -76,8 +76,11 @@ const OpenImage = ({ img, closeImg }: any) => {
         objectFit="contain"
       />
 
-      <div onClick={closeImg} style={{ position: "absolute", background: "black" }}>
-        close X
+      <div
+        onTouchStart={closeImg}
+        style={{ position: "fixed", top: "120px", left: "48px" }}
+      >
+        <Image src="/graphics/back-button.svg" height={48} width={48} />
       </div>
     </>
   );
