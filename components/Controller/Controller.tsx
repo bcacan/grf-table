@@ -6,6 +6,7 @@ import Image from "next/image";
 import WindowBox from "components/Window/WindowBox";
 import { MainWindowCSS } from "components/Window/Window.styled";
 import useWindowDimensions from "hooks/useWindowDimensions";
+import { BottomLine } from "components/Window/BottomLine.styled";
 
 export default function Controller(props: any) {
   const winW = 1280;
@@ -35,7 +36,7 @@ export default function Controller(props: any) {
     // on-Mount effect
     //open menu
     api.start({
-      scale: 0.5,
+      scale: 1,
       opacity: 1,
     });
 
@@ -174,11 +175,14 @@ export default function Controller(props: any) {
   return (
     <ControllerCSS style={controllerApi}>
       {/* <UserBar fullscreenButton={fullscreenFunction} closeButton={props.menuClick} /> */}
+      <BottomLine />
+
+      <ArrowsButton />
+      <CloseButton closeWindow={closeWin} />
       <div>
         <WindowBoxToRender ref={domTarget} contState={props.contState} />
         <WindowBoxToRender contState={props.contState} content={true} />
       </div>
-      <CloseButton closeWindow={closeWin} />
     </ControllerCSS>
   );
 }
@@ -190,6 +194,13 @@ const CloseButton = ({ closeWindow }: any) => {
       style={{ position: "absolute", top: "8%", left: "87%" }}
     >
       <Image src="/graphics/x-icon.svg" height={30} width={30} />
+    </div>
+  );
+};
+const ArrowsButton = () => {
+  return (
+    <div style={{ position: "absolute", top: "8%", left: "80%" }}>
+      <Image src="/graphics/arrows-button.svg" height={30} width={30} />
     </div>
   );
 };

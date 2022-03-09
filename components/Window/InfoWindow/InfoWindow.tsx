@@ -56,10 +56,6 @@ const InfoWindow = forwardRef((props: any, ref) => {
             <Image src="/graphics/logo-grf.svg" height={64} width={64} />
           </div>
           <Text_Title className="title">O FAKULTETU</Text_Title>
-          <div className="x-button">
-            {/* <Image src="/graphics/x-icon.svg" height={30} width={30} /> */}
-          </div>
-
           <div className="menu">
             <nav>
               <a onTouchStart={(e) => changePage(0)}>
