@@ -24,7 +24,7 @@ import {
 } from "components/Window/Window.styled";
 import Map from "./Map";
 import { BottomLine } from "components/Window/BottomLine.styled";
-import ArrowsButton from "components/Window/ArrowsButton";
+import { ArrowsButton, CloseButton } from "components/Window/Buttons";
 
 const MapWindow = forwardRef((props: any, ref) => {
   if (props.content)
@@ -43,6 +43,8 @@ const MapWindow = forwardRef((props: any, ref) => {
           <Text_Title className="title">MAPA</Text_Title>
 
           <ArrowsButton />
+          <CloseButton />
+
           <BottomLine />
 
           <div className="subtitle">

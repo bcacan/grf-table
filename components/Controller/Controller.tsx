@@ -48,11 +48,22 @@ export default function Controller(props: any) {
 
   useGesture(
     {
-      onDrag: ({ active, first, offset: [x, y], touches, cancel }) => {
+      onDrag: ({ event, tap, active, first, offset: [x, y], touches, cancel }) => {
         // api.start({
         //   borderColor: active ? dragColor : "black",
         // });
-        if (touches != 1) cancel();
+        //if (touches != 1) cancel();
+
+        if (tap) {
+          let windowBtn = parseInt(
+            //@ts-ignore
+            event.target.parentNode.parentNode.getAttribute("data-window"),
+          );
+
+          if (!windowBtn) return;
+          if (windowBtn === -1) closeWin(event);
+        }
+
         api.start({
           borderColor: active ? dragColor : "black",
           x: x,
@@ -176,7 +187,6 @@ export default function Controller(props: any) {
     <ControllerCSS style={controllerApi}>
       {/* <UserBar fullscreenButton={fullscreenFunction} closeButton={props.menuClick} /> */}
 
-      <CloseButton closeWindow={closeWin} />
       <div>
         <WindowBoxToRender ref={domTarget} contState={props.contState} />
         <WindowBoxToRender contState={props.contState} content={true} />
@@ -184,17 +194,6 @@ export default function Controller(props: any) {
     </ControllerCSS>
   );
 }
-
-const CloseButton = ({ closeWindow }: any) => {
-  return (
-    <div
-      onTouchStart={(e) => closeWindow(e)}
-      style={{ position: "absolute", top: "8%", left: "87%" }}
-    >
-      <Image src="/graphics/x-icon.svg" height={30} width={30} />
-    </div>
-  );
-};
 
 function boundscale(scale: number) {
   if (scale < 0.25) scale = 0.25;

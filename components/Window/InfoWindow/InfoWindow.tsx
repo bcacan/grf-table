@@ -23,7 +23,7 @@ import {
 } from "components/Window/Window.styled";
 import usePreviousValue from "hooks/usePreviousValue";
 import { BottomLine } from "components/Window/BottomLine.styled";
-import ArrowsButton from "components/Window/ArrowsButton";
+import { ArrowsButton, CloseButton } from "components/Window/Buttons";
 
 const InfoWindow = forwardRef((props: any, ref) => {
   const [wHight, setWHight] = useState(false);
@@ -60,6 +60,7 @@ const InfoWindow = forwardRef((props: any, ref) => {
           <Text_Title className="title">O FAKULTETU</Text_Title>
 
           <ArrowsButton />
+          <CloseButton />
           <BottomLine />
           <div className="menu">
             <nav>
