@@ -36,7 +36,7 @@ export default function Controller(props: any) {
     // on-Mount effect
     //open menu
     api.start({
-      scale: 1,
+      scale: 0.6,
       opacity: 1,
     });
 
@@ -175,9 +175,7 @@ export default function Controller(props: any) {
   return (
     <ControllerCSS style={controllerApi}>
       {/* <UserBar fullscreenButton={fullscreenFunction} closeButton={props.menuClick} /> */}
-      <BottomLine />
 
-      <ArrowsButton />
       <CloseButton closeWindow={closeWin} />
       <div>
         <WindowBoxToRender ref={domTarget} contState={props.contState} />
@@ -194,13 +192,6 @@ const CloseButton = ({ closeWindow }: any) => {
       style={{ position: "absolute", top: "8%", left: "87%" }}
     >
       <Image src="/graphics/x-icon.svg" height={30} width={30} />
-    </div>
-  );
-};
-const ArrowsButton = () => {
-  return (
-    <div style={{ position: "absolute", top: "8%", left: "80%" }}>
-      <Image src="/graphics/arrows-button.svg" height={30} width={30} />
     </div>
   );
 };

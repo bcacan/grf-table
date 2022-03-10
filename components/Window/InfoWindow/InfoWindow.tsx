@@ -22,6 +22,8 @@ import {
   MenuLines,
 } from "components/Window/Window.styled";
 import usePreviousValue from "hooks/usePreviousValue";
+import { BottomLine } from "components/Window/BottomLine.styled";
+import ArrowsButton from "components/Window/ArrowsButton";
 
 const InfoWindow = forwardRef((props: any, ref) => {
   const [wHight, setWHight] = useState(false);
@@ -56,6 +58,9 @@ const InfoWindow = forwardRef((props: any, ref) => {
             <Image src="/graphics/logo-grf.svg" height={64} width={64} />
           </div>
           <Text_Title className="title">O FAKULTETU</Text_Title>
+
+          <ArrowsButton />
+          <BottomLine />
           <div className="menu">
             <nav>
               <a onTouchStart={(e) => changePage(0)}>

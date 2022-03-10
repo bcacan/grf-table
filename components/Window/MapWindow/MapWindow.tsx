@@ -23,6 +23,8 @@ import {
   MapContent,
 } from "components/Window/Window.styled";
 import Map from "./Map";
+import { BottomLine } from "components/Window/BottomLine.styled";
+import ArrowsButton from "components/Window/ArrowsButton";
 
 const MapWindow = forwardRef((props: any, ref) => {
   if (props.content)
@@ -39,6 +41,9 @@ const MapWindow = forwardRef((props: any, ref) => {
             <Image src="/graphics/logo-grf.svg" height={64} width={64} />
           </div>
           <Text_Title className="title">MAPA</Text_Title>
+
+          <ArrowsButton />
+          <BottomLine />
 
           <div className="subtitle">
             <Text_Subtitle>Getaldićeva 2</Text_Subtitle>

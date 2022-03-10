@@ -23,6 +23,8 @@ import {
   GalleryContent,
 } from "components/Window/Window.styled";
 import Gallery from "components/Gallery/Gallery";
+import ArrowsButton from "components/Window/ArrowsButton";
+import { BottomLine } from "components/Window/BottomLine.styled";
 
 const GalleryWindow = forwardRef((props: any, ref) => {
   if (props.content) return <GalleryContent>{<Gallery />}</GalleryContent>;
@@ -35,6 +37,8 @@ const GalleryWindow = forwardRef((props: any, ref) => {
           </div>
           <Text_Title className="title">O STUDENTIMA</Text_Title>
 
+          <ArrowsButton />
+          <BottomLine />
           <div className="subtitle">
             <Text_Subtitle>galerija</Text_Subtitle>
             <hr className="line" />
