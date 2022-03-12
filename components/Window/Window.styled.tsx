@@ -1,6 +1,7 @@
+import { animated } from "@react-spring/web";
 import styled from "styled-components";
 
-export const WindowCSS = styled.div`
+export const WindowCSS = styled(animated.div)`
   /* width: 1280px;
   height: 800px;
   background: ${(props) => props.theme.colors.background}; */
@@ -10,8 +11,8 @@ export const WindowCSS = styled.div`
 `;
 
 export const MainWindowCSS = styled(WindowCSS)<any>`
-  width: 1280px; //for padding% in mainwindowcss
-  height: ${(props) => (props.higher ? "1300px" : "860px")};
+  width: ${(props) => props.theme.const.window_width}px;
+  height: ${(props) => props.theme.const.window_smallHeight}px;
   background: ${(props) => props.theme.colors.background};
 
   //  padding: 2.875em 8.375em 1.12em 8.125em;
@@ -79,7 +80,7 @@ export const SubHeader = styled.div`
   text-align: right;
 `;
 
-export const ScrollBar = styled.main`
+export const ScrollBar = styled(animated.main)<any>`
   padding-right: 2em;
 
   overflow: auto;
@@ -122,10 +123,10 @@ export const Content = styled(ScrollBar)`
 
 export const InfoContent = styled(ScrollBar)`
   width: 80%;
-  height: 52%;
+  height: ${(props) => props.theme.colors.info_content_smallHeight};
 
   position: absolute;
-  top: 15em;
+  top: ${(props) => props.theme.const.info_content_smallTop};
   right: 8em;
 
   border: 1px solid ${(props) => props.theme.colors.contentBorder};
