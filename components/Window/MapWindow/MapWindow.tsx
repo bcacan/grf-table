@@ -21,20 +21,15 @@ import {
   VerticalText,
   MenuLines,
   MapContent,
+  SubHeader,
 } from "components/Window/Window.styled";
 import Map from "./Map";
 import { BottomLine } from "components/Window/BottomLine.styled";
 import { ArrowsButton, CloseButton } from "components/Window/Buttons";
 
 const MapWindow = forwardRef((props: any, ref) => {
-  if (props.content)
-    return (
-      <MapContent>
-        <Map />
-      </MapContent>
-    );
-  else
-    return (
+  return (
+    <>
       <MainWindowCSS ref={ref}>
         <Header>
           <div className="logo">
@@ -44,16 +39,17 @@ const MapWindow = forwardRef((props: any, ref) => {
 
           <ArrowsButton />
           <CloseButton />
-
-          <BottomLine />
-
-          <div className="subtitle">
-            <Text_Subtitle>Getaldićeva 2</Text_Subtitle>
-            <hr className="line" />
-          </div>
         </Header>
+        <BottomLine />
+        <SubHeader>
+          <Text_Subtitle>Getaldićeva 2</Text_Subtitle>
+        </SubHeader>
       </MainWindowCSS>
-    );
+      <MapContent>
+        <Map />
+      </MapContent>
+    </>
+  );
 });
 MapWindow.displayName = "MapWindow";
 export default MapWindow;

@@ -20,6 +20,8 @@ import {
   MenuStudij,
   VerticalText,
   MenuLines,
+  PageMenu,
+  InfoContent,
 } from "components/Window/Window.styled";
 import usePreviousValue from "hooks/usePreviousValue";
 import { BottomLine } from "components/Window/BottomLine.styled";
@@ -27,31 +29,36 @@ import { ArrowsButton, CloseButton } from "components/Window/Buttons";
 
 const InfoWindow = forwardRef((props: any, ref) => {
   const [wHight, setWHight] = useState(false);
-  const [page, setPage] = useState(0);
-  const changePage = (x: number) => {
-    setPage(x);
-  };
+  const [page, setPage] = useState(1);
+  const [tab, setTab] = useState(1);
+
+  const [pageContent, setPageContent] = useState(<></>);
 
   useEffect(() => {
-    if (page == 1) setWHight(true);
-    else setWHight(false);
-  }, [page]);
-
-  const infoContent = (page: number) => {
     switch (page) {
-      case 0:
-        return <InfoContentUpisi />;
-        break;
       case 1:
-        return <InfoContentStudij />;
+        setWHight(false);
+        setPageContent(
+          <InfoContent>
+            <InfoContentUpisi />
+          </InfoContent>,
+        );
+        break;
+      case 2:
+        setWHight(true);
+        setPageContent(
+          <InfoContent>
+            <InfoContentStudij tab={tab} />
+          </InfoContent>,
+        );
         break;
       default:
         break;
     }
-  };
-  if (props.content) return null;
-  else
-    return (
+  }, [page, tab]);
+
+  return (
+    <>
       <MainWindowCSS ref={ref} higher={wHight}>
         <Header>
           <div className="logo">
@@ -61,35 +68,61 @@ const InfoWindow = forwardRef((props: any, ref) => {
 
           <ArrowsButton />
           <CloseButton />
-          <BottomLine />
-          <div className="menu">
-            <nav>
-              <a onTouchStart={(e) => changePage(0)}>
-                <Text_Subtitle className={page ? "" : "active"}>UPISI</Text_Subtitle>
-              </a>
-              <a onTouchStart={() => changePage(1)}>
-                <Text_Subtitle className={page ? "active" : ""}>STUDIJ</Text_Subtitle>
-              </a>
-            </nav>
-          </div>
         </Header>
-        {infoContent(page)}
+        <BottomLine />
+
+        <PageMenu>
+          <nav>
+            <a onTouchStart={(e) => setPage(1)}>
+              <Text_Subtitle className={`page-label-1 ${page == 1 && "active-page"}`}>
+                UPISI
+              </Text_Subtitle>
+            </a>
+            <a onTouchStart={(e) => setPage(2)}>
+              <Text_Subtitle className={`page-label-2 ${page == 2 && "active-page"}`}>
+                STUDIJ
+              </Text_Subtitle>
+            </a>
+            {page == 2 && (
+              <>
+                <a onTouchStart={() => setTab(1)}>
+                  <Text_Subtitle className={`tab1  ${tab == 1 && "active-tab"}`}>
+                    preddiplomski
+                  </Text_Subtitle>
+                </a>
+                <a onTouchStart={() => setTab(2)}>
+                  <Text_Subtitle className={`tab2  ${tab == 2 && "active-tab"}`}>
+                    diplomski
+                  </Text_Subtitle>
+                </a>
+                <a onTouchStart={() => setTab(3)}>
+                  <Text_Subtitle className={`tab3  ${tab == 3 && "active-tab"}`}>
+                    postdiplomski
+                  </Text_Subtitle>
+                </a>
+              </>
+            )}
+          </nav>
+        </PageMenu>
+
         <Footer>
           <div className="logo">
             <Image src="/graphics/qr-code.svg" height={84} width={84} />
           </div>
-          <Text_Body2 className="text">SCAN ME!</Text_Body2>
+          <Text_Body2 className="text">PREUZMI ME!</Text_Body2>
           <Text_Body className="text2">Grafički fakultet</Text_Body>
         </Footer>
       </MainWindowCSS>
-    );
+      {pageContent}
+    </>
+  );
 });
 InfoWindow.displayName = "InfoWindow";
 export default InfoWindow;
 
 const InfoContentUpisi = () => {
   return (
-    <Content>
+    <>
       <TwoColumns>
         <div>
           <Text_Description>
@@ -132,63 +165,11 @@ const InfoContentUpisi = () => {
           </Text_Description>
         </div>
       </TwoColumns>
-    </Content>
+    </>
   );
 };
 
-const InfoContentStudij = () => {
-  const [tab, setTab] = useState(0);
-  const prevTab: any = usePreviousValue(tab);
-  const tabName = ["preddiplomski", "diplomski", "postdiplomski"];
-
-  const [inactiveTabs, setInactiveTabs] = useState([
-    { id: 1, name: tabName[1] },
-    { id: 2, name: tabName[2] },
-  ]);
-
-  const tabLabel = (position: number, id: number, name: string) => {
-    return (
-      <a onTouchStart={(e) => changeTab(id, position)}>
-        <Text_Subtitle>
-          <VerticalText>{name}</VerticalText>
-        </Text_Subtitle>
-      </a>
-    );
-  };
-
-  /// izmislit ovaj algoritam
-  const changeTab = (tab: number, position: number) => {
-    // if (position == 1) secondTab = { id: prevTab, name: tabName[prevTab] };
-    // if (position == 2) thirdTab = { id: prevTab, name: tabName[prevTab] };
-    let newArr = [...inactiveTabs];
-    newArr[position] = { id: prevTab, name: tabName[prevTab] };
-    setInactiveTabs(newArr);
-    setTab(tab);
-  };
-
-  // useEffect(() => {
-  //   if (prevTab) {
-  //     secondTab = { name: tabName[1], id: 1 };
-  //     thirdTab = { name: tabName[2], id: 2 };
-  //   }
-  // }, [tab]);
-
-  const renderTab = (tab: number) => {
-    switch (tab) {
-      case 0:
-        return <PreddiplomskiTab />;
-        break;
-      case 1:
-        return <DiplomskiTab />;
-        break;
-      case 2:
-        return <PostdiplomskiTab />;
-        break;
-      default:
-        break;
-    }
-  };
-
+const InfoContentStudij = ({ tab }: { tab: number }) => {
   /////
   const PreddiplomskiTab = () => {
     return (
@@ -470,21 +451,18 @@ const InfoContentStudij = () => {
   };
   /////////
 
-  return (
-    <>
-      <MenuStudij>
-        <a>
-          <Text_Subtitle>{tabName[tab]}</Text_Subtitle>
-        </a>
-
-        {tabLabel(0, inactiveTabs[0].id, inactiveTabs[0].name)}
-        {tabLabel(1, inactiveTabs[1].id, inactiveTabs[1].name)}
-      </MenuStudij>
-      <MenuLines>
-        <hr />
-        <hr />
-      </MenuLines>
-      <Content>{renderTab(tab)}</Content>
-    </>
-  );
+  switch (tab) {
+    case 1:
+      return <PreddiplomskiTab />;
+      break;
+    case 2:
+      return <DiplomskiTab />;
+      break;
+    case 3:
+      return <PostdiplomskiTab />;
+      break;
+    default:
+      return null;
+      break;
+  }
 };

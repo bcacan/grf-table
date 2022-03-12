@@ -21,15 +21,15 @@ import {
   VerticalText,
   MenuLines,
   GalleryContent,
+  SubHeader,
 } from "components/Window/Window.styled";
 import Gallery from "components/Gallery/Gallery";
 import { BottomLine } from "components/Window/BottomLine.styled";
 import { ArrowsButton, CloseButton } from "components/Window/Buttons";
 
 const GalleryWindow = forwardRef((props: any, ref) => {
-  if (props.content) return <GalleryContent>{<Gallery />}</GalleryContent>;
-  else
-    return (
+  return (
+    <>
       <MainWindowCSS ref={ref}>
         <Header>
           <div className="logo">
@@ -39,17 +39,20 @@ const GalleryWindow = forwardRef((props: any, ref) => {
 
           <ArrowsButton />
           <CloseButton />
-
-          <BottomLine />
-          <div className="subtitle">
-            <Text_Subtitle>galerija</Text_Subtitle>
-            <hr className="line" />
-          </div>
         </Header>
 
-        {/* <footer contentEditable>Footer Content</footer> */}
+        <BottomLine />
+
+        <SubHeader>
+          <Text_Subtitle>galerija</Text_Subtitle>
+        </SubHeader>
       </MainWindowCSS>
-    );
+
+      <GalleryContent>
+        <Gallery />
+      </GalleryContent>
+    </>
+  );
 });
 GalleryWindow.displayName = "GalleryWindow";
 export default GalleryWindow;

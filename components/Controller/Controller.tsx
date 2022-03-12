@@ -153,27 +153,6 @@ export default function Controller(props: any) {
     },
   );
 
-  const WindowBoxToRender = forwardRef((props: any, ref) => {
-    let type: string = "";
-
-    switch (props.contState) {
-      case 1:
-        type = "info";
-        break;
-      case 2:
-        type = "gallery";
-        break;
-      case 3:
-        type = "map";
-        break;
-      default:
-        return null;
-        break;
-    }
-    return <WindowBox ref={ref} type={type} content={props.content} />;
-  });
-  WindowBoxToRender.displayName = "WindowBoxToRender";
-
   const closeWin = (e: any) => {
     api.start({
       scale: 0,
@@ -183,14 +162,12 @@ export default function Controller(props: any) {
       },
     });
   };
+
   return (
     <ControllerCSS style={controllerApi}>
       {/* <UserBar fullscreenButton={fullscreenFunction} closeButton={props.menuClick} /> */}
 
-      <div>
-        <WindowBoxToRender ref={domTarget} contState={props.contState} />
-        <WindowBoxToRender contState={props.contState} content={true} />
-      </div>
+      <WindowBox ref={domTarget} type={props.contState} />
     </ControllerCSS>
   );
 }
@@ -201,18 +178,3 @@ function boundscale(scale: number) {
 
   return scale;
 }
-/*
-function UserBar(props: any) {
-  return (
-    <>
-      <div className={`UserBar`}>
-        <span onClick={props.fullscreenButton}>-⬜-</span>
-
-        <span style={{ float: "right" }} onClick={(e) => props.closeButton(0, e)}>
-          -X-
-        </span>
-      </div>
-    </>
-  );
-}
-*/

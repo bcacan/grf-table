@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const ArrowsButton = () => {
   return (
-    <div style={{ position: "absolute", top: "8%", left: "80%" }}>
+    <div className="grid-arrows-button">
       <Image src="/graphics/arrows-button.svg" height={30} width={30} />
     </div>
   );
@@ -10,8 +10,25 @@ export const ArrowsButton = () => {
 
 export const CloseButton = () => {
   return (
-    <div data-window={-1} style={{ position: "absolute", top: "8%", left: "87%" }}>
+    <div className="grid-x-button" data-window={-1}>
       <Image src="/graphics/x-icon.svg" height={30} width={30} />
+    </div>
+  );
+};
+
+export const BackButton = ({ closeImg }: any) => {
+  return (
+    <div
+      onTouchStart={closeImg}
+      style={{
+        position: "fixed",
+        top: "15%",
+        left: "0",
+        background: "black",
+        paddingInline: "3.8% 4%",
+      }}
+    >
+      <Image src="/graphics/back-button.svg" height={48} width={48} />
     </div>
   );
 };

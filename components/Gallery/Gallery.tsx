@@ -1,6 +1,7 @@
 import PhotoAlbum, { Photo } from "react-photo-album";
 import React, { useState } from "react";
 import Image from "next/image";
+import { BackButton } from "components/Window/Buttons";
 
 const photos: Photo[] = [
   {
@@ -76,12 +77,7 @@ const OpenImage = ({ img, closeImg }: any) => {
         objectFit="contain"
       />
 
-      <div
-        onTouchStart={closeImg}
-        style={{ position: "fixed", top: "120px", left: "48px" }}
-      >
-        <Image src="/graphics/back-button.svg" height={48} width={48} />
-      </div>
+      <BackButton closeImg={closeImg} />
     </>
   );
 };

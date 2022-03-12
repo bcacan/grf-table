@@ -9,11 +9,11 @@ const WindowBox = forwardRef((props: any, ref) => {
     <>
       {(() => {
         switch (props.type) {
-          case "map":
+          case 3:
             return <MapWindow ref={ref} content={props.content} />;
-          case "gallery":
+          case 2:
             return <GalleryWindow ref={ref} content={props.content} />;
-          case "info":
+          case 1:
             return <InfoWindow ref={ref} content={props.content} />;
           default:
             return null;
