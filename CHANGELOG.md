@@ -1,11 +1,11 @@
 # Changelog
 
-## [0.9.1] - 2020-00-00
+## [0.9.1] - 2022-3-13
 
 ### Added
 
 - Photo album/gallery
-- Animated background screen
+- Animated background screen & border snake animation (test)
 - Number of Menus limited (6)
 - Notification message for menus limit
 
@@ -19,3 +19,9 @@
 - More precise target areas for dragging menu and menu buttons
 - Animation on window close
 - Menu centered on window close
+- Window content rendering slightly reworked
+- New windows header and tabs design implemented
+
+### Fixed
+
+- Window: close button and arrows button are draggable now
