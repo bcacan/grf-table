@@ -210,3 +210,182 @@ export const AnimBackgroundCSS = styled.div`
     box-shadow: -12vmin 0 2.4028595935774915vmin currentColor;
   }
 `;
+
+export const Snake = styled.div`
+  display: inline-block;
+  width: 95vw;
+  height: 95vh;
+
+  //position: relative;
+  //box-shadow: inset 0 0 0 1px #00a0ff;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  ::before,
+  ::after {
+    content: "";
+    display: block;
+    position: absolute;
+    outline: 3px solid #00a0ff;
+    animation-duration: 12s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  ::before {
+    animation-name: snake-border-head;
+  }
+  ::after {
+    animation-name: snake-border-tail;
+  }
+
+  /* snake-border stuff: */
+  @keyframes snake-border-head {
+    /*
+  The snake's "head" stretches across a side of its container.
+  The moment this head hits a corner, it instantly begins to
+  stretch across the next side. (This is why some keyframe
+  moments are repeated, to create these instantaneous jumps)
+  */
+
+    90% {
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 40%;
+    }
+    90% {
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+    }
+    100% {
+      left: 0;
+      top: 0;
+      width: 40%;
+      height: 0;
+    }
+    0% {
+      left: 0;
+      top: 0;
+      width: 40%;
+      height: 0;
+    }
+
+    15% {
+      left: 60%;
+      top: 0;
+      width: 40%;
+      height: 0;
+    }
+    15% {
+      left: 100%;
+      top: 0;
+      width: 0;
+      height: 0;
+    }
+    25% {
+      left: 100%;
+      top: 0;
+      width: 0;
+      height: 40%;
+    }
+
+    40% {
+      left: 100%;
+      top: 60%;
+      width: 0;
+      height: 40%;
+    }
+    40% {
+      left: 100%;
+      top: 100%;
+      width: 0;
+      height: 0;
+    }
+    50% {
+      left: 60%;
+      top: 100%;
+      width: 40%;
+      height: 0;
+    }
+
+    65% {
+      left: 0;
+      top: 100%;
+      width: 40%;
+      height: 0;
+    }
+    65% {
+      left: 0;
+      top: 100%;
+      width: 0;
+      height: 0;
+    }
+    75% {
+      left: 0;
+      top: 60%;
+      width: 0;
+      height: 40%;
+    }
+  }
+  @keyframes snake-border-tail {
+    /*
+  The "tail" of the snake is at full length when the head is at 0
+  length, and vice versa. The tail always at a 90 degree angle
+  from the head.
+  */
+
+    90% {
+      top: 0%;
+      height: 40%;
+    }
+    100% {
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+    }
+    0% {
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+    }
+
+    15% {
+      width: 40%;
+    }
+    25% {
+      left: 100%;
+      top: 0;
+      width: 0;
+      height: 0;
+    }
+
+    40% {
+      height: 40%;
+    }
+    50% {
+      left: 100%;
+      top: 100%;
+      width: 0;
+      height: 0;
+    }
+
+    65% {
+      left: 0%;
+      width: 40%;
+    }
+    75% {
+      left: 0;
+      top: 100%;
+      width: 0;
+      height: 0;
+    }
+  }
+`;
