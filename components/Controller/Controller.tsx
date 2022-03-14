@@ -7,12 +7,13 @@ import WindowBox from "components/Window/WindowBox";
 import { MainWindowCSS } from "components/Window/Window.styled";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import { BottomLine } from "components/Window/BottomLine.styled";
+import { theme } from "styles/theme";
 
 export default function Controller(props: any) {
-  const winW = 1280;
-  const winH = 800;
+  const winW = theme.const.window_width;
+  const winH = theme.const.window_smallHeight;
 
-  const { height, width } = useWindowDimensions();
+  const { height, width } = useWindowDimensions(); // used in Bounds calc?
 
   const domTarget = useRef<any>(null);
 
@@ -24,8 +25,9 @@ export default function Controller(props: any) {
     x: props.pos[0] - Math.floor(winW / 2),
     y: props.pos[1] - Math.floor(winH / 2),
     scale: 0,
-    rotate: 0,
+    rotateZ: 0,
     opacity: 0,
+
     border: "2px solid transparent",
     borderColor: transColor,
 
@@ -36,7 +38,7 @@ export default function Controller(props: any) {
     // on-Mount effect
     //open menu
     api.start({
-      scale: 0.6,
+      scale: theme.const.window_startScale,
       opacity: 1,
     });
 
@@ -48,7 +50,16 @@ export default function Controller(props: any) {
 
   useGesture(
     {
-      onDrag: ({ event, tap, active, first, offset: [x, y], touches, cancel }) => {
+      onDrag: ({
+        pinching,
+        event,
+        tap,
+        active,
+        first,
+        offset: [x, y],
+        touches,
+        cancel,
+      }) => {
         // api.start({
         //   borderColor: active ? dragColor : "black",
         // });
@@ -63,50 +74,40 @@ export default function Controller(props: any) {
           if (!windowBtn) return;
           if (windowBtn === -1) closeWin(event);
         }
-
+        if (pinching) return cancel();
         api.start({
-          borderColor: active ? dragColor : "black",
           x: x,
           y: y,
-          //scale: active ? memo[0] * 0.8 : memo[0] * 1.25,
+
+          borderColor: active ? dragColor : "black",
         });
       },
       onPinch: ({
         active,
         first,
-        initial: [id],
-        da: [d],
-        offset: [, a],
+        movement: [ms],
+        offset: [s, a],
         origin: [ox, oy],
         memo,
         touches,
         cancel,
       }) => {
-        if (touches != 2) {
-          console.log("touches !=2 ", touches);
-          cancel();
-        }
         if (first) {
           const { width, height, x, y } = domTarget.current.getBoundingClientRect();
-          const initialScale = controllerApi.scale.get();
           const tx = ox - (x + width / 2);
           const ty = oy - (y + height / 2);
-          memo = [controllerApi.x.get(), controllerApi.y.get(), tx, ty, initialScale];
+          memo = [controllerApi.x.get(), controllerApi.y.get(), tx, ty];
         }
-        const ms = d / id;
+
         const x = memo[0] - (ms - 1) * memo[2];
         const y = memo[1] - (ms - 1) * memo[3];
         api.start({
-          scale: boundscale(memo[4] * ms),
-          rotate: 1 * a,
+          scale: s * theme.const.window_startScale,
+          rotateZ: a,
           x: x,
           y: y,
 
           borderColor: active ? pinchColor : "black",
-
-          // transformOrigin: origin,
-          // "transform-origin": `${}`,
-          //w: Math.abs(Math.floor(1 * d))
         });
 
         return memo;
@@ -137,7 +138,7 @@ export default function Controller(props: any) {
             bottom: boundBot,
           };
         },
-        rubberband: 0.5,
+        rubberband: 0.3,
         filterTaps: true,
         pointer: { touch: true },
         preventDefault: true,
@@ -147,8 +148,11 @@ export default function Controller(props: any) {
         pointer: { touch: true },
         preventDefault: true,
 
-        // rubberband: 0.5,
-        // scaleBounds: { min: scaleMin, max: scaleMax },
+        rubberband: 0.3,
+        scaleBounds: {
+          min: theme.const.window_minScale,
+          max: theme.const.window_maxScale,
+        },
       },
     },
   );
@@ -165,16 +169,7 @@ export default function Controller(props: any) {
 
   return (
     <ControllerCSS style={controllerApi}>
-      {/* <UserBar fullscreenButton={fullscreenFunction} closeButton={props.menuClick} /> */}
-
       <WindowBox ref={domTarget} type={props.contState} />
     </ControllerCSS>
   );
-}
-
-function boundscale(scale: number) {
-  if (scale < 0.25) scale = 0.25;
-  else if (scale > 1.2) scale = 1.2;
-
-  return scale;
 }

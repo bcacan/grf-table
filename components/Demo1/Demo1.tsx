@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 
 const useGesture = createUseGesture([dragAction, pinchAction]);
 
-export default function Demo1() {
+export default function App() {
   useEffect(() => {
     const handler = (e: { preventDefault: () => any }) => e.preventDefault();
     document.addEventListener("gesturestart", handler);
@@ -29,7 +29,7 @@ export default function Demo1() {
 
   useGesture(
     {
-      // onHover: ({ active, event }) => console.log('hover', event, active),
+      // onHover: ({ active, event }) => console.log("hover", event, active),
       // onMove: ({ event }) => console.log('move', event),
       onDrag: ({ pinching, cancel, offset: [x, y], ...rest }) => {
         if (pinching) return cancel();
@@ -38,14 +38,14 @@ export default function Demo1() {
       onPinch: ({ origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
         if (first) {
           //@ts-ignore
-          const { width, height, x, y } = ref.current!.getBoundingClientRect();
+          const { width, height, x, y } = ref.current.getBoundingClientRect();
           const tx = ox - (x + width / 2);
           const ty = oy - (y + height / 2);
           memo = [style.x.get(), style.y.get(), tx, ty];
         }
 
-        const x = memo[0] - ms * memo[2];
-        const y = memo[1] - ms * memo[3];
+        const x = memo[0] - (ms - 1) * memo[2];
+        const y = memo[1] - (ms - 1) * memo[3];
         api.start({ scale: s, rotateZ: a, x, y });
         return memo;
       },
@@ -53,7 +53,7 @@ export default function Demo1() {
     {
       target: ref,
       drag: { from: () => [style.x.get(), style.y.get()] },
-      pinch: { scaleBounds: { min: 0.5, max: 2 }, rubberband: true },
+      pinch: { scaleBounds: { min: 0.1, max: 5 }, rubberband: true },
     },
   );
 
