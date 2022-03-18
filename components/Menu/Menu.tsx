@@ -10,52 +10,20 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 import MenuSVG from "components/MenuSVG/MenuSVG";
 
 export default function Menu(props: any) {
-  // const { menuWidth, menuHeight, menuX, menuY } =
-  //   domTarget.current.getBoundingClientRect();
+  //
   const tempMenuSize = 320;
-  const isTap = useRef(false);
-
   const { height, width } = useWindowDimensions();
-
   const domTarget = useRef<any>(null);
+  //
 
-  const menuState = useRef(false);
-  // const full_Scale = 1.4;
-  // const small_Scale = 0.9;
-  // const small_Xpos = 0,
-  //   full_Xpos = 6,
-  //   small_Ypos = 0,
-  //   full_Ypos = 6,
-  //   small_Opacity = 0,
-  //   full_Opacity = 0.8;
-
+  const start_x = props.pos[0] - Math.floor(tempMenuSize / 2);
+  const start_y = props.pos[1] - Math.floor(tempMenuSize / 2);
   const [propsApi, api] = useSpring(() => ({
-    x: props.pos[0] - Math.floor(tempMenuSize / 2),
-    y: props.pos[1] - Math.floor(tempMenuSize / 2),
-    scale: 0,
-    opacity: 0,
+    from: { opacity: 0, scale: 0, x: start_x, y: start_y },
+    to: { opacity: 1, scale: 1, x: start_x, y: start_y },
 
     config: config.wobbly,
   }));
-
-  useEffect(() => {
-    // on-Mount effect
-    //open menu
-    api.start({
-      scale: 1,
-      opacity: 1,
-
-      onRest: () => {
-        //console.log("rest");
-        menuState.current = !menuState.current;
-      },
-    });
-
-    // on unMount
-    return () => {
-      //console.log("bye");
-    };
-  }, []);
 
   useDrag(
     ({ event, active, offset: [x, y], cancel, touches, down, tap, first }) => {
@@ -70,11 +38,6 @@ export default function Menu(props: any) {
           x: x,
           y: y,
           scale: active ? 0.8 : 1,
-          // immediate: (k) => k !== "scale" && active,
-          onRest: () => {
-            menuState.current = !menuState.current;
-            cancel(); // prevent gesture stuck bug
-          },
         });
       }
     },

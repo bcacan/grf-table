@@ -2,6 +2,8 @@ import { animated } from "@react-spring/web";
 import styled from "styled-components";
 
 export const MessageCSS = styled(animated.div)`
+  will-change: transform, opacity;
+
   z-index: 9999;
   position: absolute;
 

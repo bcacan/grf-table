@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.9.2] - xxxxxx
+
+### Fixed
+
+- Window scaling & window scaling bounds
+- Reduced stuttering on first menu appear
+
+#
+
 ## [0.9.1] - 2022-3-13
 
 ### Added
