@@ -29,6 +29,8 @@ import { ArrowsButton, CloseButton } from "components/Window/Buttons";
 import { config, useSpring } from "@react-spring/web";
 import { theme } from "styles/theme";
 
+import { InfoText } from "content/texts";
+
 const InfoWindow = forwardRef((props: any, ref) => {
   const [page, setPage] = useState(1);
   const [tab, setTab] = useState(1);
@@ -89,7 +91,7 @@ const InfoWindow = forwardRef((props: any, ref) => {
           <div className="logo">
             <Image src="/graphics/logo-grf.svg" height={64} width={64} />
           </div>
-          <Text_Title className="title">O FAKULTETU</Text_Title>
+          <Text_Title className="title">{InfoText.title}</Text_Title>
 
           <ArrowsButton />
           <CloseButton />
@@ -100,29 +102,29 @@ const InfoWindow = forwardRef((props: any, ref) => {
           <nav>
             <a onTouchStart={(e) => setPage(1)}>
               <Text_Subtitle className={`page-label-1 ${page == 1 && "active-page"}`}>
-                UPISI
+                {InfoText.tab1}
               </Text_Subtitle>
             </a>
             <a onTouchStart={(e) => setPage(2)}>
               <Text_Subtitle className={`page-label-2 ${page == 2 && "active-page"}`}>
-                STUDIJ
+                {InfoText.tab2}
               </Text_Subtitle>
             </a>
             {page == 2 && (
               <>
                 <a onTouchStart={() => setTab(1)}>
                   <Text_Subtitle className={`tab1  ${tab == 1 && "active-tab"}`}>
-                    preddiplomski
+                    {InfoText.tab2_1}
                   </Text_Subtitle>
                 </a>
                 <a onTouchStart={() => setTab(2)}>
                   <Text_Subtitle className={`tab2  ${tab == 2 && "active-tab"}`}>
-                    diplomski
+                    {InfoText.tab2_2}
                   </Text_Subtitle>
                 </a>
                 <a onTouchStart={() => setTab(3)}>
                   <Text_Subtitle className={`tab3  ${tab == 3 && "active-tab"}`}>
-                    postdiplomski
+                    {InfoText.tab2_3}
                   </Text_Subtitle>
                 </a>
               </>
@@ -134,8 +136,8 @@ const InfoWindow = forwardRef((props: any, ref) => {
           <div className="logo">
             <Image src="/graphics/qr-code.svg" height={84} width={84} />
           </div>
-          <Text_Body2 className="text">PREUZMI ME!</Text_Body2>
-          <Text_Body className="text2">Grafički fakultet</Text_Body>
+          <Text_Body2 className="text">{InfoText.footer_qr}</Text_Body2>
+          <Text_Body className="text2">{InfoText.footer_title}</Text_Body>
         </Footer>
       </MainWindowCSS>
       {pageContent}

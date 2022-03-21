@@ -27,6 +27,8 @@ import Map from "./Map";
 import { BottomLine } from "components/Window/BottomLine.styled";
 import { ArrowsButton, CloseButton } from "components/Window/Buttons";
 
+import { MapText } from "content/texts";
+
 const MapWindow = forwardRef((props: any, ref) => {
   return (
     <>
@@ -35,16 +37,16 @@ const MapWindow = forwardRef((props: any, ref) => {
           <div className="logo">
             <Image src="/graphics/logo-grf.svg" height={64} width={64} />
           </div>
-          <Text_Title className="title">MAPA</Text_Title>
-
+          <Text_Title className="title">{MapText.title}</Text_Title>
           <ArrowsButton />
           <CloseButton />
         </Header>
         <BottomLine />
         <SubHeader>
-          <Text_Subtitle>Getaldićeva 2</Text_Subtitle>
+          <Text_Subtitle>{MapText.subtitle}</Text_Subtitle>
         </SubHeader>
       </MainWindowCSS>
+
       <MapContent>
         <Map />
       </MapContent>

@@ -27,6 +27,8 @@ import Gallery from "components/Gallery/Gallery";
 import { BottomLine } from "components/Window/BottomLine.styled";
 import { ArrowsButton, CloseButton } from "components/Window/Buttons";
 
+import { GalleryText } from "content/texts";
+
 const GalleryWindow = forwardRef((props: any, ref) => {
   return (
     <>
@@ -35,7 +37,7 @@ const GalleryWindow = forwardRef((props: any, ref) => {
           <div className="logo">
             <Image src="/graphics/logo-grf.svg" height={64} width={64} />
           </div>
-          <Text_Title className="title">O STUDENTIMA</Text_Title>
+          <Text_Title className="title">{GalleryText.title}</Text_Title>
 
           <ArrowsButton />
           <CloseButton />
@@ -44,7 +46,7 @@ const GalleryWindow = forwardRef((props: any, ref) => {
         <BottomLine />
 
         <SubHeader>
-          <Text_Subtitle>galerija</Text_Subtitle>
+          <Text_Subtitle>{GalleryText.subtitle}</Text_Subtitle>
         </SubHeader>
       </MainWindowCSS>
 
