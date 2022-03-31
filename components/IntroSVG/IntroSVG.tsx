@@ -32,24 +32,6 @@ function IntroSVG() {
     <Rect5 key="rect-5" />,
   ];
 
-  // const springs = useSprings(
-  //   rects.length,
-  //   (index) => (
-  //     {
-  //       from: { x: 0, y: 0, opacity: 1 },
-  //       to: { x: 1, y: 3, opacity: 0.8 },
-
-  //       // as we map over the envelopes, increase the delay
-  //       // first envelope -> delay: 0ms
-  //       // second envelope -> delay: 100ms
-  //       // etc.
-  //       delay: 100 + index * 10 /*i * 100*/,
-  //       config: { ...config.gentle, duration: 300 },
-  //       loop: { reverse: true },
-  //     },
-  //     { ref: rectsSpringRef }
-  //   ),
-  // );
   const rectTransitions = useTransition(rects, {
     from: { opacity: 0, x: 50, y: 50 },
     enter: { opacity: 0.9, x: 0, y: 0 },
@@ -60,8 +42,8 @@ function IntroSVG() {
     ref: rectsTransitionRef,
   });
 
-  const stylesRects = (i: number) =>
-    useSpring({
+  const MovingRects = ({ index }: { index: number }) => {
+    const styleRect = useSpring({
       from: { transform: "translate3d(0px, -2px, 0px)", opacity: 1 },
       to: { transform: "translate3d(0px, 1px,  0px)", opacity: 0.95 },
 
@@ -69,23 +51,28 @@ function IntroSVG() {
       // first envelope -> delay: 0ms
       // second envelope -> delay: 100ms
       // etc.
-      delay: 100 + i * 10,
+      delay: 100 + index * 10,
       config: { ...config.wobbly, duration: 400 },
       loop: { reverse: true },
       ref: rectsSpringRef,
     });
 
-  const movingRects = (i: any) => (
-    <animated.g
-      style={stylesRects(i)} // apply the animated style
-    >
-      {rects[i]}
-    </animated.g>
-  );
+    return (
+      <animated.g
+        style={styleRect} // apply the animated style
+      >
+        {rects[index]}
+      </animated.g>
+    );
+  };
 
   const animatedRects = rectTransitions(
     (styles, item, _, i) =>
-      item && <animated.g style={styles}>{movingRects(i)}</animated.g>,
+      item && (
+        <animated.g style={styles}>
+          <MovingRects index={i} />
+        </animated.g>
+      ),
   );
   ////
 
