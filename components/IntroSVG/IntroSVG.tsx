@@ -1,0 +1,163 @@
+import {
+  animated,
+  config,
+  useChain,
+  useSpring,
+  useSpringRef,
+  useSprings,
+  useTransition,
+} from "@react-spring/web";
+import {
+  Circle,
+  CircleShadow,
+  Rect1,
+  Rect2,
+  Rect3,
+  Rect4,
+  Rect5,
+  Shape,
+} from "components/IntroSVG/IntroElements";
+import React, { useEffect, useState } from "react";
+
+function IntroSVG() {
+  //const [show, setShow] = useState(true);
+  const rectsSpringRef = useSpringRef();
+  const rectsTransitionRef = useSpringRef();
+
+  const rects = [
+    <Rect1 key="rect-1" />,
+    <Rect2 key="rect-2" />,
+    <Rect3 key="rect-3" />,
+    <Rect4 key="rect-4" />,
+    <Rect5 key="rect-5" />,
+  ];
+
+  // const springs = useSprings(
+  //   rects.length,
+  //   (index) => (
+  //     {
+  //       from: { x: 0, y: 0, opacity: 1 },
+  //       to: { x: 1, y: 3, opacity: 0.8 },
+
+  //       // as we map over the envelopes, increase the delay
+  //       // first envelope -> delay: 0ms
+  //       // second envelope -> delay: 100ms
+  //       // etc.
+  //       delay: 100 + index * 10 /*i * 100*/,
+  //       config: { ...config.gentle, duration: 300 },
+  //       loop: { reverse: true },
+  //     },
+  //     { ref: rectsSpringRef }
+  //   ),
+  // );
+  const rectTransitions = useTransition(rects, {
+    from: { opacity: 0, x: 50, y: 50 },
+    enter: { opacity: 0.9, x: 0, y: 0 },
+    leave: { opacity: 0 },
+    trail: 1000 / rects.length,
+    delay: 1600,
+    config: { ...config.gentle, duration: 400 },
+    ref: rectsTransitionRef,
+  });
+
+  const stylesRects = (i: number) =>
+    useSpring({
+      from: { transform: "translate3d(0px, -2px, 0px)", opacity: 1 },
+      to: { transform: "translate3d(0px, 1px,  0px)", opacity: 0.95 },
+
+      // as we map over the envelopes, increase the delay
+      // first envelope -> delay: 0ms
+      // second envelope -> delay: 100ms
+      // etc.
+      delay: 100 + i * 10,
+      config: { ...config.wobbly, duration: 400 },
+      loop: { reverse: true },
+      ref: rectsSpringRef,
+    });
+
+  const movingRects = (i: any) => (
+    <animated.g
+      style={stylesRects(i)} // apply the animated style
+    >
+      {rects[i]}
+    </animated.g>
+  );
+
+  const animatedRects = rectTransitions(
+    (styles, item, _, i) =>
+      item && <animated.g style={styles}>{movingRects(i)}</animated.g>,
+  );
+  ////
+
+  //
+  const animatedCircle = useSpring({
+    from: { strokeDasharray: 1000, opacity: 0 },
+    to: [{ strokeDasharray: 500, opacity: 1 }, { opacity: 1 }],
+    //delay: 0,
+    config: { duration: 1500 },
+  });
+  const circle = (
+    <animated.g style={{ ...animatedCircle }}>
+      <Circle />
+    </animated.g>
+  );
+
+  const circleShadowTransitions = useTransition(true, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    delay: 1500,
+    config: { ...config.gentle, duration: 200 },
+  });
+  const circleShadow = circleShadowTransitions((styles) => (
+    <animated.g style={styles}>
+      <CircleShadow />
+    </animated.g>
+  ));
+
+  ////
+  useChain([rectsTransitionRef, rectsSpringRef], [0, 0]);
+  //
+  const shapeTransitions = useTransition(true, {
+    from: { opacity: 0, y: 5 },
+    enter: { opacity: 1, y: 0 },
+    leave: { opacity: 0 },
+    delay: 1500,
+    config: { ...config.gentle, duration: 400 },
+  });
+  const shape = shapeTransitions((styles) => (
+    <animated.g style={styles}>
+      <Shape />
+    </animated.g>
+  ));
+
+  ////
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 147.6 164.4"
+    >
+      <g style={{ isolation: "isolate" }}>
+        {animatedRects}
+        {shape}
+        <text
+          fill="#fff"
+          fontFamily="Yantramanav-Thin, Yantramanav"
+          fontSize="45.75"
+          fontWeight="200"
+          letterSpacing="-.06em"
+          transform="translate(32.92 89.82)"
+        >
+          HIRO
+        </text>
+        <g opacity="1" data-name="krug">
+          {circleShadow}
+          {circle}
+        </g>
+      </g>
+    </svg>
+  );
+}
+
+export default IntroSVG;
