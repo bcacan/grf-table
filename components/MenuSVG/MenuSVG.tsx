@@ -604,7 +604,7 @@ function MenuSVG() {
           </g>
         </g>
 
-        <g id="TEXT">
+        <g id="TEXT" style={{ transform: "scale(2.8) translate(66px, 65px)" }}>
           <text className="cls-12" transform="translate(45.89 126.96) rotate(-78.83)">
             O
           </text>
