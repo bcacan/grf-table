@@ -151,7 +151,8 @@ function IntroSVG() {
 function IntroLogo() {
   return (
     <div style={{ width: "35%" }}>
-      <IntroSVG />
+      {/* <IntroSVG /> */}
+      <img src="/graphics/izlozba/Logo_stol.svg" />
     </div>
   );
 }

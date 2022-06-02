@@ -9,6 +9,7 @@ const photos: Photo[] = [
     width: 900,
     height: 550,
     key: "1",
+    title: "test ... . . . .. test. . .. . ..",
   },
   {
     src: "https://picsum.photos/800/900",
@@ -39,6 +40,7 @@ const photos: Photo[] = [
     width: 650,
     height: 1300,
     key: "6",
+    title: "test ... . . . .. test. . .. . ..",
   },
 ];
 
@@ -67,7 +69,7 @@ export default Gallery;
 const OpenImage = ({ img, closeImg }: any) => {
   //if (!img) return null;
 
-  const { src, width, height } = img;
+  const { src, width, height, title } = img;
   return (
     <>
       <Image
@@ -76,7 +78,7 @@ const OpenImage = ({ img, closeImg }: any) => {
         /*width={width}  height={height}*/
         objectFit="contain"
       />
-
+      <b>{title}</b>
       <BackButton closeImg={closeImg} />
     </>
   );
