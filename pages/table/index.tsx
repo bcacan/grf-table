@@ -9,6 +9,7 @@ import { useOnIdle } from "hooks/idleTimerHooks";
 import Screensaver from "components/Overlays/Screensaver";
 import IntroScreen from "components/Overlays/IntroScreen";
 import EdgeText from "components/Overlays/EdgeText";
+import AnimBackground from "components/Overlays/AnimBackground";
 
 const Table: NextPage = () => {
   //Screensaver
@@ -183,17 +184,10 @@ const Table: NextPage = () => {
         />
       </Head>
 
-      <div
-        style={{
-          background: "radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%)",
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          inset: "0",
-        }}
-      ></div>
-      <LandingScreen />
+      <AnimBackground />
       <EdgeText />
+      <LandingScreen />
+
       <IntroScreen show={showSS} />
     </React.StrictMode>
   );

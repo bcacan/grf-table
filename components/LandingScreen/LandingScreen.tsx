@@ -83,7 +83,6 @@ export default function LandingScreen() {
 
   return (
     <LandingScreenCSS>
-      <AnimBackground />
       <div className="LandingScreen" onTouchStart={pushToArr}></div>
       {listArr}
 
