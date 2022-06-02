@@ -58,3 +58,13 @@ export const Text_Description = styled.span`
   font-size: 20px;
   line-height: 23px;
 `;
+
+export const Text_Fixed = styled.span`
+  z-index: 1;
+  position: fixed;
+
+  font-family: "Yantramanav";
+  font-style: medium;
+  font-weight: 500;
+  font-size: 50px;
+`;

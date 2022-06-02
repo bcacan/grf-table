@@ -8,6 +8,7 @@ import LandingScreen from "components/LandingScreen/LandingScreen";
 import { useOnIdle } from "hooks/idleTimerHooks";
 import Screensaver from "components/Overlays/Screensaver";
 import IntroScreen from "components/Overlays/IntroScreen";
+import EdgeText from "components/Overlays/EdgeText";
 
 const Table: NextPage = () => {
   //Screensaver
@@ -192,6 +193,7 @@ const Table: NextPage = () => {
         }}
       ></div>
       <LandingScreen />
+      <EdgeText />
       <IntroScreen show={showSS} />
     </React.StrictMode>
   );
