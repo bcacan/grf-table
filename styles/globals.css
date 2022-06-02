@@ -29,6 +29,14 @@
   font-weight: bold;
   font-display: swap;
 }
+
+@font-face {
+  font-family: "Yantramanav";
+  src: url("https://fonts.googleapis.com/css2?family=Yantramanav:wght@500&display=swap");
+  font-style: medium;
+  font-display: swap;
+}
+
 html {
   overflow: hidden;
 }
@@ -45,8 +53,8 @@ body {
   touch-action: none;
   user-select: none;
 
-  width: 95vw;
-  height: 95vh;
+  /* width: 95vw;
+  height: 95vh; */
   /*background: linear-gradient(180deg, #ff008c 0%, rgb(211, 9, 225) 100%);*/
 
   overflow: hidden;
@@ -73,6 +81,6 @@ a {
   box-sizing: border-box;
 }
 
-img {
-  /* pointer-events: none; */
-}
+/* img {
+   pointer-events: none; 
+} */

@@ -171,7 +171,7 @@ export const Footer = styled.footer`
   bottom: 0;
   width: 80%;
 
-  margin-bottom: 4%;
+  margin-bottom: 2.5%;
 
   display: grid;
   grid-template-columns: 0.15fr auto 0.5fr;
