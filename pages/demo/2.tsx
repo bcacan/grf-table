@@ -1,6 +1,6 @@
 //@ts-nocheck
 import MenuSVG from "components/MenuSVG/MenuSVG";
-import Screensaver from "components/Screensaver/Screensaver";
+import Screensaver from "components/Overlays/Screensaver";
 import { useOnIdle } from "hooks/idleTimerHooks";
 import React, { useState } from "react";
 

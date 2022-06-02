@@ -1,5 +1,5 @@
 import { config, useTransition } from "@react-spring/web";
-import { ScreensaverCSS } from "components/Screensaver/Screensaver.styled";
+import { ScreensaverCSS } from "components/Overlays/Screensaver.styled";
 
 function Screensaver({ show }: { show: boolean }) {
   const transitions = useTransition(show, {

@@ -6,7 +6,7 @@ import Image from "next/image";
 import styles from "styles/Home.module.css";
 import LandingScreen from "components/LandingScreen/LandingScreen";
 import { useOnIdle } from "hooks/idleTimerHooks";
-import Screensaver from "components/Screensaver/Screensaver";
+import Screensaver from "components/Overlays/Screensaver";
 
 const Table: NextPage = () => {
   // //Screensaver

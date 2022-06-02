@@ -1,4 +1,4 @@
-import { AnimBackgroundCSS, Snake } from "components/Screensaver/AnimBackground.styled";
+import { AnimBackgroundCSS, Snake } from "components/Overlays/AnimBackground.styled";
 
 export default function AnimBackground() {
   return (

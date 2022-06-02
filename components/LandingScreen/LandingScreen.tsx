@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 
 import Container from "components/Container";
 import Message from "components/Message/Message";
-import AnimBackground from "components/Screensaver/AnimBackground";
+import AnimBackground from "components/Overlays/AnimBackground";
 
 import { LandingScreenCSS } from "components/LandingScreen/LandingScreen.styled";
 import { Text_Description } from "styles/texts";
 
-import { Messages } from "content/texts"
+import { Messages } from "content/texts";
 
 const MENU_LIMIT = 6;
 
@@ -88,7 +88,9 @@ export default function LandingScreen() {
       {listArr}
 
       <Message trigger={limitMessage} variant="menus-limit">
-        <Text_Description>{Messages.menuLimit} {MENU_LIMIT}</Text_Description>
+        <Text_Description>
+          {Messages.menuLimit} {MENU_LIMIT}
+        </Text_Description>
       </Message>
     </LandingScreenCSS>
   );
