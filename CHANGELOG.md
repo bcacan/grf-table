@@ -1,6 +1,18 @@
 # Changelog
 
-## [0.9.2] - xxxxxx
+## [0.9.3] - 2022-6-2
+
+### Added
+
+- Intro screen + logo
+
+### Removed
+
+- Snake-line homescreen animation
+
+#
+
+## [0.9.2] - 2022-3-18
 
 ### Fixed
 
