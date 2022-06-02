@@ -25,7 +25,7 @@ export default function AnimBackground() {
         <span></span>
         <span></span>
       </div>
-      <Snake />
+      {/* <Snake /> */}
     </AnimBackgroundCSS>
   );
 }
