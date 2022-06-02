@@ -22,19 +22,19 @@ const Table: NextPage = () => {
 
   useOnIdle({
     debounce: 500,
-    idleTimeout: 30000,
+    idleTimeout: 300000,
     onIdle: /*showScreensaver*/ () => {
       window.location.reload();
     },
     onAction: hideScreensaver,
     events: [
-      "mousemove",
+      //"mousemove",
       "keydown",
       "wheel",
       "DOMMouseScroll",
       "mouseWheel",
       "mousedown",
-      "visibilitychange",
+      //"visibilitychange",
       "touchmove",
     ],
   });
