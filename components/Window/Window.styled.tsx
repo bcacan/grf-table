@@ -174,7 +174,7 @@ export const Footer = styled.footer`
   margin-bottom: 4%;
 
   display: grid;
-  grid-template-columns: 0.1fr auto 0.5fr;
+  grid-template-columns: 0.15fr auto 0.5fr;
   //grid-template-rows: 1fr 0.5fr;
   gap: 0 2em;
   grid-auto-flow: row;
