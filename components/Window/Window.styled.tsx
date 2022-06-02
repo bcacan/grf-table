@@ -129,7 +129,7 @@ export const InfoContent = styled(ScrollBar)`
   top: ${(props) => props.theme.const.info_content_smallTop};
   right: 8em;
 
-  border: 1px solid ${(props) => props.theme.colors.contentBorder};
+  //border: 1px solid ${(props) => props.theme.colors.contentBorder};
 `;
 
 export const GalleryContent = styled(ScrollBar)`
@@ -171,7 +171,7 @@ export const Footer = styled.footer`
   bottom: 0;
   width: 80%;
 
-  margin-bottom: 2.5%;
+  margin-bottom: 3%;
 
   display: grid;
   grid-template-columns: 0.15fr auto 0.5fr;

@@ -52,11 +52,13 @@ export const Text_Body2 = styled.span`
 
 export const Text_Description = styled.span`
   /* Opisni tekst */
-  font-family: Avenir Next Condensed;
+  font-family: "Avenir Next Condensed";
   font-style: normal;
   //font-weight: 500;
   font-size: 20px;
-  line-height: 23px;
+  line-height: 27px;
+
+  letter-spacing: 0.01em;
 `;
 
 export const Text_Fixed = styled.span`
@@ -67,4 +69,25 @@ export const Text_Fixed = styled.span`
   font-style: medium;
   font-weight: 500;
   font-size: 50px;
+`;
+
+export const Text_Pitanja = styled.span`
+  font-family: "Aquire";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 35px;
+  letter-spacing: 0.035em;
+
+  text-transform: uppercase;
+`;
+
+export const Text_Citat = styled.span`
+  font-family: "Big Shoulders Inline Display", cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 43px;
+  letter-spacing: 0.035em;
+  opacity: 0.7;
 `;

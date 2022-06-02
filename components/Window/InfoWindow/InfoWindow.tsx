@@ -8,6 +8,7 @@ import {
   Text_Description,
   Text_Subtitle,
   Text_Subtitle2,
+  Text_Pitanja,
 } from "styles/texts";
 
 import {
@@ -32,7 +33,7 @@ import { theme } from "styles/theme";
 import { InfoText } from "content/texts";
 
 const InfoWindow = forwardRef((props: any, ref) => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
   const [tab, setTab] = useState(1);
 
   const [pageContent, setPageContent] = useState(<></>);
@@ -98,7 +99,7 @@ const InfoWindow = forwardRef((props: any, ref) => {
         </Header>
         <BottomLine />
 
-        <PageMenu>
+        {/* <PageMenu>
           <nav>
             <a onTouchStart={(e) => setPage(1)}>
               <Text_Subtitle className={`page-label-1 ${page == 1 && "active-page"}`}>
@@ -130,7 +131,7 @@ const InfoWindow = forwardRef((props: any, ref) => {
               </>
             )}
           </nav>
-        </PageMenu>
+        </PageMenu> */}
 
         <Footer>
           <div className="logo">
@@ -200,137 +201,112 @@ const InfoContentUpisi = () => {
 const PreddiplomskiTab = () => {
   return (
     <>
-      <div style={{ width: "70%" }}>
-        <video
-          width="640"
-          height="352"
-          //controls
-          autoPlay
-          loop
-        >
-          <source src="/video1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-
-        <br />
-
-        <video
-          width="640"
-          height="352"
-          //controls
-          autoPlay
-          loop
-        >
-          <source src="/video2.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-
-        <video
-          width="800"
-          height="600"
-          //controls
-          autoPlay
-          loop
-        >
-          <source src="/video3.mov" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+      <span style={{ position: "absolute", top: "0.5em", left: "2em" }}>
+        <Image src="/graphics/izlozba/holo1.png" width={175} height={97} />
+      </span>
+      <span style={{ position: "absolute", top: "8em", left: "17em" }}>
+        <Image src="/graphics/izlozba/holo2.png" width={275} height={156} />
+      </span>
+      <span style={{ position: "absolute", top: "2em", left: "38em" }}>
+        <Image src="/graphics/izlozba/holo3.gif" width={382} height={215} />
+      </span>
+      <span style={{ position: "absolute", top: "13em", left: "0" }}>
+        <Image src="/graphics/izlozba/holo4.png" width={186} height={124} />
+      </span>
+      <span style={{ position: "absolute", top: "35em", left: "0" }}>
+        <Image src="/graphics/izlozba/holo5.gif" width={350} height={150} />
+      </span>
+      <span style={{ position: "absolute", top: "28em", left: "25em" }}>
+        <Image src="/graphics/izlozba/holo6.png" width={302} height={170} />
+      </span>
+      <span style={{ position: "absolute", top: "35em", left: "47em" }}>
+        <Image src="/graphics/izlozba/holo7.png" width={277} height={156} />
+      </span>
+      <br />
+      <br />
+      <br /> <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <span style={{ color: theme.colors.cyan, display: "grid", placeItems: "center" }}>
+        <Text_Pitanja>jesu li hologrami stvarni?</Text_Pitanja>
+      </span>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <TwoColumns>
         <div>
           <Text_Description>
             <p>
-              Na preddiplomskom Studiju grafičke tehnologije studenti imaju mogućnost
-              izbora između
-            </p>
-            <ul>
-              <li>Tehničko-tehnološkog smjera i </li>
-              <li>smjera Dizajn grafičkih proizvoda.</li>
-            </ul>
-            <p>
-              Studenti tehničko-tehnološkog smjera stjecanjem osnovnih i, za grafičku
-              tehnologiju specifičnih, znanja i vještina iz područja matematike, fizike,
-              kemije i računalno-informacijske tehnologije usvajaju temelje za
-              razumijevanje tehničko-tehnološkoga lanca stvaranja grafičkoga proizvoda.
-              <br /> Specifična znanja i vještine studenti stječu kroz teme koje čine
-              jezgru programa: materijali u grafičkoj proizvodnji, tiskovne forme,
-              reprodukcijska fotografija, tipografija, tisak, knjigoveštvo, ambalaža,
-              organizacija grafičke proizvodnje, multimedijske komunikacije, marketing i
-              kontrola kvalitete.
+              <b>HoloGRF</b> grupa
+              <b> studenata i profesora Grafičkog fakulteta u Zagrebu</b> nastala je kao
+              inicijativa u svrhu <b>edukacije i promidžbe holografije</b> kao znanosti.
+              Hologrami su nas oduševljavali i prikazivali nešto novo i zanimljivo te smo
+              htjeli to podijeliti s drugima na zabavan način i započeti tradiciju koja će
+              se nadamo se nastaviti i sa sljedećim generacijama.
             </p>
             <p>
-              Uz svladavanje osnovnih tema iz navedenih područja, studenti smjera Dizajn
-              grafičkih proizvoda stječu temeljna znanja i vještine iz područja
-              likovno-grafičke kulture, teorije oblika, likovne prakse, originalne
-              grafike, fotografije, komunikologije i vizualnih komunikacija. Iskazivanjem
-              sposobnosti korištenja navedenih znanja i vještina te osobnih i drugih
-              metodoloških sposobnosti u situacijama rada i učenja, studenti koji završe
-              preddiplomski Studij grafičke tehnologije stječu kompetencije:
+              Jedna od zanimljivosti je da hologrami za koje ste do sada znali i vidjeli u
+              filmovima <b>nisu pravi</b>. Uglavnom se radi o projekcijama i specijalnim
+              efektima. Ali bez brige, <b>hologrami ipak postoje</b>! Na našoj izložbi
+              tako možete vidjeti dvije vrste holograma –
+              <b>refleksijski i transmisijski</b>.
             </p>
-            <ul>
-              <li>
-                upravljanja složenim tehnološkim ili stručnim aktivnostima projekata,
-              </li>
-              <li>preuzimanja odgovornosti za donošenje odluka u realnom okruženju </li>
-              <li>rada ili učenja i </li>
-              <li>preuzimanja odgovornosti za profesionalno upravljanje.</li>
-            </ul>
-            Integracijom teorijskih znanja i praktičnih vještina studenti stječu
-            kompetencije za rješavanje problema u području grafičkog inženjerstva i
-            grafičke struke. Konkretni stupanj kompetencije iz pojedinog od navedenih
-            područja ovisi o odabranom smjeru te izbornim kolegijima koje je student
-            položio tijekom studija. Na ovoj razini studenti koji su završili
-            preddiplomski Studij grafičke tehnologije na Grafičkom fakultetu stječu
-            <br />- opće kompetencije iz:
-            <ul>
-              <li>
-                rješavanja problema korištenjem matematičkih operacija i logičnog
-                razmišljanja
-              </li>
-              <li> profesionalne komunikacije na hrvatskom jeziku</li>
-              <li> profesionalne komunikacije na stranom jezik</li>
-              <li>upravljanja vlastitim učenjem i usavršavanjem </li>
-              <li>korištenja informacijske i komunikacijske tehnologije </li>
-              <li>
-                poduzetnosti i inovativnosti, konstruktivnog i učinkovitog djelovanja u
-                društvu i participacije u građanskom životu
-              </li>
-            </ul>
-            - specifične kompetencije iz područja:
-            <ul>
-              <li>
-                grafičke pripreme, tiska, grafičke dorade, multimedijske tehnologije i
-                dizajniranja grafičkih proizvoda i medija grafičke komunikacije
-              </li>
-            </ul>
+            <p>
+              Refleksijski hologrami formiraju sliku
+              <b> reflektiranjem zrake svjetlosti od površine holograma</b>. Sastoji se od
+              redova sićušnih paralelnih ogrebotina koje se ponašaju kao
+              <b> raspršujuće reflektirajuće linije</b>. Ako se promijeni kut između
+              promatrača i površine, te ogrebotine stvaraju
+              <b> obrasce reflektirane svjetlosti</b> koja se čini kao da se predmet kreće
+              preko površine.
+            </p>
           </Text_Description>
+          <br />
+          <Image src="/graphics/izlozba/tekst1.png" width={467} height={325} />
         </div>
         <div>
+          <br />
+          <Image src="/graphics/izlozba/tekst2.png" width={467} height={314} />
           <Text_Description>
             <p>
-              Osobe koje su završile preddiplomski Studij grafičke tehnologije
-              osposobljene su za samostalan rad u grafičkoj industriji te u različitim
-              segmentima na nju vezanih djelatnosti. Stečene im kompetencije omogućuju
-              samostalno vođenje grafičke proizvodnje, tj. bilo kojeg pogona tiskare
-              (pripreme, tiska ili dorade) te obavljanje poslova vezanih uz dizajn
-              suvremenih medija grafičkih komunikacija, nakladništvo, ambalažu, grafički
-              menadžment, industriju papira te niza zanimanja vezanih uz multimediju.
-            </p>
-            <p>
-              Preddiplomski sveučilišni studij grafičke tehnologije izvodi se u trajanju
-              od šest semestra ( 180 ects bodova) čijim se završetkom stječe titula
-              Sveučilišni prvostupnik/prvostupnica (baccalaureus/baccalaurea)
-              inženjer/inženjerka grafičke tehnologije.
-            </p>
-            <p>
-              Nakon završetka sveučilišnoga preddiplomskog Studija grafičke tehnologije
-              student stječe pravo upisa na sveučilišni diplomski Studij grafičke
-              tehnologije na Grafičkom fakultetu. Uvjete za upis na druge studijske
-              programe određuju te institucije.
+              Transmisijski hologram formira sliku
+              <b> prolaskom svjetlosti kroz optičku rešetku</b> (mrežu transparentnih i
+              netransparentnih dijelova). Svojstvima
+              <b> interferencije i difrakcije</b> holoplakat tvori
+              <b> sliku na 2D/3D zaslonu</b>. Pripremu za tisak holoplakata generira
+              program koji je razvijen od strane stručnjaka na Grafičkom fakultetu.
             </p>
           </Text_Description>
-          <br /> <br /> <br /> <br /> <br /> <br />
-          <Image src="/graphics/studenti.png" width={465} height={349} />
+          <br />
+          <Image src="/graphics/izlozba/tekst3.png" width={467} height={353} />
         </div>
       </TwoColumns>
     </>
