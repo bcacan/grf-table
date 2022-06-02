@@ -8,6 +8,8 @@ import {
   Text_Description,
   Text_Subtitle,
   Text_Subtitle2,
+  Text_Pitanja,
+  Text_Citat,
 } from "styles/texts";
 
 import {
@@ -22,36 +24,197 @@ import {
   MenuLines,
   MapContent,
   SubHeader,
+  InfoContent,
 } from "components/Window/Window.styled";
 import Map from "./Map";
 import { BottomLine } from "components/Window/BottomLine.styled";
 import { ArrowsButton, CloseButton } from "components/Window/Buttons";
 
-import { MapText } from "content/texts";
+import { InfoText, MapText } from "content/texts";
+import { config, useSpring } from "@react-spring/web";
+import { theme } from "styles/theme";
 
 const MapWindow = forwardRef((props: any, ref) => {
+  const [winStyle, winStyleApi] = useSpring(() => ({
+    height: theme.const.window_largeHeight,
+    config: config.gentle,
+  }));
+
+  const [contentStyle, contentStyleApi] = useSpring(() => ({
+    height: theme.const.info_content_largeHeight,
+    top: theme.const.info_content_largeTop,
+    config: config.default,
+  }));
+
   return (
     <>
-      <MainWindowCSS ref={ref}>
+      <MainWindowCSS ref={ref} style={winStyle}>
         <Header>
           <div className="logo">
             <Image src="/graphics/logo-grf.svg" height={64} width={64} />
           </div>
           <Text_Title className="title">{MapText.title}</Text_Title>
+
           <ArrowsButton />
           <CloseButton />
         </Header>
         <BottomLine />
-        <SubHeader>
-          <Text_Subtitle>{MapText.subtitle}</Text_Subtitle>
-        </SubHeader>
+        <Footer>
+          <div className="logo">
+            <Image src="/graphics/izlozba/qr-instagram.svg" height={150} width={150} />
+          </div>
+          <Text_Body2 className="text">{InfoText.footer_qr}</Text_Body2>
+          <Text_Body className="text2">{InfoText.footer_title}</Text_Body>
+        </Footer>
       </MainWindowCSS>
 
-      <MapContent>
-        <Map />
-      </MapContent>
+      <InfoContent style={contentStyle}>
+        <InfoContentAutori />
+      </InfoContent>
     </>
   );
 });
 MapWindow.displayName = "MapWindow";
 export default MapWindow;
+
+const InfoContentAutori = () => {
+  return (
+    <>
+      <span style={{ display: "grid", placeItems: "center" }}>
+        <Image src="/graphics/izlozba/hologram.png" width={684} height={636} />
+      </span>
+      <br />
+      <Text_Pitanja style={{ position: "absolute", top: "6em", left: "2em" }}>
+        tko su studenti iza holograma?
+      </Text_Pitanja>
+      <Text_Citat
+        style={{ position: "absolute", top: "16em", left: "3em", width: "80%" }}
+      >
+        “Memories are like holograms: you recreate in your head the whole image of
+        something which isn’t there.” ~Dr. Richard Bandler
+      </Text_Citat>
+      <br /> <br /> <br /> <br /> <br />
+      <br />
+      <br />
+      <TwoColumns>
+        <div>
+          <Image src="/graphics/izlozba/tekst4.png" width={467} height={443} />
+          <br />
+          <br />
+          <br />
+          <Text_Description>
+            <Text_Subtitle2>Mihaela Galaš</Text_Subtitle2>, studentica Grafičkog fakulteta
+            u Zagrebu, smjer Multimedij.
+            <p>
+              <i>
+                “Holografija mi je bio predmet na fakultetu i nisam znala što očekivati,
+                ali kad sam vidjela prve holograme željela sam više naučiti o tome.
+                Također Holografija je bila nešto potpuno različito od stvari koje smo
+                učili do sad na fakultetu. Između ostalog moji interesi su dizajn mobilnih
+                i web aplikacija i PR te bih se u tom smjeru htjela nastaviti razvijati.”
+              </i>
+            </p>
+            <br />
+            <br />
+            <Text_Subtitle2>Ivona Jurišić</Text_Subtitle2>, studentica Grafičkog fakulteta
+            u Zagrebu, smjer Multimedij.
+            <p>
+              <i>
+                “Holografija kao kolegij na fakultetu me jako privukla u otkrivanje nečeg
+                novog, drugačijeg i nepoznatog. Jako sam zainteresirana baviti se
+                zaštitnim tiskom i grafikom, a proučavanje holograma, koji su jedan od
+                zaštitnih elemenata u tisku, upotpunili su moje znanje.”
+              </i>
+            </p>
+            <br />
+            <br />
+            <Text_Subtitle2>Lucija Pavlović</Text_Subtitle2>, studentica Grafičkog
+            fakulteta u Zagrebu, smjer Multimedij.
+            <p>
+              <i>
+                “Počela sam se baviti holografijom jer su mi hologrami na prvu bili nešto
+                potpuno novo i drugačije, a kad ih jednom krenete izrađivati sve ste više
+                oduševljeni njihovim mogućnostima. Osim holografije, moji interesi su 3D
+                modeliranje, animacija i dizajn aplikacija te bih voljela izgraditi
+                karijeru u tim granama struke.”
+              </i>
+            </p>
+            <br />
+            <br />
+            <Text_Subtitle2>Filip Macan</Text_Subtitle2>, student Grafičkog fakulteta u
+            Zagrebu, smjer Tehničko-tehnološki.
+            <p>
+              <i>
+                “O hologramima najduže vremena nisam puno znao, ali oduvijek me je
+                interakcija holograma i promatrača jako intrigirala. Nadam se da će i vas
+                ova naša izložba uvući u čudesni svijet holografije.”
+              </i>
+            </p>
+          </Text_Description>
+        </div>
+        <div>
+          <br />
+          <Text_Description>
+            <Text_Subtitle2>Tara Vagner</Text_Subtitle2>, studentica Grafičkog fakulteta u
+            Zagrebu, smjer Multimedij.
+            <p>
+              <i>
+                “Iako je meni holografija prestavljala dosta apstraktan pojam, kao predmet
+                na fakultetu bila je učenje nečega sasvim novoga. Najviše me je oduševilo
+                to da pravi hologrami zapravo nisu ono što sam ja mislila da jesu. Iako je
+                holografija jedan od mojih interesa, najveća želja mi je biti profesorica,
+                kako bi druge ljude mogla podučavati grafičkoj struci i pokazati im koliko
+                je ona zanimljiva i raznolika.”
+              </i>
+            </p>
+            <br />
+            <br />
+            <Text_Subtitle2>Jelena Katarina Milićević</Text_Subtitle2>, studentica
+            Grafičkog fakulteta u Zagrebu, smjer Multimedij.
+            <p>
+              <i>
+                “Holografija mi je predstavlja nešto apstraktno i zapravo nisam znala što
+                me čeka na tom kolegiju. Kada sam malo dublje ušla u to, jako mi se
+                svidjelo te sam htjela sudjelovati u izložbi. Osim holografije, moji
+                interesi uključuju 3D, animaciju, dizajn igrica te UX/UI dizajn.”
+              </i>
+            </p>
+          </Text_Description>{" "}
+          <br />
+          <Image
+            src="/graphics/izlozba/tekst5.png"
+            width={469}
+            height={397}
+          /> <br /> <br /> <br />
+          <Text_Description>
+            <Text_Subtitle2>Jana Jambrešić</Text_Subtitle2>, studentica Grafičkog
+            fakulteta u Zagrebu, smjer Multimedij.
+            <p>
+              <i>
+                “Odlučila sam se baviti holografijom te sudjelovati u izložbi jer većina
+                ljudi ne zna što je to hologram i holografija, a kroz izložbu koja je
+                edukativna i nije nešto što se viđa svaki dan možemo prenjeti svoje znanje
+                drugima. Između ostalog moji interesi su UX/UI dizajn te bih se u tom
+                smjeru htjela nastaviti razvijati.”
+              </i>
+            </p>
+            <br />
+            <br />
+            <Text_Subtitle2>Marija Puzjak</Text_Subtitle2>, studentica Grafičkog fakulteta
+            u Zagrebu, smjer Multimedij.
+            <p>
+              <i>
+                “Svatko od nas ima različito razmišljanje kada čuje riječ hologram i
+                drugačije si to može predočiti. Moja prva pomisao bili su filmovi.
+                Međutim, kada smo krenuli s učenjem holografije na fakultetu, moj pogled
+                na to područje se promijenio, a možda će se i vama. Holografija mi je
+                postala jedna od dražih područja interesa, a uz to mojim interesima nema
+                kraja.”
+              </i>
+            </p>
+          </Text_Description>
+        </div>
+      </TwoColumns>
+    </>
+  );
+};
