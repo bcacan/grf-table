@@ -134,7 +134,7 @@ const InfoWindow = forwardRef((props: any, ref) => {
 
         <Footer>
           <div className="logo">
-            <Image src="/graphics/qr-code.svg" height={84} width={84} />
+            <Image src="/graphics/izlozba/qr-instagram.svg" height={150} width={150} />
           </div>
           <Text_Body2 className="text">{InfoText.footer_qr}</Text_Body2>
           <Text_Body className="text2">{InfoText.footer_title}</Text_Body>
@@ -199,100 +199,141 @@ const InfoContentUpisi = () => {
 ////
 const PreddiplomskiTab = () => {
   return (
-    <TwoColumns>
-      <div>
-        <Text_Description>
-          <p>
-            Na preddiplomskom Studiju grafičke tehnologije studenti imaju mogućnost izbora
-            između
-          </p>
-          <ul>
-            <li>Tehničko-tehnološkog smjera i </li>
-            <li>smjera Dizajn grafičkih proizvoda.</li>
-          </ul>
-          <p>
-            Studenti tehničko-tehnološkog smjera stjecanjem osnovnih i, za grafičku
-            tehnologiju specifičnih, znanja i vještina iz područja matematike, fizike,
-            kemije i računalno-informacijske tehnologije usvajaju temelje za razumijevanje
-            tehničko-tehnološkoga lanca stvaranja grafičkoga proizvoda.
-            <br /> Specifična znanja i vještine studenti stječu kroz teme koje čine jezgru
-            programa: materijali u grafičkoj proizvodnji, tiskovne forme, reprodukcijska
-            fotografija, tipografija, tisak, knjigoveštvo, ambalaža, organizacija grafičke
-            proizvodnje, multimedijske komunikacije, marketing i kontrola kvalitete.
-          </p>
-          <p>
-            Uz svladavanje osnovnih tema iz navedenih područja, studenti smjera Dizajn
-            grafičkih proizvoda stječu temeljna znanja i vještine iz područja
-            likovno-grafičke kulture, teorije oblika, likovne prakse, originalne grafike,
-            fotografije, komunikologije i vizualnih komunikacija. Iskazivanjem sposobnosti
-            korištenja navedenih znanja i vještina te osobnih i drugih metodoloških
-            sposobnosti u situacijama rada i učenja, studenti koji završe preddiplomski
-            Studij grafičke tehnologije stječu kompetencije:
-          </p>
-          <ul>
-            <li>upravljanja složenim tehnološkim ili stručnim aktivnostima projekata,</li>
-            <li>preuzimanja odgovornosti za donošenje odluka u realnom okruženju </li>
-            <li>rada ili učenja i </li>
-            <li>preuzimanja odgovornosti za profesionalno upravljanje.</li>
-          </ul>
-          Integracijom teorijskih znanja i praktičnih vještina studenti stječu
-          kompetencije za rješavanje problema u području grafičkog inženjerstva i grafičke
-          struke. Konkretni stupanj kompetencije iz pojedinog od navedenih područja ovisi
-          o odabranom smjeru te izbornim kolegijima koje je student položio tijekom
-          studija. Na ovoj razini studenti koji su završili preddiplomski Studij grafičke
-          tehnologije na Grafičkom fakultetu stječu
-          <br />- opće kompetencije iz:
-          <ul>
-            <li>
-              rješavanja problema korištenjem matematičkih operacija i logičnog
-              razmišljanja
-            </li>
-            <li> profesionalne komunikacije na hrvatskom jeziku</li>
-            <li> profesionalne komunikacije na stranom jezik</li>
-            <li>upravljanja vlastitim učenjem i usavršavanjem </li>
-            <li>korištenja informacijske i komunikacijske tehnologije </li>
-            <li>
-              poduzetnosti i inovativnosti, konstruktivnog i učinkovitog djelovanja u
-              društvu i participacije u građanskom životu
-            </li>
-          </ul>
-          - specifične kompetencije iz područja:
-          <ul>
-            <li>
-              grafičke pripreme, tiska, grafičke dorade, multimedijske tehnologije i
-              dizajniranja grafičkih proizvoda i medija grafičke komunikacije
-            </li>
-          </ul>
-        </Text_Description>
+    <>
+      <div style={{ width: "70%" }}>
+        <video
+          width="640"
+          height="352"
+          //controls
+          autoPlay
+          loop
+        >
+          <source src="/video1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <br />
+
+        <video
+          width="640"
+          height="352"
+          //controls
+          autoPlay
+          loop
+        >
+          <source src="/video2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <video
+          width="800"
+          height="600"
+          //controls
+          autoPlay
+          loop
+        >
+          <source src="/video3.mov" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
-      <div>
-        <Text_Description>
-          <p>
-            Osobe koje su završile preddiplomski Studij grafičke tehnologije osposobljene
-            su za samostalan rad u grafičkoj industriji te u različitim segmentima na nju
-            vezanih djelatnosti. Stečene im kompetencije omogućuju samostalno vođenje
-            grafičke proizvodnje, tj. bilo kojeg pogona tiskare (pripreme, tiska ili
-            dorade) te obavljanje poslova vezanih uz dizajn suvremenih medija grafičkih
-            komunikacija, nakladništvo, ambalažu, grafički menadžment, industriju papira
-            te niza zanimanja vezanih uz multimediju.
-          </p>
-          <p>
-            Preddiplomski sveučilišni studij grafičke tehnologije izvodi se u trajanju od
-            šest semestra ( 180 ects bodova) čijim se završetkom stječe titula Sveučilišni
-            prvostupnik/prvostupnica (baccalaureus/baccalaurea) inženjer/inženjerka
-            grafičke tehnologije.
-          </p>
-          <p>
-            Nakon završetka sveučilišnoga preddiplomskog Studija grafičke tehnologije
-            student stječe pravo upisa na sveučilišni diplomski Studij grafičke
-            tehnologije na Grafičkom fakultetu. Uvjete za upis na druge studijske programe
-            određuju te institucije.
-          </p>
-        </Text_Description>
-        <br /> <br /> <br /> <br /> <br /> <br />
-        <Image src="/graphics/studenti.png" width={465} height={349} />
-      </div>
-    </TwoColumns>
+      <TwoColumns>
+        <div>
+          <Text_Description>
+            <p>
+              Na preddiplomskom Studiju grafičke tehnologije studenti imaju mogućnost
+              izbora između
+            </p>
+            <ul>
+              <li>Tehničko-tehnološkog smjera i </li>
+              <li>smjera Dizajn grafičkih proizvoda.</li>
+            </ul>
+            <p>
+              Studenti tehničko-tehnološkog smjera stjecanjem osnovnih i, za grafičku
+              tehnologiju specifičnih, znanja i vještina iz područja matematike, fizike,
+              kemije i računalno-informacijske tehnologije usvajaju temelje za
+              razumijevanje tehničko-tehnološkoga lanca stvaranja grafičkoga proizvoda.
+              <br /> Specifična znanja i vještine studenti stječu kroz teme koje čine
+              jezgru programa: materijali u grafičkoj proizvodnji, tiskovne forme,
+              reprodukcijska fotografija, tipografija, tisak, knjigoveštvo, ambalaža,
+              organizacija grafičke proizvodnje, multimedijske komunikacije, marketing i
+              kontrola kvalitete.
+            </p>
+            <p>
+              Uz svladavanje osnovnih tema iz navedenih područja, studenti smjera Dizajn
+              grafičkih proizvoda stječu temeljna znanja i vještine iz područja
+              likovno-grafičke kulture, teorije oblika, likovne prakse, originalne
+              grafike, fotografije, komunikologije i vizualnih komunikacija. Iskazivanjem
+              sposobnosti korištenja navedenih znanja i vještina te osobnih i drugih
+              metodoloških sposobnosti u situacijama rada i učenja, studenti koji završe
+              preddiplomski Studij grafičke tehnologije stječu kompetencije:
+            </p>
+            <ul>
+              <li>
+                upravljanja složenim tehnološkim ili stručnim aktivnostima projekata,
+              </li>
+              <li>preuzimanja odgovornosti za donošenje odluka u realnom okruženju </li>
+              <li>rada ili učenja i </li>
+              <li>preuzimanja odgovornosti za profesionalno upravljanje.</li>
+            </ul>
+            Integracijom teorijskih znanja i praktičnih vještina studenti stječu
+            kompetencije za rješavanje problema u području grafičkog inženjerstva i
+            grafičke struke. Konkretni stupanj kompetencije iz pojedinog od navedenih
+            područja ovisi o odabranom smjeru te izbornim kolegijima koje je student
+            položio tijekom studija. Na ovoj razini studenti koji su završili
+            preddiplomski Studij grafičke tehnologije na Grafičkom fakultetu stječu
+            <br />- opće kompetencije iz:
+            <ul>
+              <li>
+                rješavanja problema korištenjem matematičkih operacija i logičnog
+                razmišljanja
+              </li>
+              <li> profesionalne komunikacije na hrvatskom jeziku</li>
+              <li> profesionalne komunikacije na stranom jezik</li>
+              <li>upravljanja vlastitim učenjem i usavršavanjem </li>
+              <li>korištenja informacijske i komunikacijske tehnologije </li>
+              <li>
+                poduzetnosti i inovativnosti, konstruktivnog i učinkovitog djelovanja u
+                društvu i participacije u građanskom životu
+              </li>
+            </ul>
+            - specifične kompetencije iz područja:
+            <ul>
+              <li>
+                grafičke pripreme, tiska, grafičke dorade, multimedijske tehnologije i
+                dizajniranja grafičkih proizvoda i medija grafičke komunikacije
+              </li>
+            </ul>
+          </Text_Description>
+        </div>
+        <div>
+          <Text_Description>
+            <p>
+              Osobe koje su završile preddiplomski Studij grafičke tehnologije
+              osposobljene su za samostalan rad u grafičkoj industriji te u različitim
+              segmentima na nju vezanih djelatnosti. Stečene im kompetencije omogućuju
+              samostalno vođenje grafičke proizvodnje, tj. bilo kojeg pogona tiskare
+              (pripreme, tiska ili dorade) te obavljanje poslova vezanih uz dizajn
+              suvremenih medija grafičkih komunikacija, nakladništvo, ambalažu, grafički
+              menadžment, industriju papira te niza zanimanja vezanih uz multimediju.
+            </p>
+            <p>
+              Preddiplomski sveučilišni studij grafičke tehnologije izvodi se u trajanju
+              od šest semestra ( 180 ects bodova) čijim se završetkom stječe titula
+              Sveučilišni prvostupnik/prvostupnica (baccalaureus/baccalaurea)
+              inženjer/inženjerka grafičke tehnologije.
+            </p>
+            <p>
+              Nakon završetka sveučilišnoga preddiplomskog Studija grafičke tehnologije
+              student stječe pravo upisa na sveučilišni diplomski Studij grafičke
+              tehnologije na Grafičkom fakultetu. Uvjete za upis na druge studijske
+              programe određuju te institucije.
+            </p>
+          </Text_Description>
+          <br /> <br /> <br /> <br /> <br /> <br />
+          <Image src="/graphics/studenti.png" width={465} height={349} />
+        </div>
+      </TwoColumns>
+    </>
   );
 };
 const DiplomskiTab = () => {
