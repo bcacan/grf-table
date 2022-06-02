@@ -2,6 +2,7 @@ import PhotoAlbum, { Photo } from "react-photo-album";
 import React, { useState } from "react";
 import Image from "next/image";
 import { BackButton } from "components/Window/Buttons";
+import { Text_Subtitle, Text_Title } from "styles/texts";
 
 const photos: Photo[] = [
   {
@@ -78,7 +79,11 @@ const OpenImage = ({ img, closeImg }: any) => {
         /*width={width}  height={height}*/
         objectFit="contain"
       />
-      <b>{title}</b>
+      <Text_Subtitle
+        style={{ position: "fixed", top: "24%", left: "40%", transform: "scale(1)" }}
+      >
+        {title}
+      </Text_Subtitle>
       <BackButton closeImg={closeImg} />
     </>
   );
