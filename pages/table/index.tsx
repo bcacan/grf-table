@@ -7,37 +7,40 @@ import styles from "styles/Home.module.css";
 import LandingScreen from "components/LandingScreen/LandingScreen";
 import { useOnIdle } from "hooks/idleTimerHooks";
 import Screensaver from "components/Overlays/Screensaver";
+import IntroScreen from "components/Overlays/IntroScreen";
 
 const Table: NextPage = () => {
-  // //Screensaver
-  // const showScreensaver = () => {
-  //   setShowSS(false);
-  //   console.log("Showing ss");
-  // };
-  // const hideScreensaver = () => {
-  //   setShowSS(true);
-  //   console.log("hiding ss");
-  // };
+  //Screensaver
+  const hideScreensaver = () => {
+    setShowSS(false);
+    //console.log("hiding ss");
+  };
+  const showScreensaver = () => {
+    setShowSS(true);
+    //console.log("Showing ss");
+  };
 
-  // useOnIdle({
-  //   debounce: 500,
-  //   idleTimeout: 10000,
-  //   onIdle: hideScreensaver,
-  //   onAction: showScreensaver,
-  //   events: [
-  //     "mousemove",
-  //     "keydown",
-  //     "wheel",
-  //     "DOMMouseScroll",
-  //     "mouseWheel",
-  //     "mousedown",
-  //     "visibilitychange",
-  //     "touchmove",
-  //   ],
-  // });
+  useOnIdle({
+    debounce: 500,
+    idleTimeout: 30000,
+    onIdle: /*showScreensaver*/ () => {
+      window.location.reload();
+    },
+    onAction: hideScreensaver,
+    events: [
+      "mousemove",
+      "keydown",
+      "wheel",
+      "DOMMouseScroll",
+      "mouseWheel",
+      "mousedown",
+      "visibilitychange",
+      "touchmove",
+    ],
+  });
 
-  // const [showSS, setShowSS] = useState(false);
-  // /////
+  const [showSS, setShowSS] = useState(true);
+  /////
 
   return (
     <React.StrictMode>
@@ -189,7 +192,7 @@ const Table: NextPage = () => {
         }}
       ></div>
       <LandingScreen />
-      {/* <Screensaver show={showSS} /> */}
+      <IntroScreen show={showSS} />
     </React.StrictMode>
   );
 };

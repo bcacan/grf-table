@@ -33,7 +33,7 @@ function IntroSVG() {
   ];
 
   const rectTransitions = useTransition(rects, {
-    from: { opacity: 0, x: 50, y: 50 },
+    from: { opacity: 0, x: 25, y: 25 },
     enter: { opacity: 0.9, x: 0, y: 0 },
     leave: { opacity: 0 },
     trail: 1000 / rects.length,
@@ -123,7 +123,8 @@ function IntroSVG() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox="0 0 147.6 164.4"
+      /*viewBox="0 0 147.6 164.4"*/
+      viewBox="-74 -83 296 330"
     >
       <g style={{ isolation: "isolate" }}>
         {animatedRects}
@@ -147,4 +148,11 @@ function IntroSVG() {
   );
 }
 
-export default IntroSVG;
+function IntroLogo() {
+  return (
+    <div style={{ width: "35%" }}>
+      <IntroSVG />
+    </div>
+  );
+}
+export default IntroLogo;
