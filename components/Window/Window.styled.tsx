@@ -18,7 +18,7 @@ export const MainWindowCSS = styled(WindowCSS)<any>`
   //  padding: 2.875em 8.375em 1.12em 8.125em;
   padding: 3.8% 10.3% 4.2% 10.2%;
 
-  box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 0px 9px 2px rgba(255, 255, 255, 0.3);
 
   touch-action: none;
 `;

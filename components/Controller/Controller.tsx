@@ -17,8 +17,8 @@ export default function Controller(props: any) {
 
   const domTarget = useRef<any>(null);
 
-  const pinchColor = "rgba(255, 0, 0, 0.4)";
-  const dragColor = "rgba(0, 255, 0, 0.4)";
+  const pinchColor = "rgba(255, 255, 0, 0.4)";
+  const dragColor = "rgba(0, 255, 255, 0.4)";
   const transColor = "rgba(0, 0, 0, 0)";
 
   const [controllerApi, api] = useSpring(() => ({
