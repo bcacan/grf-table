@@ -81,6 +81,8 @@ export const SubHeader = styled.div`
 `;
 
 export const ScrollBar = styled(animated.main)<any>`
+  touch-action: none;
+
   padding-right: 2em;
 
   overflow: auto;
