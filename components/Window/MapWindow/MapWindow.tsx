@@ -266,7 +266,7 @@ const InfoContentAutori2 = () => {
 
 const PocetniTab = () => {
   return (
-    <div style={{ transform: "scale(1) translateY(-8em)", height: "100%" }}>
+    <div style={{ transform: "scale(1) translateY(-4em)", height: "100%" }}>
       <span style={{ display: "grid", placeItems: "center" }}>
         <Image src="/graphics/izlozba/hologram.png" width={684} height={636} />
       </span>
