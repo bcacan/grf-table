@@ -140,7 +140,7 @@ export const GalleryContent = styled(ScrollBar)`
   width: 80%;
   height: 66%;
 
-  border: 1px solid ${(props) => props.theme.colors.contentBorder};
+  //border: 1px solid ${(props) => props.theme.colors.contentBorder};
 `;
 
 export const MapContent = styled.div`
