@@ -25,6 +25,7 @@ import {
   MapContent,
   SubHeader,
   InfoContent,
+  PageMenu,
 } from "components/Window/Window.styled";
 import Map from "./Map";
 import { BottomLine } from "components/Window/BottomLine.styled";
@@ -35,16 +36,65 @@ import { config, useSpring } from "@react-spring/web";
 import { theme } from "styles/theme";
 
 const MapWindow = forwardRef((props: any, ref) => {
+  const [page, setPage] = useState(3);
+  const [tab, setTab] = useState(1);
+
+  const [pageContent, setPageContent] = useState(<></>);
+
   const [winStyle, winStyleApi] = useSpring(() => ({
-    height: theme.const.window_largeHeight,
+    height: theme.const.window_smallHeight,
     config: config.gentle,
   }));
 
   const [contentStyle, contentStyleApi] = useSpring(() => ({
-    height: theme.const.info_content_largeHeight,
-    top: theme.const.info_content_largeTop,
+    height: theme.const.info_content_smallHeight,
+    top: theme.const.info_content_smallTop,
+
     config: config.default,
   }));
+
+  useEffect(() => {
+    switch (page) {
+      case 2:
+        winStyleApi.start({
+          height: theme.const.window_smallHeight,
+        });
+        contentStyleApi.start({
+          height: theme.const.info_content_smallHeight,
+          top: theme.const.info_content_smallTop,
+        });
+        setPageContent(
+          <InfoContent style={contentStyle}>
+            <InfoContentAutori2 />
+          </InfoContent>,
+        );
+        break;
+      case 1:
+        // winStyleApi.start({
+        //   height: theme.const.window_largeHeight,
+        // });
+        // contentStyleApi.start({
+        //   height: theme.const.info_content_largeHeight,
+        //   top: theme.const.info_content_largeTop,
+        // });
+        setPageContent(
+          <InfoContent style={contentStyle}>
+            <InfoContentAutori />
+          </InfoContent>,
+        );
+        break;
+
+      case 3:
+        setPageContent(
+          <InfoContent style={contentStyle}>
+            <PocetniTab />
+          </InfoContent>,
+        );
+        break;
+      default:
+        break;
+    }
+  }, [page, tab]);
 
   return (
     <>
@@ -59,6 +109,22 @@ const MapWindow = forwardRef((props: any, ref) => {
           <CloseButton />
         </Header>
         <BottomLine />
+
+        <PageMenu>
+          <nav>
+            <a onTouchStart={(e) => setPage(1)}>
+              <Text_Subtitle className={`page-label-1 ${page == 1 && "active-page"}`}>
+                {MapText.tab1}
+              </Text_Subtitle>
+            </a>
+            <a onTouchStart={(e) => setPage(2)}>
+              <Text_Subtitle className={`page-label-TTT ${page == 2 && "active-page"}`}>
+                {MapText.tab2}
+              </Text_Subtitle>
+            </a>
+          </nav>
+        </PageMenu>
+        {pageContent}
         <Footer>
           <div className="logo">
             <Image src="/graphics/izlozba/qr-instagram.svg" height={150} width={150} />
@@ -67,10 +133,6 @@ const MapWindow = forwardRef((props: any, ref) => {
           <Text_Body className="text2">{InfoText.footer_title}</Text_Body>
         </Footer>
       </MainWindowCSS>
-
-      <InfoContent style={contentStyle}>
-        <InfoContentAutori />
-      </InfoContent>
     </>
   );
 });
@@ -80,28 +142,9 @@ export default MapWindow;
 const InfoContentAutori = () => {
   return (
     <>
-      <span style={{ display: "grid", placeItems: "center" }}>
-        <Image src="/graphics/izlozba/hologram.png" width={684} height={636} />
-      </span>
-      <br />
-      <Text_Pitanja style={{ position: "absolute", top: "6em", left: "2em" }}>
-        tko su studenti iza holograma?
-      </Text_Pitanja>
-      <Text_Citat
-        style={{ position: "absolute", top: "16em", left: "3em", width: "80%" }}
-      >
-        “Memories are like holograms: you recreate in your head the whole image of
-        something which isn’t there.” ~Dr. Richard Bandler
-      </Text_Citat>
-      <br /> <br /> <br /> <br /> <br />
-      <br />
       <br />
       <TwoColumns>
         <div>
-          <Image src="/graphics/izlozba/tekst4.png" width={467} height={443} />
-          <br />
-          <br />
-          <br />
           <Text_Description>
             <Text_Subtitle2>Mihaela Galaš</Text_Subtitle2>, studentica Grafičkog fakulteta
             u Zagrebu, smjer Multimedij.
@@ -115,32 +158,6 @@ const InfoContentAutori = () => {
               </i>
             </p>
             <br />
-            <br />
-            <Text_Subtitle2>Ivona Jurišić</Text_Subtitle2>, studentica Grafičkog fakulteta
-            u Zagrebu, smjer Multimedij.
-            <p>
-              <i>
-                “Holografija kao kolegij na fakultetu me jako privukla u otkrivanje nečeg
-                novog, drugačijeg i nepoznatog. Jako sam zainteresirana baviti se
-                zaštitnim tiskom i grafikom, a proučavanje holograma, koji su jedan od
-                zaštitnih elemenata u tisku, upotpunili su moje znanje.”
-              </i>
-            </p>
-            <br />
-            <br />
-            <Text_Subtitle2>Lucija Pavlović</Text_Subtitle2>, studentica Grafičkog
-            fakulteta u Zagrebu, smjer Multimedij.
-            <p>
-              <i>
-                “Počela sam se baviti holografijom jer su mi hologrami na prvu bili nešto
-                potpuno novo i drugačije, a kad ih jednom krenete izrađivati sve ste više
-                oduševljeni njihovim mogućnostima. Osim holografije, moji interesi su 3D
-                modeliranje, animacija i dizajn aplikacija te bih voljela izgraditi
-                karijeru u tim granama struke.”
-              </i>
-            </p>
-            <br />
-            <br />
             <Text_Subtitle2>Filip Macan</Text_Subtitle2>, student Grafičkog fakulteta u
             Zagrebu, smjer Tehničko-tehnološki.
             <p>
@@ -153,39 +170,6 @@ const InfoContentAutori = () => {
           </Text_Description>
         </div>
         <div>
-          <br />
-          <Text_Description>
-            <Text_Subtitle2>Tara Vagner</Text_Subtitle2>, studentica Grafičkog fakulteta u
-            Zagrebu, smjer Multimedij.
-            <p>
-              <i>
-                “Iako je meni holografija prestavljala dosta apstraktan pojam, kao predmet
-                na fakultetu bila je učenje nečega sasvim novoga. Najviše me je oduševilo
-                to da pravi hologrami zapravo nisu ono što sam ja mislila da jesu. Iako je
-                holografija jedan od mojih interesa, najveća želja mi je biti profesorica,
-                kako bi druge ljude mogla podučavati grafičkoj struci i pokazati im koliko
-                je ona zanimljiva i raznolika.”
-              </i>
-            </p>
-            <br />
-            <br />
-            <Text_Subtitle2>Jelena Katarina Milićević</Text_Subtitle2>, studentica
-            Grafičkog fakulteta u Zagrebu, smjer Multimedij.
-            <p>
-              <i>
-                “Holografija mi je predstavlja nešto apstraktno i zapravo nisam znala što
-                me čeka na tom kolegiju. Kada sam malo dublje ušla u to, jako mi se
-                svidjelo te sam htjela sudjelovati u izložbi. Osim holografije, moji
-                interesi uključuju 3D, animaciju, dizajn igrica te UX/UI dizajn.”
-              </i>
-            </p>
-          </Text_Description>{" "}
-          <br />
-          <Image
-            src="/graphics/izlozba/tekst5.png"
-            width={469}
-            height={397}
-          /> <br /> <br /> <br />
           <Text_Description>
             <Text_Subtitle2>Jana Jambrešić</Text_Subtitle2>, studentica Grafičkog
             fakulteta u Zagrebu, smjer Multimedij.
@@ -198,7 +182,6 @@ const InfoContentAutori = () => {
                 smjeru htjela nastaviti razvijati.”
               </i>
             </p>
-            <br />
             <br />
             <Text_Subtitle2>Marija Puzjak</Text_Subtitle2>, studentica Grafičkog fakulteta
             u Zagrebu, smjer Multimedij.
@@ -216,5 +199,87 @@ const InfoContentAutori = () => {
         </div>
       </TwoColumns>
     </>
+  );
+};
+const InfoContentAutori2 = () => {
+  return (
+    <>
+      <br />
+      <TwoColumns>
+        <div>
+          <Text_Description>
+            <Text_Subtitle2>Ivona Jurišić</Text_Subtitle2>, studentica Grafičkog fakulteta
+            u Zagrebu, smjer Multimedij.
+            <p>
+              <i>
+                “Holografija kao kolegij na fakultetu me jako privukla u otkrivanje nečeg
+                novog, drugačijeg i nepoznatog. Jako sam zainteresirana baviti se
+                zaštitnim tiskom i grafikom, a proučavanje holograma, koji su jedan od
+                zaštitnih elemenata u tisku, upotpunili su moje znanje.”
+              </i>
+            </p>
+            <br />
+            <Text_Subtitle2>Lucija Pavlović</Text_Subtitle2>, studentica Grafičkog
+            fakulteta u Zagrebu, smjer Multimedij.
+            <p>
+              <i>
+                “Počela sam se baviti holografijom jer su mi hologrami na prvu bili nešto
+                potpuno novo i drugačije, a kad ih jednom krenete izrađivati sve ste više
+                oduševljeni njihovim mogućnostima. Osim holografije, moji interesi su 3D
+                modeliranje, animacija i dizajn aplikacija te bih voljela izgraditi
+                karijeru u tim granama struke.”
+              </i>
+            </p>
+          </Text_Description>
+        </div>
+        <div>
+          <Text_Description>
+            <Text_Subtitle2>Tara Vagner</Text_Subtitle2>, studentica Grafičkog fakulteta u
+            Zagrebu, smjer Multimedij.
+            <p>
+              <i>
+                “Iako je meni holografija prestavljala dosta apstraktan pojam, kao predmet
+                na fakultetu bila je učenje nečega sasvim novoga. Najviše me je oduševilo
+                to da pravi hologrami zapravo nisu ono što sam ja mislila da jesu. Iako je
+                holografija jedan od mojih interesa, najveća želja mi je biti profesorica,
+                kako bi druge ljude mogla podučavati grafičkoj struci i pokazati im koliko
+                je ona zanimljiva i raznolika.”
+              </i>
+            </p>
+            <br />
+            <Text_Subtitle2>Jelena Katarina Milićević</Text_Subtitle2>, studentica
+            Grafičkog fakulteta u Zagrebu, smjer Multimedij.
+            <p>
+              <i>
+                “Holografija mi je predstavlja nešto apstraktno i zapravo nisam znala što
+                me čeka na tom kolegiju. Kada sam malo dublje ušla u to, jako mi se
+                svidjelo te sam htjela sudjelovati u izložbi. Osim holografije, moji
+                interesi uključuju 3D, animaciju, dizajn igrica te UX/UI dizajn.”
+              </i>
+            </p>
+          </Text_Description>
+        </div>
+      </TwoColumns>
+    </>
+  );
+};
+
+const PocetniTab = () => {
+  return (
+    <div style={{ transform: "scale(1) translateY(-4em)", height: "100%" }}>
+      <span style={{ display: "grid", placeItems: "center" }}>
+        <Image src="/graphics/izlozba/hologram.png" width={684} height={636} />
+      </span>
+      <br />
+      <Text_Pitanja style={{ position: "absolute", top: "6em", left: "2em" }}>
+        tko su studenti iza holograma?
+      </Text_Pitanja>
+      <Text_Citat
+        style={{ position: "absolute", top: "16em", left: "3em", width: "80%" }}
+      >
+        “Memories are like holograms: you recreate in your head the whole image of
+        something which isn’t there.” ~Dr. Richard Bandler
+      </Text_Citat>
+    </div>
   );
 };

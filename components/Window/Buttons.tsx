@@ -22,7 +22,7 @@ export const BackButton = ({ closeImg }: any) => {
       onTouchStart={closeImg}
       style={{
         position: "fixed",
-        top: "15%",
+        top: "13%",
         left: "0",
         background: "black",
         paddingInline: "3.8% 4%",

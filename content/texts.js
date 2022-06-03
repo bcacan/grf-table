@@ -5,6 +5,9 @@ export const Messages = {
 export const MapText = {
   title: "AUTORI",
   //subtitle: "Getaldićeva 2",
+
+  tab1: "Refleksija",
+  tab2: "Transmisija",
 };
 
 export const GalleryText = {
@@ -18,8 +21,8 @@ export const InfoText = {
   footer_qr: "PREUZMI ME!",
   footer_title: "Grafički fakultet",
 
-  // tab1: "UPISI",
-  // tab2: "STUDIJ",
+  tab1: "HoloGRF",
+  tab2: "Vrste holograma",
 
   // tab2_1: "preddiplomski",
   // tab2_2: "diplomski",

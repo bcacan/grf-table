@@ -12,18 +12,18 @@ const EdgeText = () => {
 };
 
 export const FixedTextLeft = styled(Text_Fixed)`
-  left: -130px;
+  left: -108px;
   bottom: 30%;
   transform: rotate(90deg);
 `;
 
 export const FixedTextBottom = styled(Text_Fixed)`
-  right: 30%;
-  bottom: 20px;
+  right: 35%;
+  bottom: 6px;
 `;
 
 export const FixedTextRight = styled(Text_Fixed)`
-  right: -100px;
+  right: -84px;
   top: 33%;
   transform: rotate(-90deg);
 `;
