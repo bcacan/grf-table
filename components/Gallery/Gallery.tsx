@@ -6,40 +6,71 @@ import { Text_Subtitle, Text_Title } from "styles/texts";
 
 const photos: Photo[] = [
   {
-    src: "https://picsum.photos/900/550?image=1050",
-    width: 900,
-    height: 550,
-    key: "1",
-    title: "test ... . . . .. test. . .. . ..",
-  },
-  {
-    src: "https://picsum.photos/800/900",
-    width: 800,
-    height: 900,
-    key: "2",
-  },
-  {
-    src: "https://picsum.photos/600/1000",
-    width: 600,
-    height: 1000,
-    key: "3",
-  },
-  {
-    src: "https://picsum.photos/1200/800",
-    width: 1200,
-    height: 800,
-    key: "4",
-  },
-  {
-    src: "https://picsum.photos/700/400",
-    width: 700,
-    height: 400,
+    src: "/gallery/picture-(1).jpg",
+    width: 2638,
+    height: 2172,
     key: "5",
   },
   {
-    src: "https://picsum.photos/600/1300",
-    width: 650,
-    height: 1300,
+    src: "/gallery/picture-(7).jpg",
+    width: 3648,
+    height: 5472,
+    key: "6",
+    title: "test ... . . . .. test. . .. . ..",
+  },
+  {
+    src: "/gallery/picture-(8).jpg",
+    width: 3648,
+    height: 5472,
+    key: "6",
+    title: "test ... . . . .. test. . .. . ..",
+  },
+  {
+    src: "/gallery/picture-(6).jpg",
+    width: 3648,
+    height: 5472,
+    key: "6",
+    title: "test ... . . . .. test. . .. . ..",
+  },
+  {
+    src: "/gallery/picture-(4).jpg",
+    width: 3648,
+    height: 5472,
+    key: "6",
+    title: "test ... . . . .. test. . .. . ..",
+  },
+  {
+    src: "/gallery/picture-(5).jpg",
+    width: 3648,
+    height: 5472,
+    key: "6",
+    title: "test ... . . . .. test. . .. . ..",
+  },
+  {
+    src: "/gallery/picture-(3).jpg",
+    width: 3648,
+    height: 5472,
+    key: "6",
+    title: "test ... . . . .. test. . .. . ..",
+  },
+  {
+    src: "/gallery/picture-(2).jpg",
+    width: 3648,
+    height: 5472,
+    key: "6",
+    title: "test ... . . . .. test. . .. . ..",
+  },
+  {
+    src: "/gallery/picture-(10).jpg",
+    width: 3648,
+    height: 5472,
+    key: "6",
+    title: "test ... . . . .. test. . .. . ..",
+  },
+  {
+    src: "/gallery/picture-(9).jpg",
+    width: 3648,
+    height: 5472,
     key: "6",
     title: "test ... . . . .. test. . .. . ..",
   },
@@ -60,7 +91,10 @@ const Gallery = () => {
       {openImg ? (
         <OpenImage img={openImg} closeImg={resetImg} />
       ) : (
-        <PhotoAlbum onClick={getImage} photos={photos} layout="masonry" />
+        <>
+          <Videos />
+          <PhotoAlbum onClick={getImage} photos={photos} layout="masonry" />
+        </>
       )}
     </>
   );
@@ -85,6 +119,53 @@ const OpenImage = ({ img, closeImg }: any) => {
         {title}
       </Text_Subtitle>
       <BackButton closeImg={closeImg} />
+    </>
+  );
+};
+
+const Videos = () => {
+  return (
+    <>
+      <video
+        width={"24%"}
+        height={"90%"}
+        //controls
+        autoPlay
+        loop
+      >
+        <source src={"/gallery/Video1.m4v"} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video
+        width={"24%"}
+        height={"90%"}
+        //controls
+        autoPlay
+        loop
+      >
+        <source src={"/gallery/Video2.m4v"} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video
+        width={"26%"}
+        height={"90%"}
+        //controls
+        autoPlay
+        loop
+      >
+        <source src={"/gallery/Video3.m4v"} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video
+        width={"26%"}
+        height={"90%"}
+        //controls
+        autoPlay
+        loop
+      >
+        <source src={"/gallery/Video4.m4v"} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </>
   );
 };
