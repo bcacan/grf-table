@@ -92,7 +92,6 @@ const Gallery = () => {
         <OpenImage img={openImg} closeImg={resetImg} />
       ) : (
         <>
-          <Videos />
           <PhotoAlbum onClick={getImage} photos={photos} layout="masonry" />
         </>
       )}
@@ -113,59 +112,12 @@ const OpenImage = ({ img, closeImg }: any) => {
         /*width={width}  height={height}*/
         objectFit="contain"
       />
-      <Text_Subtitle
+      {/* <Text_Subtitle
         style={{ position: "fixed", top: "24%", left: "40%", transform: "scale(1)" }}
       >
         {title}
-      </Text_Subtitle>
+      </Text_Subtitle> */}
       <BackButton closeImg={closeImg} />
-    </>
-  );
-};
-
-const Videos = () => {
-  return (
-    <>
-      <video
-        width={"24%"}
-        height={"90%"}
-        //controls
-        autoPlay
-        loop
-      >
-        <source src={"/gallery/Video1.m4v"} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <video
-        width={"24%"}
-        height={"90%"}
-        //controls
-        autoPlay
-        loop
-      >
-        <source src={"/gallery/Video2.m4v"} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <video
-        width={"26%"}
-        height={"90%"}
-        //controls
-        autoPlay
-        loop
-      >
-        <source src={"/gallery/Video3.m4v"} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <video
-        width={"26%"}
-        height={"90%"}
-        //controls
-        autoPlay
-        loop
-      >
-        <source src={"/gallery/Video4.m4v"} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
     </>
   );
 };

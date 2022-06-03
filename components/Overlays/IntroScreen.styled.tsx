@@ -7,7 +7,8 @@ export const IntroScreenCSS = styled(animated.div)`
   height: 100%;
   width: 100%;
 
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  //background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  background: black;
   overflow: hidden;
   z-index: 1;
 

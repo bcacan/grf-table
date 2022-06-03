@@ -87,6 +87,8 @@ export const ScrollBar = styled(animated.main)<any>`
 
   /* scrollbar */
   ::-webkit-scrollbar {
+    display: none;
+
     width: 11px;
     border: 1px solid rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
@@ -160,7 +162,7 @@ export const TwoColumns = styled.div`
 
   div {
     flex-grow: 1;
-
+    flex: 1;
     margin-left: 2.5em;
     text-align: justify;
   }
@@ -285,7 +287,7 @@ export const MenuLines = styled.div`
 
 export const PageMenu = styled.div`
   margin-left: 6em;
-  margin-top: 3em;
+  margin-top: 4em;
 
   justify-self: end;
   align-self: center;
@@ -320,35 +322,72 @@ export const PageMenu = styled.div`
 
   .page-label-1,
   .page-label-2 {
+    // ::after {
+    //   content: "";
+    //   position: absolute;
+    //   bottom: -3rem;
+    //   left: -0.2rem;
+    //   right: 0;
+    //   height: 60px;
+    //   background-image: url(/graphics/tab-underline.svg);
+    //   background-repeat: no-repeat;
+    // }
+  }
+
+  .page-label-1.active-page {
     ::after {
       content: "";
       position: absolute;
       bottom: -3rem;
-      left: -0.2rem;
+      left: 0.6rem;
       right: 0;
       height: 60px;
       background-image: url(/graphics/tab-underline.svg);
       background-repeat: no-repeat;
+      transform: scaleX(1.4);
     }
   }
 
-  .active-page {
-    font-weight: 800;
+  .page-label-2.active-page {
+    ::after {
+      content: "";
+      position: absolute;
+      bottom: -3rem;
+      left: 4rem;
+      right: 0;
+      height: 60px;
+      background-image: url(/graphics/tab-underline.svg);
+      background-repeat: no-repeat;
+      transform: scaleX(2.2);
+    }
+  }
 
-    &.page-label-2 {
-      ::after {
-        content: "";
-        position: absolute;
-        bottom: -3rem;
-        left: -0.2em;
-        right: 0;
-        height: 60px;
-        width: 636px;
-        background-image: url(/graphics/tab-underline-step-1.svg),
-          url(/graphics/tab-underline-step-2.svg), url(/graphics/tab-underline-step-3.svg);
-        background-repeat: no-repeat;
-        background-position: 1px 0px, 119px 5px, 100px 5px;
-      }
+  .page-label-TTT.active-page {
+    ::after {
+      transition: all 1s ease;
+      content: "";
+      position: absolute;
+      bottom: -3rem;
+      left: 1.5rem;
+      right: 0;
+      height: 60px;
+      background-image: url(/graphics/tab-underline.svg);
+      background-repeat: no-repeat;
+      transform: scaleX(1.6);
+    }
+  }
+  .page-label-Video.active-page {
+    ::after {
+      transition: all 1s ease;
+      content: "";
+      position: absolute;
+      bottom: -3rem;
+      left: 0.8rem;
+      right: 0;
+      height: 60px;
+      background-image: url(/graphics/tab-underline.svg);
+      background-repeat: no-repeat;
+      transform: scaleX(1.6);
     }
   }
 `;
