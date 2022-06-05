@@ -138,7 +138,8 @@ export const InfoContent = styled(ScrollBar)`
 
 export const GalleryContent = styled(ScrollBar)`
   position: absolute;
-  top: 27.9%;
+  top: ${(props) => props.theme.const.info_content_smallTop};
+
   left: 10.2%;
 
   width: 80%;
@@ -147,16 +148,16 @@ export const GalleryContent = styled(ScrollBar)`
   //border: 1px solid ${(props) => props.theme.colors.contentBorder};
 `;
 
-export const MapContent = styled.div`
-  position: absolute;
-  top: 27.9%;
-  left: 10.2%;
+// export const MapContent = styled.div`
+//   position: absolute;
+//   top: 27.9%;
+//   left: 10.2%;
 
-  width: 80%;
-  height: 66%;
+//   width: 80%;
+//   height: 66%;
 
-  border: 1px solid ${(props) => props.theme.colors.contentBorder};
-`;
+//   border: 1px solid ${(props) => props.theme.colors.contentBorder};
+// `;
 
 export const TwoColumns = styled.div`
   display: flex;
@@ -336,7 +337,8 @@ export const PageMenu = styled.div`
     // }
   }
 
-  .page-label-1.active-page {
+  .page-label-1 {
+    //transition: opacity 0.4s ease-in-out;
     ::after {
       content: "";
       position: absolute;
@@ -347,6 +349,14 @@ export const PageMenu = styled.div`
       background-image: url(/graphics/tab-underline.svg);
       background-repeat: no-repeat;
       transform: scaleX(1.4);
+
+      opacity: 0;
+    }
+
+    &.active-page {
+      ::after {
+        opacity: 1;
+      }
     }
   }
 

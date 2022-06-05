@@ -3,7 +3,7 @@ import Image from "next/image";
 export const ArrowsButton = () => {
   return (
     <div className="grid-arrows-button">
-      <Image src="/graphics/arrows-button.svg" height={30} width={30} />
+      {/* <Image src="/graphics/arrows-button.svg" height={30} width={30} /> */}
     </div>
   );
 };
@@ -11,7 +11,7 @@ export const ArrowsButton = () => {
 export const CloseButton = () => {
   return (
     <div className="grid-x-button" data-window={-1}>
-      <Image src="/graphics/x-icon.svg" height={30} width={30} />
+      <Image src="/graphics/x-icon.svg" height={34} width={34} />
     </div>
   );
 };

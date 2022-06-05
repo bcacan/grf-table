@@ -22,7 +22,6 @@ import {
   MenuStudij,
   VerticalText,
   MenuLines,
-  MapContent,
   SubHeader,
   InfoContent,
   PageMenu,
