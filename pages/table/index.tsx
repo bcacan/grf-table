@@ -115,7 +115,6 @@ const Table: NextPage = () => {
           as="image"
           type="image/png"
         />
-
         <link
           rel="preload"
           href="/graphics/menu_assets/image11.png"
@@ -182,6 +181,7 @@ const Table: NextPage = () => {
           as="image"
           type="image/png"
         />
+        <link rel="preload" href="/gallery/new/Video1.mp4" as="video" type="video/mp4" />
       </Head>
 
       <AnimBackground />

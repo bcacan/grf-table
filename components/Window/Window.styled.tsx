@@ -138,7 +138,8 @@ export const InfoContent = styled(ScrollBar)`
 
 export const GalleryContent = styled(ScrollBar)`
   position: absolute;
-  top: 27.9%;
+  top: ${(props) => props.theme.const.info_content_smallTop};
+
   left: 10.2%;
 
   width: 80%;
@@ -147,16 +148,16 @@ export const GalleryContent = styled(ScrollBar)`
   //border: 1px solid ${(props) => props.theme.colors.contentBorder};
 `;
 
-export const MapContent = styled.div`
-  position: absolute;
-  top: 27.9%;
-  left: 10.2%;
+// export const MapContent = styled.div`
+//   position: absolute;
+//   top: 27.9%;
+//   left: 10.2%;
 
-  width: 80%;
-  height: 66%;
+//   width: 80%;
+//   height: 66%;
 
-  border: 1px solid ${(props) => props.theme.colors.contentBorder};
-`;
+//   border: 1px solid ${(props) => props.theme.colors.contentBorder};
+// `;
 
 export const TwoColumns = styled.div`
   display: flex;

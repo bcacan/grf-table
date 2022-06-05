@@ -39,11 +39,12 @@ const GalleryWindow = forwardRef((props: any, ref) => {
 
   const [winStyle, winStyleApi] = useSpring(() => ({
     height: theme.const.window_smallHeight,
+    width: theme.const.window_width,
     config: config.gentle,
   }));
 
   const [contentStyle, contentStyleApi] = useSpring(() => ({
-    height: theme.const.info_content_smallHeight,
+    height: "66%",
     top: theme.const.info_content_smallTop,
     config: config.default,
   }));
@@ -51,6 +52,13 @@ const GalleryWindow = forwardRef((props: any, ref) => {
   useEffect(() => {
     switch (page) {
       case 1:
+        winStyleApi.start({
+          height: theme.const.window_smallHeight,
+          width: theme.const.window_width,
+        });
+        contentStyleApi.start({
+          top: theme.const.info_content_smallTop,
+        });
         setPageContent(
           <GalleryContent style={contentStyle}>
             <Gallery />
@@ -58,8 +66,15 @@ const GalleryWindow = forwardRef((props: any, ref) => {
         );
         break;
       case 2:
+        winStyleApi.start({
+          height: theme.const.window_smallHeight * 0.8,
+          width: theme.const.window_width * 1.3,
+        });
+        contentStyleApi.start({
+          top: "18em",
+        });
         setPageContent(
-          <GalleryContent>
+          <GalleryContent style={contentStyle}>
             <Videos />
           </GalleryContent>,
         );
@@ -111,47 +126,52 @@ export default GalleryWindow;
 
 const Videos = () => {
   return (
-    <>
+    <div style={{ display: "flex", columnGap: "0.5em" }}>
       <video
-        width={"24%"}
+        width={"20%"}
         height={"90%"}
         //controls
         autoPlay
         loop
       >
-        <source src={"/gallery/Video1.m4v"} type="video/mp4" />
-        Your browser does not support the video tag.
+        <source src={"/gallery/new/Video1.mp4"} type="video/mp4" />
       </video>
       <video
-        width={"24%"}
+        width={"20%"}
         height={"90%"}
         //controls
         autoPlay
         loop
       >
-        <source src={"/gallery/Video2.m4v"} type="video/mp4" />
-        Your browser does not support the video tag.
+        <source src={"/gallery/new/Video2.mp4"} type="video/mp4" />
       </video>
       <video
-        width={"26%"}
+        width={"20%"}
         height={"90%"}
         //controls
         autoPlay
         loop
       >
-        <source src={"/gallery/Video3.m4v"} type="video/mp4" />
-        Your browser does not support the video tag.
+        <source src={"/gallery/new/Video4.mp4"} type="video/mp4" />
       </video>
       <video
-        width={"26%"}
+        width={"20%"}
         height={"90%"}
         //controls
         autoPlay
         loop
       >
-        <source src={"/gallery/Video4.m4v"} type="video/mp4" />
-        Your browser does not support the video tag.
+        <source src={"/gallery/new/Video5.mp4"} type="video/mp4" />
       </video>
-    </>
+      <video
+        width={"20%"}
+        height={"90%"}
+        //controls
+        autoPlay
+        loop
+      >
+        <source src={"/gallery/new/Video6.mp4"} type="video/mp4" />
+      </video>
+    </div>
   );
 };

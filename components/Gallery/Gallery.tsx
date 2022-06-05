@@ -6,73 +6,58 @@ import { Text_Subtitle, Text_Title } from "styles/texts";
 
 const photos: Photo[] = [
   {
-    src: "/gallery/picture-(1).jpg",
-    width: 2638,
-    height: 2172,
-    key: "5",
+    src: "/gallery/new/picture-(9).jpg",
+    width: 1200,
+    height: 1600,
+    title: "",
   },
   {
-    src: "/gallery/picture-(7).jpg",
-    width: 3648,
-    height: 5472,
-    key: "6",
-    title: "test ... . . . .. test. . .. . ..",
+    src: "/gallery/new/picture-(1).jpg",
+    width: 886,
+    height: 1299,
   },
   {
-    src: "/gallery/picture-(8).jpg",
-    width: 3648,
-    height: 5472,
-    key: "6",
-    title: "test ... . . . .. test. . .. . ..",
+    src: "/gallery/new/picture-(7).jpg",
+    width: 1066,
+    height: 1599,
+    title: "",
   },
   {
-    src: "/gallery/picture-(6).jpg",
-    width: 3648,
-    height: 5472,
-    key: "6",
-    title: "test ... . . . .. test. . .. . ..",
+    src: "/gallery/new/picture-(3).jpg",
+    width: 999,
+    height: 1333,
+    title: "",
   },
   {
-    src: "/gallery/picture-(4).jpg",
-    width: 3648,
-    height: 5472,
-    key: "6",
-    title: "test ... . . . .. test. . .. . ..",
+    src: "/gallery/new/picture-(8).jpg",
+    width: 841,
+    height: 1500,
+    title: "",
   },
   {
-    src: "/gallery/picture-(5).jpg",
-    width: 3648,
-    height: 5472,
-    key: "6",
-    title: "test ... . . . .. test. . .. . ..",
+    src: "/gallery/new/picture-(6).jpg",
+    width: 899,
+    height: 1597,
+    title: "",
   },
   {
-    src: "/gallery/picture-(3).jpg",
-    width: 3648,
-    height: 5472,
-    key: "6",
-    title: "test ... . . . .. test. . .. . ..",
+    src: "/gallery/new/picture-(4).jpg",
+    width: 840,
+    height: 1500,
+    title: "",
   },
   {
-    src: "/gallery/picture-(2).jpg",
-    width: 3648,
-    height: 5472,
-    key: "6",
-    title: "test ... . . . .. test. . .. . ..",
+    src: "/gallery/new/picture-(5).jpg",
+    width: 899,
+    height: 1602,
+    title: "",
   },
+
   {
-    src: "/gallery/picture-(10).jpg",
-    width: 3648,
-    height: 5472,
-    key: "6",
-    title: "test ... . . . .. test. . .. . ..",
-  },
-  {
-    src: "/gallery/picture-(9).jpg",
-    width: 3648,
-    height: 5472,
-    key: "6",
-    title: "test ... . . . .. test. . .. . ..",
+    src: "/gallery/new/picture-(2).jpg",
+    width: 899,
+    height: 1596,
+    title: "",
   },
 ];
 
@@ -92,7 +77,13 @@ const Gallery = () => {
         <OpenImage img={openImg} closeImg={resetImg} />
       ) : (
         <>
-          <PhotoAlbum onClick={getImage} photos={photos} layout="masonry" />
+          <PhotoAlbum
+            onClick={getImage}
+            photos={photos}
+            layout="rows"
+            spacing={12}
+            padding={4}
+          />
         </>
       )}
     </>
