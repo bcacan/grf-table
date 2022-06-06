@@ -96,7 +96,6 @@ const GalleryWindow = forwardRef((props: any, ref) => {
           <ArrowsButton />
           <CloseButton />
         </Header>
-
         <BottomLine />
         <PageMenu>
           <nav>
@@ -115,9 +114,8 @@ const GalleryWindow = forwardRef((props: any, ref) => {
         {/* <SubHeader>
           <Text_Subtitle>{GalleryText.subtitle}</Text_Subtitle>
         </SubHeader> */}
+        {pageContent}
       </MainWindowCSS>
-
-      {pageContent}
     </>
   );
 });
