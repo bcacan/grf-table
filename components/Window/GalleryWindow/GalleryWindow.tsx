@@ -57,6 +57,7 @@ const GalleryWindow = forwardRef((props: any, ref) => {
           width: theme.const.window_width,
         });
         contentStyleApi.start({
+          height: "66%",
           top: theme.const.info_content_smallTop,
         });
         setPageContent(
@@ -71,6 +72,7 @@ const GalleryWindow = forwardRef((props: any, ref) => {
           width: theme.const.window_width * 1.3,
         });
         contentStyleApi.start({
+          height: "56%",
           top: "18em",
         });
         setPageContent(
@@ -114,8 +116,8 @@ const GalleryWindow = forwardRef((props: any, ref) => {
         {/* <SubHeader>
           <Text_Subtitle>{GalleryText.subtitle}</Text_Subtitle>
         </SubHeader> */}
-        {pageContent}
       </MainWindowCSS>
+      {pageContent}
     </>
   );
 });

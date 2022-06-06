@@ -337,7 +337,8 @@ export const PageMenu = styled.div`
     // }
   }
 
-  .page-label-1.active-page {
+  .page-label-1 {
+    //transition: opacity 0.4s ease-in-out;
     ::after {
       content: "";
       position: absolute;
@@ -348,6 +349,14 @@ export const PageMenu = styled.div`
       background-image: url(/graphics/tab-underline.svg);
       background-repeat: no-repeat;
       transform: scaleX(1.4);
+
+      opacity: 0;
+    }
+
+    &.active-page {
+      ::after {
+        opacity: 1;
+      }
     }
   }
 
