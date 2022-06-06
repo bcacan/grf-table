@@ -73,7 +73,7 @@ const Gallery = () => {
 
   return (
     <>
-      {openImg ? (
+      {openImg != null ? (
         <OpenImage img={openImg} closeImg={resetImg} />
       ) : (
         <>
