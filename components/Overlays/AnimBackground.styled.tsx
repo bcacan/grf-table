@@ -18,8 +18,8 @@ export const AnimBackgroundCSS = styled.div`
   }
 
   .background span {
-    width: 0.3vmin;
-    height: 0.3vmin;
+    width: 1vmin;
+    height: 1vmin;
     border-radius: 1vmin;
     backface-visibility: hidden;
     position: absolute;
@@ -36,7 +36,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 365s;
     animation-delay: -314s;
     transform-origin: 7vw -15vh;
-    box-shadow: 0 1.0813811160034321vmin currentColor;
+    box-shadow: 2vmin 0 1.0813811160034321vmin currentColor;
   }
   .background span:nth-child(1) {
     color: #00ffff;
@@ -45,7 +45,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 41s;
     animation-delay: -226s;
     transform-origin: 17vw -2vh;
-    box-shadow: 0 0.9229451477141359vmin currentColor;
+    box-shadow: 2vmin 0 0.9229451477141359vmin currentColor;
   }
   .background span:nth-child(2) {
     color: #00ffff;
@@ -54,7 +54,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 154s;
     animation-delay: -80s;
     transform-origin: -6vw -24vh;
-    box-shadow: 0 0.893363210467885 currentColor;
+    box-shadow: -2vmin 0 0.8933632104678852vmin currentColor;
   }
   .background span:nth-child(3) {
     color: #00ffff;
@@ -63,7 +63,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 384s;
     animation-delay: -237s;
     transform-origin: -17vw 15vh;
-    box-shadow: 0 0.4298107335674639vmin currentColor;
+    box-shadow: 2vmin 0 0.4298107335674639vmin currentColor;
   }
   .background span:nth-child(4) {
     color: #ffffff;
@@ -72,7 +72,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 220s;
     animation-delay: -47s;
     transform-origin: -20vw -8vh;
-    box-shadow: 0 0.6717111084813807vmin currentColor;
+    box-shadow: -2vmin 0 0.6717111084813807vmin currentColor;
   }
   .background span:nth-child(5) {
     color: #00ffff;
@@ -81,7 +81,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 64s;
     animation-delay: -96s;
     transform-origin: -12vw -13vh;
-    box-shadow: 0 1.121767981740339vmin currentColor;
+    box-shadow: 2vmin 0 1.121767981740339vmin currentColor;
   }
   .background span:nth-child(6) {
     color: #ffffff;
@@ -90,7 +90,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 16s;
     animation-delay: -111s;
     transform-origin: 22vw -15vh;
-    box-shadow: 0 1.0836495135049244vmin currentColor;
+    box-shadow: 2vmin 0 1.0836495135049244vmin currentColor;
   }
   .background span:nth-child(7) {
     color: #ffffff;
@@ -99,7 +99,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 253s;
     animation-delay: -256s;
     transform-origin: -17vw 8vh;
-    box-shadow: 0 0.6928641789477035vmin currentColor;
+    box-shadow: -2vmin 0 0.6928641789477035vmin currentColor;
   }
   .background span:nth-child(8) {
     color: #00ffff;
@@ -108,7 +108,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 232s;
     animation-delay: -76s;
     transform-origin: -22vw -1vh;
-    box-shadow: 0 1.1049669605899088vmin currentColor;
+    box-shadow: 2vmin 0 1.1049669605899088vmin currentColor;
   }
   .background span:nth-child(9) {
     color: #00ffff;
@@ -117,7 +117,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 242s;
     animation-delay: -4s;
     transform-origin: 11vw 19vh;
-    box-shadow: 0 0.9319690199805919vmin currentColor;
+    box-shadow: -2vmin 0 0.9319690199805919vmin currentColor;
   }
   .background span:nth-child(10) {
     color: #00ffff;
@@ -126,7 +126,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 335s;
     animation-delay: -121s;
     transform-origin: -19vw -23vh;
-    box-shadow: 0 0.8406521689954782vmin currentColor;
+    box-shadow: 2vmin 0 0.8406521689954782vmin currentColor;
   }
   .background span:nth-child(11) {
     color: #ffffff;
@@ -144,7 +144,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 189s;
     animation-delay: -98s;
     transform-origin: 25vw -1vh;
-    box-shadow: 0 0.6849778790413643vmin currentColor;
+    box-shadow: -2vmin 0 0.6849778790413643vmin currentColor;
   }
   .background span:nth-child(13) {
     color: #ffe08a;
@@ -153,7 +153,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 329s;
     animation-delay: -6s;
     transform-origin: 22vw 3vh;
-    box-shadow: 0 1.0753187728557154vmin currentColor;
+    box-shadow: -2vmin 0 1.0753187728557154vmin currentColor;
   }
   .background span:nth-child(14) {
     color: #00ffff;
@@ -189,7 +189,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 151s;
     animation-delay: -277s;
     transform-origin: -22vw -9vh;
-    box-shadow: 0 1.1913115616039123vmin currentColor;
+    box-shadow: -2vmin 0 1.1913115616039123vmin currentColor;
   }
   .background span:nth-child(18) {
     color: #00ffff;
@@ -198,7 +198,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 194s;
     animation-delay: -349s;
     transform-origin: -14vw -15vh;
-    box-shadow: 0 0.9317245074449296vmin currentColor;
+    box-shadow: -2vmin 0 0.9317245074449296vmin currentColor;
   }
   .background span:nth-child(19) {
     color: #00ffff;
@@ -207,7 +207,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 145s;
     animation-delay: -303s;
     transform-origin: 22vw 18vh;
-    box-shadow: 0 0.5967240839713084vmin currentColor;
+    box-shadow: -2vmin 0 0.5967240839713084vmin currentColor;
   }
   .background span:nth-child(20) {
     color: #00ffff;
@@ -225,7 +225,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 181s;
     animation-delay: -28s;
     transform-origin: 23vw 10vh;
-    box-shadow: 0 1.1636672824840582vmin currentColor;
+    box-shadow: -2vmin 0 1.1636672824840582vmin currentColor;
   }
   .background span:nth-child(22) {
     color: #ffe08a;
@@ -234,7 +234,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 213s;
     animation-delay: -143s;
     transform-origin: 17vw -4vh;
-    box-shadow: 0 1.094600484651763vmin currentColor;
+    box-shadow: -2vmin 0 1.094600484651763vmin currentColor;
   }
   .background span:nth-child(23) {
     color: #00ffff;
@@ -252,7 +252,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 12s;
     animation-delay: -218s;
     transform-origin: 3vw -21vh;
-    box-shadow: 0 0.7647895959835596vmin currentColor;
+    box-shadow: -2vmin 0 0.7647895959835596vmin currentColor;
   }
   .background span:nth-child(25) {
     color: #00ffff;
@@ -279,7 +279,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 152s;
     animation-delay: -217s;
     transform-origin: 20vw -1vh;
-    box-shadow: 0 1.0985462975509321vmin currentColor;
+    box-shadow: -2vmin 0 1.0985462975509321vmin currentColor;
   }
   .background span:nth-child(28) {
     color: #00ffff;
@@ -288,7 +288,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 295s;
     animation-delay: -312s;
     transform-origin: 0vw 6vh;
-    box-shadow: 0 0.9533842003716058vmin currentColor;
+    box-shadow: -2vmin 0 0.9533842003716058vmin currentColor;
   }
   .background span:nth-child(29) {
     color: #ffffff;
@@ -306,7 +306,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 78s;
     animation-delay: -39s;
     transform-origin: -4vw 13vh;
-    box-shadow: 0 0.3125440742217107vmin currentColor;
+    box-shadow: -2vmin 0 0.3125440742217107vmin currentColor;
   }
   .background span:nth-child(31) {
     color: #ffe08a;
@@ -315,7 +315,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 405s;
     animation-delay: -379s;
     transform-origin: 14vw 14vh;
-    box-shadow: 0 1.0268827402967144vmin currentColor;
+    box-shadow: -2vmin 0 1.0268827402967144vmin currentColor;
   }
   .background span:nth-child(32) {
     color: #00ffff;
@@ -333,7 +333,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 130s;
     animation-delay: -115s;
     transform-origin: 8vw -24vh;
-    box-shadow: 0 0.9403926209000906vmin currentColor;
+    box-shadow: -2vmin 0 0.9403926209000906vmin currentColor;
   }
   .background span:nth-child(34) {
     color: #00ffff;
@@ -342,7 +342,7 @@ export const AnimBackgroundCSS = styled.div`
     animation-duration: 104s;
     animation-delay: -358s;
     transform-origin: 21vw 22vh;
-    box-shadow: 0 0.49964346918162006vmin currentColor;
+    box-shadow: -2vmin 0 0.49964346918162006vmin currentColor;
   }
   .background span:nth-child(35) {
     color: #ffffff;
