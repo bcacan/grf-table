@@ -44,6 +44,12 @@ const Table: NextPage = () => {
   const [showSS, setShowSS] = useState(true);
   /////
 
+  useEffect(() => {
+    document.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+    });
+  }, []);
+
   return (
     <React.StrictMode>
       <Head>
