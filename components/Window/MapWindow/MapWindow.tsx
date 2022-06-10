@@ -250,8 +250,8 @@ const InfoContentAutori2 = () => {
             Grafičkog fakulteta u Zagrebu, smjer Multimedij.
             <p>
               <i>
-                “Holografija mi je predstavlja nešto apstraktno i zapravo nisam znala što
-                me čeka na tom kolegiju. Kada sam malo dublje ušla u to, jako mi se
+                “Holografija mi je predstavljala nešto apstraktno i zapravo nisam znala
+                što me čeka na tom kolegiju. Kada sam malo dublje ušla u to, jako mi se
                 svidjelo te sam htjela sudjelovati u izložbi. Osim holografije, moji
                 interesi uključuju 3D, animaciju, dizajn igrica te UX/UI dizajn.”
               </i>
