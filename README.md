@@ -1,8 +1,11 @@
-<video src="docs/interactive-table-loop.mp4" autoplay loop muted style="display: block; margin: 0 auto"></video>
 
 # Multiuser - multitouch info-kiosk app
 
+
 - ### React web app for touchscreens
+
+https://user-images.githubusercontent.com/73470112/178773700-3beae062-99ae-4d1e-bf88-2b3d63886f23.mp4
+
 
 > The app was developed as an info kiosk for the needs of the [HoloGRF exhibition](https://www.instagram.com/hologrf/).
 
@@ -14,9 +17,11 @@
 
 ## In Action
 
-<video src="docs/interactive-table2.mp4" controls width="60%" muted></video>
-<video src="docs/interactive-table1.mp4" controls width="90%" muted>
-</video>
+
+https://user-images.githubusercontent.com/73470112/178773882-761130f7-548f-4b02-875b-d6842eb95ccf.mp4
+
+https://user-images.githubusercontent.com/73470112/178773903-e46df567-b835-46fe-9688-723cfd80a715.mp4
+
 
 #
 
