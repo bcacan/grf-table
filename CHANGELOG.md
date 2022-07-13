@@ -1,5 +1,26 @@
 # Changelog
 
+## [-] - 2022-7-13
+
+### Added
+
+- Device detecting message for better UX
+
+### Removed
+
+- Demos, tests...
+
+#
+
+### [holo-final] - 2022-6-8
+
+- Added another app variant with new content
+- Few window architecture changes
+
+#
+
+#
+
 ## [0.9.3] - 2022-6-2
 
 ### Added

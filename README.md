@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<video src="docs/interactive-table-loop.mp4" autoplay loop muted style="display: block; margin: 0 auto"></video>
 
-## Getting Started
+# Multiuser - multitouch info-kiosk app
 
-First, run the development server:
+- ### React web app for touchscreens
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+> The app was developed as an info kiosk for the needs of the [HoloGRF exhibition](https://www.instagram.com/hologrf/).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Developed as info-kiosk for 55" touchscreen table.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+> Multiple users can simultaneously interact and manipulate interface elements - using well known touch gestures (tap, pinch, drag, swipe...).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+#
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## In Action
 
-## Learn More
+<video src="docs/interactive-table2.mp4" controls width="60%" muted></video>
+<video src="docs/interactive-table1.mp4" controls width="90%" muted>
+</video>
 
-To learn more about Next.js, take a look at the following resources:
+#
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tools used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Web dev
 
-## Deploy on Vercel
+- [Next.js](https://nextjs.org/) (create-next-app) - `React web framework`
+- [use-gesture](https://use-gesture.netlify.app/) - `Touch gestures & controls`
+- [react-spring](https://react-spring.dev/) - `UI animations & transitions`
+- [styled-components](https://styled-components.com/) - `Implementing design system (CSS)`
+- [react-photo-album](https://react-photo-album.com/) - `Photo gallery`
+- [throttle-debounce](https://github.com/niksy/throttle-debounce) - `Screensaver on idle`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Design
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Figma](https://figma.com/) - `extracting & exporting design system`
+
+### Project management
+
+- [Trello](https://trello.com/) - `progress & problems tracking, collab with design team`
