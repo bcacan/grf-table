@@ -1,7 +1,5 @@
 //import { useState } from "react";
 import { useRef, useEffect, TouchEvent } from "react";
-//import { Link } from "react-router-dom";
-import Image from "next/image";
 
 import { useSpring, to, animated, config } from "@react-spring/web";
 import { useDrag, useHover } from "@use-gesture/react";
