@@ -68,7 +68,7 @@ export const Text_Fixed = styled.span`
   font-family: "Yantramanav";
   font-style: medium;
   font-weight: 500;
-  font-size: 32px;
+  font-size: 2em;
 `;
 
 export const Text_Pitanja = styled.span`
