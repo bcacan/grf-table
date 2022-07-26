@@ -1,19 +1,20 @@
+![](https://user-images.githubusercontent.com/73470112/181000217-f7b32516-fa61-4225-b046-a7c4c8a0d6f8.gif)
+
 
 # Multiuser - multitouch info-kiosk app
 
 
 - ### React web app for touchscreens
 
-https://user-images.githubusercontent.com/73470112/178773700-3beae062-99ae-4d1e-bf88-2b3d63886f23.mp4
+ 
 
-
-> The app was developed as an info kiosk for the needs of the [HoloGRF exhibition](https://www.instagram.com/hologrf/).
+> The app was developed as an info kiosk for the [HoloGRF exhibition](https://www.instagram.com/hologrf/).
 
 > Developed as info-kiosk for 55" touchscreen table.
 
 > Multiple users can simultaneously interact and manipulate interface elements - using well known touch gestures (tap, pinch, drag, swipe...).
 
-#
+  #
 
 ## In Action
 
@@ -23,7 +24,7 @@ https://user-images.githubusercontent.com/73470112/178773882-761130f7-548f-4b02-
 https://user-images.githubusercontent.com/73470112/178773903-e46df567-b835-46fe-9688-723cfd80a715.mp4
 
 
-#
+  #
 
 ## Tools used
 
@@ -43,3 +44,13 @@ https://user-images.githubusercontent.com/73470112/178773903-e46df567-b835-46fe-
 ### Project management
 
 - [Trello](https://trello.com/) - `progress & problems tracking, collab with design team`
+
+
+ #
+
+## User flow
+![Flow](https://user-images.githubusercontent.com/73470112/181001231-aa6d3224-e959-453a-82d8-7cde66f96bf6.png)
+
+## Components 
+![Components](https://user-images.githubusercontent.com/73470112/181001959-6b736006-1646-4bb1-aaa3-3e7c6c5aaa57.png)
+
